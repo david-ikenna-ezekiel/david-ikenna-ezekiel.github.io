@@ -3,77 +3,84 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Your Name - Personal Website</title>
-  <style>
-    /* Basic CSS styling */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f5f5f5;
-      color: #333;
-    }
-    .container {
-      max-width: 800px;
-      margin: 20px auto;
-      padding: 20px;
-      background-color: #fff;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    header, footer {
-      text-align: center;
-      padding: 10px 0;
-    }
-    header {
-      background-color: #4CAF50;
-      color: #fff;
-    }
-    footer {
-      font-size: 0.9em;
-      color: #777;
-    }
-    h1, h2 {
-      margin-top: 0;
-    }
-    p {
-      line-height: 1.6;
-    }
-    a {
-      color: #4CAF50;
-      text-decoration: none;
-    }
-  </style>
+  <title>Jane Doe - Creative Developer</title>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+  <!-- Header & Navigation -->
   <header>
-    <h1>Your Name</h1>
-    <p>Welcome to my personal website</p>
-  </header>
-  
-  <div class="container">
-    <section id="bio">
-      <h2>About Me</h2>
-      <p>Hello! I'm Your Name, a [Your Profession] based in [Your Location]. I have a passion for [Your Interests] and have gained experience in [Your Experience]. This website is a brief overview of my journey and accomplishments.</p>
-    </section>
-    
-    <section id="projects">
-      <h2>Projects</h2>
-      <p>Here are some projects I’ve worked on:</p>
-      <ul>
-        <li><strong>Project 1:</strong> Description of project 1.</li>
-        <li><strong>Project 2:</strong> Description of project 2.</li>
-        <li><strong>Project 3:</strong> Description of project 3.</li>
+    <nav>
+      <div class="logo">Jane Doe</div>
+      <!-- Mobile Toggle Button will be inserted via JS -->
+      <ul class="nav-links">
+        <li><a href="#bio">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
+    </nav>
+    <div class="hero">
+      <h1>Welcome to My Portfolio</h1>
+      <p>Creative Developer &amp; Designer</p>
+      <a href="#bio" class="btn">Discover More</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- About Section -->
+    <section id="bio" class="section">
+      <div class="container">
+        <h2>About Me</h2>
+        <p>
+          Hello! I'm Jane Doe, a creative developer with a passion for crafting intuitive and beautiful digital experiences.
+          With over 5 years in web development and design, I build visually stunning, user-friendly websites and applications.
+        </p>
+      </div>
     </section>
-    
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>You can reach me via email at <a href="mailto:your.email@example.com">your.email@example.com</a>.</p>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+      <div class="container">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <img src="assets/images/project1.jpg" alt="Project Alpha">
+            <h3>Project Alpha</h3>
+            <p>A creative project blending art and technology to deliver engaging digital experiences.</p>
+          </div>
+          <div class="project-card">
+            <img src="assets/images/project2.jpg" alt="Project Beta">
+            <h3>Project Beta</h3>
+            <p>An innovative solution focused on responsive design and seamless interactivity.</p>
+          </div>
+          <div class="project-card">
+            <img src="assets/images/project3.jpg" alt="Project Gamma">
+            <h3>Project Gamma</h3>
+            <p>A cutting-edge project that integrates modern UI/UX principles with robust functionality.</p>
+          </div>
+        </div>
+      </div>
     </section>
-  </div>
-  
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Contact</h2>
+        <p>
+          Interested in working together or just want to say hi? Reach out via email at 
+          <a href="mailto:jane.doe@example.com">jane.doe@example.com</a>.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Your Name. All rights reserved.</p>
+    <div class="container">
+      <p>&copy; 2025 Jane Doe. All Rights Reserved.</p>
+    </div>
   </footer>
+
+  <script src="assets/js/script.js"></script>
 </body>
 </html>
