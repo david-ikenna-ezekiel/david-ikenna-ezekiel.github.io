@@ -1,86 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Jane Doe - Creative Developer</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="description" content="Personal website of John Doe" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>John Doe | Personal Website</title>
+  <!-- Link to CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-  <!-- Header & Navigation -->
+
+  <!-- Header Section -->
   <header>
     <nav>
-      <div class="logo">Jane Doe</div>
-      <!-- Mobile Toggle Button will be inserted via JS -->
-      <ul class="nav-links">
-        <li><a href="#bio">About</a></li>
+      <h1>John Doe</h1>
+      <ul>
+        <li><a href="#about">About Me</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
-    <div class="hero">
-      <h1>Welcome to My Portfolio</h1>
-      <p>Creative Developer &amp; Designer</p>
-      <a href="#bio" class="btn">Discover More</a>
-    </div>
   </header>
 
-  <!-- Main Content -->
-  <main>
-    <!-- About Section -->
-    <section id="bio" class="section">
-      <div class="container">
-        <h2>About Me</h2>
-        <p>
-          Hello! I'm Jane Doe, a creative developer with a passion for crafting intuitive and beautiful digital experiences.
-          With over 5 years in web development and design, I build visually stunning, user-friendly websites and applications.
-        </p>
-      </div>
-    </section>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h2>Welcome to My Personal Website</h2>
+    <p>Sharing my journey, projects, and interests with the world.</p>
+    <button onclick="sayHello()">Say Hello</button>
+  </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-      <div class="container">
-        <h2>Projects</h2>
-        <div class="projects-grid">
-          <div class="project-card">
-            <img src="assets/images/project1.jpg" alt="Project Alpha">
-            <h3>Project Alpha</h3>
-            <p>A creative project blending art and technology to deliver engaging digital experiences.</p>
-          </div>
-          <div class="project-card">
-            <img src="assets/images/project2.jpg" alt="Project Beta">
-            <h3>Project Beta</h3>
-            <p>An innovative solution focused on responsive design and seamless interactivity.</p>
-          </div>
-          <div class="project-card">
-            <img src="assets/images/project3.jpg" alt="Project Gamma">
-            <h3>Project Gamma</h3>
-            <p>A cutting-edge project that integrates modern UI/UX principles with robust functionality.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      Hello! I'm John Doe, a developer who loves coding, design, and building fun projects.
+      This is my personal website where I share things I'm passionate about.
+    </p>
+  </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-      <div class="container">
-        <h2>Contact</h2>
-        <p>
-          Interested in working together or just want to say hi? Reach out via email at 
-          <a href="mailto:jane.doe@example.com">jane.doe@example.com</a>.
-        </p>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Jane Doe. All Rights Reserved.</p>
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>My Projects</h2>
+    <div class="project">
+      <img src="assets/images/project1.jpg" alt="Project 1" />
+      <h3>Project 1</h3>
+      <p>Short description of Project 1.</p>
     </div>
+    <div class="project">
+      <img src="assets/images/project2.jpg" alt="Project 2" />
+      <h3>Project 2</h3>
+      <p>Short description of Project 2.</p>
+    </div>
+    <div class="project">
+      <img src="assets/images/project3.jpg" alt="Project 3" />
+      <h3>Project 3</h3>
+      <p>Short description of Project 3.</p>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2025 John Doe. All Rights Reserved.</p>
   </footer>
 
+  <!-- Link to JavaScript -->
   <script src="assets/js/script.js"></script>
 </body>
 </html>
