@@ -12,9 +12,9 @@
 
   <!-- Header Section -->
   <header>
-    <nav>
-      <h1>John Doe</h1>
-      <ul>
+    <nav class="container">
+      <div class="logo">John Doe</div>
+      <ul class="nav-links">
         <li><a href="#about">About Me</a></li>
         <li><a href="#projects">Projects</a></li>
       </ul>
@@ -23,43 +23,51 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <h2>Welcome to My Personal Website</h2>
-    <p>Sharing my journey, projects, and interests with the world.</p>
-    <button onclick="sayHello()">Say Hello</button>
+    <div class="overlay"></div>
+    <div class="hero-content container fade-in-down">
+      <h1>Hello, I'm <span class="accent">John Doe</span></h1>
+      <p>Developer. Designer. Dreamer.</p>
+      <button class="btn-hero" onclick="sayHello()">Say Hello</button>
+    </div>
   </section>
 
   <!-- About Section -->
-  <section id="about">
+  <section id="about" class="about container fade-in-up">
     <h2>About Me</h2>
     <p>
-      Hello! I'm John Doe, a developer who loves coding, design, and building fun projects.
-      This is my personal website where I share things I'm passionate about.
+      I'm a passionate developer who loves bringing ideas to life through code.
+      With experience in various web technologies, I'm always eager to learn, 
+      experiment, and explore new possibilities.
     </p>
   </section>
 
   <!-- Projects Section -->
-  <section id="projects">
-    <h2>My Projects</h2>
-    <div class="project">
-      <img src="assets/images/project1.jpg" alt="Project 1" />
-      <h3>Project 1</h3>
-      <p>Short description of Project 1.</p>
-    </div>
-    <div class="project">
-      <img src="assets/images/project2.jpg" alt="Project 2" />
-      <h3>Project 2</h3>
-      <p>Short description of Project 2.</p>
-    </div>
-    <div class="project">
-      <img src="assets/images/project3.jpg" alt="Project 3" />
-      <h3>Project 3</h3>
-      <p>Short description of Project 3.</p>
+  <section id="projects" class="projects container">
+    <h2 class="fade-in-up">My Projects</h2>
+    <div class="project-grid">
+      <div class="project-card fade-in-up">
+        <img src="assets/images/project1.jpg" alt="Project 1" />
+        <h3>Project 1</h3>
+        <p>A fun project where I experimented with XYZ.</p>
+      </div>
+      <div class="project-card fade-in-up">
+        <img src="assets/images/project2.jpg" alt="Project 2" />
+        <h3>Project 2</h3>
+        <p>A website redesign for a local business, focusing on UI/UX.</p>
+      </div>
+      <div class="project-card fade-in-up">
+        <img src="assets/images/project3.jpg" alt="Project 3" />
+        <h3>Project 3</h3>
+        <p>An open-source contribution to a popular library.</p>
+      </div>
     </div>
   </section>
 
   <!-- Footer Section -->
-  <footer>
-    <p>&copy; 2025 John Doe. All Rights Reserved.</p>
+  <footer class="fade-in-up">
+    <div class="container">
+      <p>&copy; 2025 John Doe. All Rights Reserved.</p>
+    </div>
   </footer>
 
   <!-- Link to JavaScript -->
