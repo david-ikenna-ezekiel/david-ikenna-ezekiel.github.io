@@ -1,76 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="description" content="Personal website of John Doe" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>John Doe | Personal Website</title>
-  <!-- Link to CSS -->
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>John Doe - Bio</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 </head>
 <body>
-
-  <!-- Header Section -->
-  <header>
-    <nav class="container">
-      <div class="logo">John Doe</div>
-      <ul class="nav-links">
-        <li><a href="#about">About Me</a></li>
-        <li><a href="#projects">Projects</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="overlay"></div>
-    <div class="hero-content container fade-in-down">
-      <h1>Hello, I'm <span class="accent">John Doe</span></h1>
-      <p>Developer. Designer. Dreamer.</p>
-      <button class="btn-hero" onclick="sayHello()">Say Hello</button>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="about container fade-in-up">
-    <h2>About Me</h2>
-    <p>
-      I'm a passionate developer who loves bringing ideas to life through code.
-      With experience in various web technologies, I'm always eager to learn, 
-      experiment, and explore new possibilities.
-    </p>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="projects container">
-    <h2 class="fade-in-up">My Projects</h2>
-    <div class="project-grid">
-      <div class="project-card fade-in-up">
-        <img src="assets/images/project1.jpg" alt="Project 1" />
-        <h3>Project 1</h3>
-        <p>A fun project where I experimented with XYZ.</p>
+  <div class="container">
+    <header>
+      <h1 class="fade-in">John Doe</h1>
+      <p class="tagline">
+        <span id="typed"></span>
+      </p>
+    </header>
+    <section id="bio" class="card fade-in-up">
+      <h2>About Me</h2>
+      <p>
+        Hi! I'm John Doe, a passionate <strong>Software Developer</strong> based in New York City. 
+        I love building scalable web applications and experimenting with new technologies. 
+        When I'm not coding, I enjoy hiking, photography, and sipping coffee.
+      </p>
+    </section>
+    <section id="skills" class="card fade-in-up">
+      <h2>Skills</h2>
+      <div class="skills-grid">
+        <div class="skill">JavaScript</div>
+        <div class="skill">React</div>
+        <div class="skill">Node.js</div>
+        <div class="skill">Python</div>
+        <div class="skill">Git</div>
+        <div class="skill">CSS</div>
       </div>
-      <div class="project-card fade-in-up">
-        <img src="assets/images/project2.jpg" alt="Project 2" />
-        <h3>Project 2</h3>
-        <p>A website redesign for a local business, focusing on UI/UX.</p>
+    </section>
+    <section id="contact" class="card fade-in-up">
+      <h2>Contact Me</h2>
+      <p>Email: <a href="mailto:john.doe@example.com">john.doe@example.com</a></p>
+      <div class="social-links">
+        <a href="https://github.com/johndoe" target="_blank" class="social-icon">GitHub</a>
+        <a href="https://linkedin.com/in/johndoe" target="_blank" class="social-icon">LinkedIn</a>
+        <a href="https://twitter.com/johndoe" target="_blank" class="social-icon">Twitter</a>
       </div>
-      <div class="project-card fade-in-up">
-        <img src="assets/images/project3.jpg" alt="Project 3" />
-        <h3>Project 3</h3>
-        <p>An open-source contribution to a popular library.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer Section -->
-  <footer class="fade-in-up">
-    <div class="container">
-      <p>&copy; 2025 John Doe. All Rights Reserved.</p>
-    </div>
-  </footer>
-
-  <!-- Link to JavaScript -->
-  <script src="assets/js/script.js"></script>
+    </section>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
