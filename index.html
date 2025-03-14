@@ -2,49 +2,107 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>John Doe - Bio</title>
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Name - Portfolio</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- AOS CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  
+  <!-- Typed.js -->
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1 class="fade-in">John Doe</h1>
-      <p class="tagline">
-        <span id="typed"></span>
-      </p>
-    </header>
-    <section id="bio" class="card fade-in-up">
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <a class="logo" href="#">Your Name</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <!-- Hero Section -->
+  <header class="hero" id="hero">
+    <div class="hero-content" data-aos="fade-up">
+      <h1>Hi, I'm Your Name</h1>
+      <p class="subtitle">I create <span id="typed"></span></p>
+      <a href="#projects" class="btn">View My Work</a>
+    </div>
+  </header>
+  
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="container" data-aos="fade-up">
       <h2>About Me</h2>
       <p>
-        Hi! I'm John Doe, a passionate <strong>Software Developer</strong> based in New York City. 
-        I love building scalable web applications and experimenting with new technologies. 
-        When I'm not coding, I enjoy hiking, photography, and sipping coffee.
+        I'm a Software Developer based in [Your City]. I build modern web applications and love to explore new technologies.
       </p>
-    </section>
-    <section id="skills" class="card fade-in-up">
-      <h2>Skills</h2>
-      <div class="skills-grid">
-        <div class="skill">JavaScript</div>
-        <div class="skill">React</div>
-        <div class="skill">Node.js</div>
-        <div class="skill">Python</div>
-        <div class="skill">Git</div>
-        <div class="skill">CSS</div>
+    </div>
+  </section>
+  
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <div class="container" data-aos="fade-up">
+      <h2>Projects</h2>
+      <div class="project-grid">
+        <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+          <img src="https://via.placeholder.com/300x200" alt="Project 1">
+          <h3>Project 1</h3>
+          <p>A brief description of Project 1.</p>
+          <a href="#" class="btn">View Project</a>
+        </div>
+        <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+          <img src="https://via.placeholder.com/300x200" alt="Project 2">
+          <h3>Project 2</h3>
+          <p>A brief description of Project 2.</p>
+          <a href="#" class="btn">View Project</a>
+        </div>
+        <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+          <img src="https://via.placeholder.com/300x200" alt="Project 3">
+          <h3>Project 3</h3>
+          <p>A brief description of Project 3.</p>
+          <a href="#" class="btn">View Project</a>
+        </div>
       </div>
-    </section>
-    <section id="contact" class="card fade-in-up">
+    </div>
+  </section>
+  
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="container" data-aos="fade-up">
       <h2>Contact Me</h2>
-      <p>Email: <a href="mailto:john.doe@example.com">john.doe@example.com</a></p>
-      <div class="social-links">
-        <a href="https://github.com/johndoe" target="_blank" class="social-icon">GitHub</a>
-        <a href="https://linkedin.com/in/johndoe" target="_blank" class="social-icon">LinkedIn</a>
-        <a href="https://twitter.com/johndoe" target="_blank" class="social-icon">Twitter</a>
+      <p>Let's work together! Reach out via email or social media.</p>
+      <div class="contact-links">
+        <a href="mailto:you@example.com" class="btn">Email Me</a>
+        <a href="https://github.com/yourusername" target="_blank" class="btn">GitHub</a>
+        <a href="https://linkedin.com/in/yourusername" target="_blank" class="btn">LinkedIn</a>
       </div>
-    </section>
-  </div>
-  <script src="script.js"></script>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2023 Your Name. All rights reserved.</p>
+    </div>
+  </footer>
+  
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  
+  <!-- Main JS -->
+  <script src="assets/js/script.js"></script>
 </body>
 </html>

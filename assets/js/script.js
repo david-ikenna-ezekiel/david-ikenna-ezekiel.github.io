@@ -1,8 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const typed = new Typed('#typed', {
-    strings: ["I'm a Software Developer.", "I love building web apps.", "Let's connect!"],
+  var typed = new Typed('#typed', {
+    strings: [
+      "a Software Developer.",
+      "a Creator of Web Experiences.",
+      "passionate about design."
+    ],
     typeSpeed: 50,
     backSpeed: 30,
-    loop: true,
+    loop: true
   });
 });
