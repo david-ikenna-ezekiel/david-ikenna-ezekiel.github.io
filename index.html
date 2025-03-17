@@ -1,73 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>David Ezekiel - Portfolio</title>
-  
+
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-  
-  <!-- AOS CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- AOS CSS (for scroll animations) -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
   <!-- Main CSS -->
-  <link rel="stylesheet" href="assets/css/style.css">
-  
-  <!-- Typed.js -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- Typed.js (for the typing effect) -->
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="container">
-      <a class="logo" href="#">David Ezekiel</a>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-  
-  <!-- Hero Section -->
-  <header class="hero" id="hero">
-    <div class="hero-content" data-aos="fade-up">
-      <h1>Hi, I'm David Ezekiel</h1>
-      <p class="subtitle">I <span id="typed"></span></p>
-      <a href="#projects" class="btn">View My Work</a>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-container">
+      <!-- Left: Logo/Name -->
+      <a class="header-logo" href="#hero">David Ezekiel</a>
+
+      <!-- Right: Nav + Icons in one row -->
+      <div class="header-right">
+        <!-- Navigation (Home, Work, About, Contact) -->
+        <nav class="header-nav">
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#about">About</a></li>
+            <!-- Contact in the nav goes to contact.html -->
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Icons (GitHub, LinkedIn, Email, Dark/Light Toggle) -->
+        <div class="header-icons">
+          <a
+            href="https://github.com/david-ikenna-ezekiel"
+            target="_blank"
+            aria-label="GitHub"
+            class="circle-icon"
+          >
+            <img src="assets/icons/github.svg" alt="GitHub" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/david-ikenna-ezekiel-804748106/"
+            target="_blank"
+            aria-label="LinkedIn"
+            class="circle-icon"
+          >
+            <img src="assets/icons/linkedin.svg" alt="LinkedIn" />
+          </a>
+          <a
+            href="mailto:kelaanalytics.bi@gmail.com"
+            aria-label="Email"
+            class="circle-icon"
+          >
+            <img src="assets/icons/mail.svg" alt="Email" />
+          </a>
+
+          <!-- Dark/Light Mode Toggle -->
+          <button id="themeToggle" class="circle-icon" aria-label="Toggle Dark Mode">
+            <img src="assets/icons/sun.svg" alt="Toggle Theme" />
+          </button>
+        </div>
+      </div>
     </div>
   </header>
-  
-  <!-- About Section -->
-  <section id="about" class="section">
-    <div class="container" data-aos="fade-up">
-      <h2>About Me</h2>
-      <p>
-        I'm a Data Engineer based in the UK. I design and build scalable data infrastructure.
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="hero" data-aos="fade-up">
+    <div class="hero-content">
+      <h1>Hi, I'm David Ezekiel</h1>
+      <p class="subtitle">
+        I <span id="typed"></span>
       </p>
+      <a href="#work" class="btn">View My Work</a>
     </div>
   </section>
-  
-  <!-- Projects Section -->
-  <section id="projects" class="section">
-    <div class="container" data-aos="fade-up">
-      <h2>Projects</h2>
+
+  <!-- WORK SECTION (Projects) -->
+  <section id="work" class="section" data-aos="fade-up">
+    <div class="container">
+      <h2>Work</h2>
+      <p>Showcase your projects here.</p>
       <div class="project-grid">
         <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-          <img src="https://via.placeholder.com/300x200" alt="Project 1">
+          <img src="https://via.placeholder.com/300x200" alt="Project 1" />
           <h3>Project 1</h3>
           <p>A brief description of Project 1.</p>
           <a href="#" class="btn">View Project</a>
         </div>
         <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-          <img src="https://via.placeholder.com/300x200" alt="Project 2">
+          <img src="https://via.placeholder.com/300x200" alt="Project 2" />
           <h3>Project 2</h3>
           <p>A brief description of Project 2.</p>
           <a href="#" class="btn">View Project</a>
         </div>
         <div class="project-card" data-aos="fade-up" data-aos-delay="300">
-          <img src="https://via.placeholder.com/300x200" alt="Project 3">
+          <img src="https://via.placeholder.com/300x200" alt="Project 3" />
           <h3>Project 3</h3>
           <p>A brief description of Project 3.</p>
           <a href="#" class="btn">View Project</a>
@@ -75,34 +113,63 @@
       </div>
     </div>
   </section>
-  
-  <!-- Contact Section -->
-  <section id="contact" class="section">
-    <div class="container" data-aos="fade-up">
-      <h2>Contact Me</h2>
-      <p>Let's work together! Reach out via email or social media.</p>
-      <div class="contact-links">
-        <a href="mailto:kelaanalytics.bi@gmail.com" class="btn">Email Me</a>
-        <a href="https://github.com/david-ikenna-ezekiel" target="_blank" class="btn">GitHub</a>
-        <a href="https://www.linkedin.com/in/david-ikenna-ezekiel-804748106/" target="_blank" class="btn">LinkedIn</a>
-      </div>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="section" data-aos="fade-up">
+    <div class="container">
+      <h2>About</h2>
+      <p>
+        Hi. I am David Ezekiel.
+
+I am a Data Analyst passionate about unraveling the stories hidden within data and empowering others to harness its transformative power. From uncovering actionable insights to driving strategic decision-making, my core passion lies in leveraging data to unlock new possibilities and drive real-world impact.
+      </p>
     </div>
   </section>
-  
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 David Ezekiel. All rights reserved.</p>
+
+  <!-- EXTRA CONTACT BUTTON (below About) -->
+  <section id="contact-link" class="section" data-aos="fade-up">
+    <div class="container" style="text-align: center;">
+      <!-- Single button leading to contact.html -->
+      <a href="contact.html" class="contact-button">Contact</a>
+    </div>
+  </section>
+
+  <!-- FOOTER with ONLY logos -->
+  <footer class="footer-minimal" data-aos="fade-up">
+    <div class="footer-icons">
+      <a
+        href="https://github.com/david-ikenna-ezekiel"
+        target="_blank"
+        aria-label="GitHub"
+        class="circle-icon"
+      >
+        <img src="assets/icons/github.svg" alt="GitHub" />
+      </a>
+      <a
+        href="https://www.linkedin.com/in/david-ikenna-ezekiel-804748106/"
+        target="_blank"
+        aria-label="LinkedIn"
+        class="circle-icon"
+      >
+        <img src="assets/icons/linkedin.svg" alt="LinkedIn" />
+      </a>
+      <a
+        href="mailto:kelaanalytics.bi@gmail.com"
+        aria-label="Email"
+        class="circle-icon"
+      >
+        <img src="assets/icons/mail.svg" alt="Email" />
+      </a>
     </div>
   </footer>
-  
-  <!-- AOS JS -->
+
+  <!-- AOS JS (for scroll animations) -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
   </script>
-  
-  <!-- Main JS -->
+
+  <!-- Main JS (Typed.js + Theme Toggle) -->
   <script src="assets/js/script.js"></script>
 </body>
 </html>
