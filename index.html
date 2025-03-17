@@ -6,10 +6,7 @@
   <title>David Ezekiel - Portfolio</title>
 
   <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
 
   <!-- AOS CSS (for scroll animations) -->
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
@@ -21,56 +18,39 @@
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 </head>
 <body>
-
- <!-- Header --> 
+  <!-- HEADER -->
   <header class="header">
     <div class="header-container">
-      <!-- Logo -->
+      <!-- Left: Logo -->
       <a class="header-logo" href="#hero">David Ezekiel</a>
-  
-      <!-- Normal Nav (shown on desktop, hidden on mobile) -->
+
+      <!-- Nav (links + icons) -->
       <nav class="header-nav">
-        <ul>
+        <ul class="nav-links">
           <li><a href="#hero">Home</a></li>
           <li><a href="#work">Work</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
+        <div class="nav-icons">
+          <!-- Example icons -->
+          <a href="https://github.com/david-ikenna-ezekiel" target="_blank" aria-label="GitHub" class="circle-icon">
+            <img src="assets/icons/github.svg" alt="GitHub" />
+          </a>
+          <a href="https://www.linkedin.com/in/david-ikenna-ezekiel-804748106/" target="_blank" aria-label="LinkedIn" class="circle-icon">
+            <img src="assets/icons/linkedin.svg" alt="LinkedIn" />
+          </a>
+          <a href="mailto:kelaanalytics.bi@gmail.com" aria-label="Email" class="circle-icon">
+            <img src="assets/icons/mail.svg" alt="Email" />
+          </a>
+          <!-- Dark/Light Mode Toggle -->
+          <button id="themeToggle" class="circle-icon" aria-label="Toggle Dark Mode">
+            <img src="assets/icons/sun.svg" alt="Toggle Theme" />
+          </button>
+        </div>
       </nav>
-  
-      <!-- Icons (GitHub, LinkedIn, Email, Dark/Light Toggle) -->
-      <div class="header-icons">
-        <a
-          href="https://github.com/david-ikenna-ezekiel"
-          target="_blank"
-          aria-label="GitHub"
-          class="circle-icon"
-        >
-          <img src="assets/icons/github.svg" alt="GitHub" />
-        </a>
-        <a
-          href="https://www.linkedin.com/in/david-ikenna-ezekiel-804748106/"
-          target="_blank"
-          aria-label="LinkedIn"
-          class="circle-icon"
-        >
-          <img src="assets/icons/linkedin.svg" alt="LinkedIn" />
-        </a>
-        <a
-          href="mailto:kelaanalytics.bi@gmail.com"
-          aria-label="Email"
-          class="circle-icon"
-        >
-          <img src="assets/icons/mail.svg" alt="Email" />
-        </a>
-  
-        <!-- Dark/Light Mode Toggle -->
-        <button id="themeToggle" class="circle-icon" aria-label="Toggle Dark Mode">
-          <img src="assets/icons/sun.svg" alt="Toggle Theme" />
-        </button>
-      </div>
-  
-      <!-- Hamburger Button (hidden on desktop, visible on mobile) -->
+
+      <!-- Hamburger (hidden on desktop, visible on mobile) -->
       <button class="hamburger" aria-label="Toggle Menu">
         <span></span>
         <span></span>
@@ -78,8 +58,6 @@
       </button>
     </div>
   </header>
-  
-  
 
   <!-- HERO SECTION -->
   <section class="hero" id="hero" data-aos="fade-up">
@@ -125,17 +103,15 @@
     <div class="container">
       <h2>About</h2>
       <p>
-        Hi. I am David Ezekiel.
-
-I am a Data Analyst passionate about unraveling the stories hidden within data and empowering others to harness its transformative power. From uncovering actionable insights to driving strategic decision-making, my core passion lies in leveraging data to unlock new possibilities and drive real-world impact.
+        Hi. I am David Ezekiel. <br /><br />
+        I am a Data Analyst passionate about unraveling the stories hidden within data and empowering others to harness its transformative power. From uncovering actionable insights to driving strategic decision-making, my core passion lies in leveraging data to unlock new possibilities and drive real-world impact.
       </p>
     </div>
   </section>
 
-  <!-- EXTRA CONTACT BUTTON (below About) -->
+  <!-- CONTACT BUTTON (below About) -->
   <section id="contact-link" class="section" data-aos="fade-up">
     <div class="container" style="text-align: center;">
-      <!-- Single button leading to contact.html -->
       <a href="contact.html" class="contact-button">Contact</a>
     </div>
   </section>
@@ -143,27 +119,13 @@ I am a Data Analyst passionate about unraveling the stories hidden within data a
   <!-- FOOTER with ONLY logos -->
   <footer class="footer-minimal" data-aos="fade-up">
     <div class="footer-icons">
-      <a
-        href="https://github.com/david-ikenna-ezekiel"
-        target="_blank"
-        aria-label="GitHub"
-        class="circle-icon"
-      >
+      <a href="https://github.com/david-ikenna-ezekiel" target="_blank" aria-label="GitHub" class="circle-icon">
         <img src="assets/icons/github.svg" alt="GitHub" />
       </a>
-      <a
-        href="https://www.linkedin.com/in/david-ikenna-ezekiel-804748106/"
-        target="_blank"
-        aria-label="LinkedIn"
-        class="circle-icon"
-      >
+      <a href="https://www.linkedin.com/in/david-ikenna-ezekiel-804748106/" target="_blank" aria-label="LinkedIn" class="circle-icon">
         <img src="assets/icons/linkedin.svg" alt="LinkedIn" />
       </a>
-      <a
-        href="mailto:kelaanalytics.bi@gmail.com"
-        aria-label="Email"
-        class="circle-icon"
-      >
+      <a href="mailto:kelaanalytics.bi@gmail.com" aria-label="Email" class="circle-icon">
         <img src="assets/icons/mail.svg" alt="Email" />
       </a>
     </div>
@@ -175,7 +137,35 @@ I am a Data Analyst passionate about unraveling the stories hidden within data a
     AOS.init();
   </script>
 
-  <!-- Main JS (Typed.js + Theme Toggle) -->
+  <!-- Main JS (Typed.js, Theme Toggle, Hamburger Toggle) -->
   <script src="assets/js/script.js"></script>
+
+  <!-- Inline JS for Hamburger Toggle (if not placed in script.js) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.querySelector('.hamburger');
+      const headerNav = document.querySelector('.header-nav');
+
+      hamburger.addEventListener('click', () => {
+        // Toggle the .active class on both the nav and the hamburger
+        headerNav.classList.toggle('active');
+        hamburger.classList.toggle('active');
+      });
+
+      // Typed.js initialization
+      if (document.getElementById('typed')) {
+        new Typed('#typed', {
+          strings: [
+            "am a Data Engineer.",
+            "love building scalable data infrastructures.",
+            "am passionate about data stories."
+          ],
+          typeSpeed: 50,
+          backSpeed: 30,
+          loop: true
+        });
+      }
+    });
+  </script>
 </body>
 </html>
