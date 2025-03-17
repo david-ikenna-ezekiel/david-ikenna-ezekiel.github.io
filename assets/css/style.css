@@ -29,7 +29,7 @@ body {
   --text-color: #ffffff;
   --card-bg: #1f1f1f;
   --card-text: #cccccc;
-  --border-color: #333333;
+  --border-color: #555; /* lighter border for dark mode */
 }
 
 /* APPLY THEME COLORS */
@@ -86,7 +86,23 @@ body {
   align-items: center;
 }
 
-/* Circle icon wrapper */
+/* Hamburger Button (for mobile) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: var(--text-color);
+}
+
+/* Circle Icon Wrapper */
 .circle-icon {
   display: inline-flex;
   width: 32px;
@@ -113,13 +129,13 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 2rem;
+  padding: 2rem 1rem;
 }
 .hero-content {
   max-width: 600px;
 }
 .hero h1 {
-  font-size: 2.5rem;
+  font-size: 2.0rem;
   margin-bottom: 1rem;
 }
 .subtitle {
@@ -185,7 +201,7 @@ body {
   color: var(--card-text);
 }
 
-/* FOOTER with ONLY icons */
+/* FOOTER (Only Icons) */
 .footer-minimal {
   text-align: center;
   padding: 2rem 0;
@@ -195,6 +211,23 @@ body {
   display: flex;
   gap: 1rem;
   justify-content: center;
+}
+
+/* CONTACT BUTTON (on Home Page, below About) */
+.contact-button {
+  display: inline-block;
+  border: 2px solid var(--primary-color);
+  padding: 0.75rem 2rem;
+  background-color: transparent;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+.contact-button:hover {
+  background-color: var(--primary-color);
+  color: #ffffff;
 }
 
 /* CONTACT PAGE LAYOUT */
@@ -282,31 +315,45 @@ body {
   transform: none;
 }
 
-/* Contact Button */
-.contact-button {
-  display: inline-block;
-  border: 2px solid var(--primary-color);
-  padding: 0.75rem 2.0rem;
-  background-color: transparent;
-  color: var(--primary-color);
-  text-decoration: none;
-  font-weight: 600;
-  border-radius: 4px;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.contact-button:hover {
-  background-color: var(--primary-color);
-  color: #ffffff;
-}
-
-
 /* Invert icons in dark mode */
 [data-theme="dark"] .circle-icon img {
   filter: invert(1);
 }
 
+/* RESPONSIVE STYLES */
 
-[data-theme="dark"] {
-  --border-color: #555; /* something lighter than #333 */
+/* MEDIA QUERY: When screen <= 768px */
+@media (max-width: 768px) {
+  .header-nav {
+    display: none; /* hide the normal nav on mobile */
+  }
+  .header-nav.active {
+    display: block; /* show toggled nav */
+    position: absolute;
+    top: 70px; /* below header */
+    right: 20px;
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+  }
+  .header-nav ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  /* Show hamburger on mobile */
+  .hamburger {
+    display: flex;
+  }
+  /* Optionally hide header-icons on mobile if desired */
+}
+
+/* MEDIA QUERY: When screen <= 480px */
+@media (max-width: 480px) {
+  .hero-content {
+    padding: 1rem;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
 }

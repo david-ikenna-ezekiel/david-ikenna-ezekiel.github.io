@@ -21,59 +21,65 @@
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 </head>
 <body>
-  <!-- HEADER -->
+
+ <!-- Header --> 
   <header class="header">
     <div class="header-container">
-      <!-- Left: Logo/Name -->
+      <!-- Logo -->
       <a class="header-logo" href="#hero">David Ezekiel</a>
-
-      <!-- Right: Nav + Icons in one row -->
-      <div class="header-right">
-        <!-- Navigation (Home, Work, About, Contact) -->
-        <nav class="header-nav">
-          <ul>
-            <li><a href="#hero">Home</a></li>
-            <li><a href="#work">Work</a></li>
-            <li><a href="#about">About</a></li>
-            <!-- Contact in the nav goes to contact.html -->
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </nav>
-
-        <!-- Icons (GitHub, LinkedIn, Email, Dark/Light Toggle) -->
-        <div class="header-icons">
-          <a
-            href="https://github.com/david-ikenna-ezekiel"
-            target="_blank"
-            aria-label="GitHub"
-            class="circle-icon"
-          >
-            <img src="assets/icons/github.svg" alt="GitHub" />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/david-ikenna-ezekiel-804748106/"
-            target="_blank"
-            aria-label="LinkedIn"
-            class="circle-icon"
-          >
-            <img src="assets/icons/linkedin.svg" alt="LinkedIn" />
-          </a>
-          <a
-            href="mailto:kelaanalytics.bi@gmail.com"
-            aria-label="Email"
-            class="circle-icon"
-          >
-            <img src="assets/icons/mail.svg" alt="Email" />
-          </a>
-
-          <!-- Dark/Light Mode Toggle -->
-          <button id="themeToggle" class="circle-icon" aria-label="Toggle Dark Mode">
-            <img src="assets/icons/sun.svg" alt="Toggle Theme" />
-          </button>
-        </div>
+  
+      <!-- Normal Nav (shown on desktop, hidden on mobile) -->
+      <nav class="header-nav">
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+  
+      <!-- Icons (GitHub, LinkedIn, Email, Dark/Light Toggle) -->
+      <div class="header-icons">
+        <a
+          href="https://github.com/david-ikenna-ezekiel"
+          target="_blank"
+          aria-label="GitHub"
+          class="circle-icon"
+        >
+          <img src="assets/icons/github.svg" alt="GitHub" />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/david-ikenna-ezekiel-804748106/"
+          target="_blank"
+          aria-label="LinkedIn"
+          class="circle-icon"
+        >
+          <img src="assets/icons/linkedin.svg" alt="LinkedIn" />
+        </a>
+        <a
+          href="mailto:kelaanalytics.bi@gmail.com"
+          aria-label="Email"
+          class="circle-icon"
+        >
+          <img src="assets/icons/mail.svg" alt="Email" />
+        </a>
+  
+        <!-- Dark/Light Mode Toggle -->
+        <button id="themeToggle" class="circle-icon" aria-label="Toggle Dark Mode">
+          <img src="assets/icons/sun.svg" alt="Toggle Theme" />
+        </button>
       </div>
+  
+      <!-- Hamburger Button (hidden on desktop, visible on mobile) -->
+      <button class="hamburger" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </header>
+  
+  
 
   <!-- HERO SECTION -->
   <section class="hero" id="hero" data-aos="fade-up">
