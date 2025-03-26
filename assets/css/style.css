@@ -336,6 +336,7 @@ body {
   transform: none;
 }
 
+
 /* Invert icons in dark mode */
 [data-theme="dark"] .circle-icon img {
   filter: invert(1);
@@ -391,3 +392,122 @@ body {
     font-size: 1.8rem;
   }
 }
+
+/* About Section Layout */
+.about-section {
+  /* your existing .section styles will apply padding, etc. */
+}
+
+.about-container {
+  display: flex;
+  align-items: flex-start; /* or center, depending on your preference */
+  gap: 10rem; /* space between columns */
+}
+
+/* Left column: Image */
+.about-image {
+  flex: 1;
+  max-width: 50%; /* optional if you want to limit the image width */
+  text-align: center; /* center the image horizontally if desired */
+}
+.about-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px; /* optional: add slight rounding */
+}
+
+/* Right column: Text */
+.about-content {
+  flex: 1;
+  text-align: justify; /* or right */
+}
+
+/* Adjust for smaller screens */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column; /* stack vertically on mobile */
+    align-items: center;    /* center columns if desired */
+  }
+  .about-image, .about-content {
+    max-width: 100%; /* each column goes full width */
+    text-align: left; /* or center, your preference */
+  }
+}
+
+
+/* Section Title & Subtitle */
+#work h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color); /* or your brand color */
+}
+.section-subtitle {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+/* Grid Layout (You likely have something similar already) */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Each Card */
+.project-card {
+  background-color: #ffffff; /* or var(--card-bg) if using theme variables */
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Work Icons */
+.work-icon {
+  width: 60px;  /* Adjust as needed for consistent sizing */
+  height: auto;
+  margin-bottom: 1rem;
+  opacity: 0.9; /* Slightly reduce icon opacity for a softer look */
+  transition: opacity 0.3s;
+}
+.project-card:hover .work-icon {
+  opacity: 1; /* Icons brighten on hover */
+}
+
+/* Card Headings */
+.project-card h3 {
+  margin-bottom: 0.5rem;
+  color: var(--primary-color); /* or #333 if you prefer */
+  font-size: 1.2rem;
+}
+
+/* Card Paragraph */
+.project-card p {
+  font-size: 0.95rem;
+  color: #666; /* or var(--card-text) */
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+}
+
+/* Button inside the card */
+.project-card .btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #fff;
+  background: var(--primary-color);
+  transition: background 0.3s;
+}
+.project-card .btn:hover {
+  background: var(--secondary-color);
+}
+

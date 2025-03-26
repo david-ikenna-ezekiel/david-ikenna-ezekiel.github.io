@@ -1,8 +1,10 @@
-document.addEventListener('DOMContentLoaded', function() {
-  // Scroll to top on page load (helps on mobile sometimes)
+// Run everything once DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  // Scroll to top on page load (optional, helps on mobile sometimes)
   window.scrollTo(0, 0);
 
-  // Typed.js effect (hero)
+  // =========== TYPED.JS EFFECT ============
+  // Only initialize if #typed element is present
   if (document.getElementById('typed')) {
     new Typed('#typed', {
       strings: [
@@ -16,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Theme Toggle
+  // =========== THEME TOGGLE ============
   const themeToggle = document.getElementById('themeToggle');
   if (themeToggle) {
     const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
@@ -49,15 +51,19 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
   }
-});
 
-
-document.addEventListener('DOMContentLoaded', () => {
+  // =========== HAMBURGER MENU TOGGLE ============
   const hamburger = document.querySelector('.hamburger');
   const headerNav = document.querySelector('.header-nav');
+  if (hamburger && headerNav) {
+    hamburger.addEventListener('click', () => {
+      headerNav.classList.toggle('active');
+      hamburger.classList.toggle('active'); // for "X" animation, if any
+    });
+  }
+});
 
-  hamburger.addEventListener('click', () => {
-    headerNav.classList.toggle('active');
-    hamburger.classList.toggle('active'); // optional if you have the "X" animation
-  });
+// =========== AOS INIT ============
+AOS.init({
+  once: true
 });
