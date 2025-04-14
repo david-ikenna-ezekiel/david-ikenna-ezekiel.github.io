@@ -13,22 +13,22 @@
 
   <!-- Main CSS -->
   <link rel="stylesheet" href="assets/css/style.css" />
-</head>
-<body>
-  <!-- Optional Header (similar to home page) -->
   <header class="header">
     <div class="header-container">
-      <a class="header-logo" href="index.html">David Ezekiel</a>
-      <div class="header-right">
-        <nav class="header-nav">
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="index.html#work">Work</a></li>
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </nav>
-        <div class="header-icons">
+      <!-- Left: Logo -->
+      <a class="header-logo" href="index.html">
+        <img src="assets/images/logo.png" alt="David Ezekiel Logo" />
+      </a>
+  
+      <!-- Nav (links + icons) -->
+      <nav class="header-nav">
+        <ul class="nav-links">
+          <li><a href="index.html#hero">Home</a></li>
+          <li><a href="index.html#work">Work</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-icons">
           <a
             href="https://github.com/david-ikenna-ezekiel"
             target="_blank"
@@ -52,13 +52,25 @@
           >
             <img src="assets/icons/mail.svg" alt="Email" />
           </a>
-          <button id="themeToggle" class="circle-icon" aria-label="Toggle Dark Mode">
+          <button
+            id="themeToggle"
+            class="circle-icon"
+            aria-label="Toggle Dark Mode"
+          >
             <img src="assets/icons/sun.svg" alt="Toggle Theme" />
           </button>
         </div>
-      </div>
+      </nav>
+  
+      <!-- Hamburger (mobile) -->
+      <button class="hamburger" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </header>
+  
 
   <!-- CONTACT PAGE LAYOUT -->
   <main>
