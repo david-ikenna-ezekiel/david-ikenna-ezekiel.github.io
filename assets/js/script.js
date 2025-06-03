@@ -5,18 +5,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // =========== TYPED.JS EFFECT ============
   // Only initialize if #typed element is present
-  if (document.getElementById('typed')) {
-    new Typed('#typed', {
-      strings: [
-        "am a Data Engineer.",
-        "love building scalable data infrastructures.",
-        "am passionate about data stories."
-      ],
-      typeSpeed: 50,
-      backSpeed: 30,
-      loop: true
-    });
-  }
+// if (document.getElementById('typed')) {
+//   new Typed('#typed', {
+//     strings: [
+//       "am a Data Engineer.",
+//       "love building scalable data infrastructures.",
+//       "am passionate about data stories."
+//     ],
+//     typeSpeed: 50,
+//     backSpeed: 30,
+//     loop: true
+//   });
+// }
+
 
   // =========== THEME TOGGLE ============
   const themeToggle = document.getElementById('themeToggle');

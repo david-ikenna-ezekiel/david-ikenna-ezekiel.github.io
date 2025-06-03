@@ -32,37 +32,13 @@
       <!-- Nav (links + icons) -->
       <nav class="header-nav">
         <ul class="nav-links">
-          <li><a href="#hero">Home</a></li>
+          <li><a href="#hero" class="active">Home</a></li>
           <li><a href="#work">Work</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
         <div class="nav-icons">
-          <!-- Social/Email Icons -->
-          <a
-            href="https://github.com/david-ikenna-ezekiel"
-            target="_blank"
-            aria-label="GitHub"
-            class="circle-icon"
-          >
-            <img src="assets/icons/github.svg" alt="GitHub" />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/david-ikenna-ezekiel-804748106/"
-            target="_blank"
-            aria-label="LinkedIn"
-            class="circle-icon"
-          >
-            <img src="assets/icons/linkedin.svg" alt="LinkedIn" />
-          </a>
-          <a
-            href="mailto:kelaanalytics.bi@gmail.com"
-            aria-label="Email"
-            class="circle-icon"
-          >
-            <img src="assets/icons/mail.svg" alt="Email" />
-          </a>
-          <!-- Light/Dark Mode Toggle -->
+          <!-- Only Light/Dark Mode Toggle -->
           <button
             id="themeToggle"
             class="circle-icon"
@@ -72,6 +48,7 @@
           </button>
         </div>
       </nav>
+      
 
       <!-- Hamburger (mobile) -->
       <button class="hamburger" aria-label="Toggle Menu">
@@ -87,18 +64,52 @@
     <!-- Hero Content -->
     <div class="hero-content">
       <h1>Hi, I'm David Ezekiel</h1>
-      <p class="subtitle">
-        I <span id="typed"></span>
-      </p>
-      <a href="#work" class="btn">View My Work</a>
+
+      <!-- Description + Newsletter -->
+      <div class="newsletter" data-aos="fade-up">
+      </div>
+      <div class="newsletter">
+        <p>I build data products, pipelines… and everything in between. <strong>Join The Data Signal</strong> — let's build together!</p>
+        <form class="newsletter-form" action="#" method="POST">
+          <input type="email" name="email" placeholder="Email address" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+
+      <!-- Divider Line -->
+      <div class="hero-divider"></div>
+      
+      <!-- Social Icons Immediately Under Name -->
+      
+      <div class="hero-icons" data-aos="fade-up" data-aos-delay="200">
+        <!-- icons... -->
+      </div>
+      
+      <div class="hero-icons">
+        <a href="https://www.youtube.com/@Data_with_David" target="_blank" class="circle-icon" aria-label="YouTube">
+          <img src="assets/icons/youtube.svg" alt="YouTube" />
+        </a>
+        <a href="https://github.com/david-ikenna-ezekiel" target="_blank" class="circle-icon" aria-label="GitHub">
+          <img src="assets/icons/github.svg" alt="GitHub" />
+        </a>
+        <a href="https://www.linkedin.com/in/david-ikenna-ezekiel-804748106/" target="_blank" class="circle-icon" aria-label="LinkedIn">
+          <img src="assets/icons/linkedin.svg" alt="LinkedIn" />
+        </a>
+        <a href="mailto:kelaanalytics.bi@gmail.com" class="circle-icon" aria-label="Email">
+          <img src="assets/icons/mail.svg" alt="Email" />
+        </a>
+      </div>
+
+
     </div>
+    
 
     <!-- SVG Wave at the bottom -->
     <div class="hero-wave">
       <svg 
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 320"
-        preserveAspectRatio="none"  <!-- Optional if you want the wave to stretch to full width -->
+        preserveAspectRatio="none"
       >
         <path
           fill="#f3f4f5"
@@ -107,7 +118,6 @@
         ></path>
       </svg>
     </div>
-    
   </section>
 
   <!-- WORK SECTION -->
@@ -115,105 +125,65 @@
     <div class="container">
       <h2>Work</h2>
       <p class="section-subtitle">Explore my services and projects.</p>
-  
+
       <div class="work-grid">
-        <!-- Item 1: Consulting -->
+        <!-- Consulting -->
         <div class="work-item">
           <div class="work-image">
             <img src="assets/images/work1.jpg" alt="Consulting" />
           </div>
           <h3>Consulting</h3>
-          <p>
-            I consult with clients on data strategy, analytics pipelines, and
-            information management systems.
-          </p>
+          <p>I consult with clients on data strategy, analytics pipelines, and information management systems.</p>
         </div>
-  
-        <!-- Item 2: Translation Work -->
+
+        <!-- Translation Work -->
         <div class="work-item">
           <div class="work-image">
             <img src="assets/images/work2.jpg" alt="Translation Work" />
           </div>
           <h3>Translation Work</h3>
-          <p>
-            I translate data narratives into actionable business outcomes using
-            dashboards, reports, and ML models.
-          </p>
+          <p>I translate data narratives into actionable business outcomes using dashboards, reports, and ML models.</p>
         </div>
-  
-        <!-- Item 3: Editing -->
+
+        <!-- Editing -->
         <div class="work-item">
           <div class="work-image">
             <img src="assets/images/work3.jpg" alt="Editing" />
           </div>
           <h3>Editing</h3>
-          <p>
-            I help teams improve clarity, consistency, and storytelling in analytics
-            documentation and reports.
-          </p>
+          <p>I help teams improve clarity, consistency, and storytelling in analytics documentation and reports.</p>
         </div>
-  
-        <!-- Item 4: Tutoring -->
+
+        <!-- Tutoring -->
         <div class="work-item">
           <div class="work-image">
             <img src="assets/images/work4.jpg" alt="Tutoring" />
           </div>
           <h3>Tutoring</h3>
-          <p>
-            I tutor students and professionals in data analytics, SQL, Power BI, and
-            technical writing.
-          </p>
+          <p>I tutor students and professionals in data analytics, SQL, Power BI, and technical writing.</p>
         </div>
       </div>
     </div>
   </section>
-  
-  
 
   <!-- ABOUT SECTION -->
-  <section
-    id="about"
-    class="section about-section"
-    data-aos="fade-up"
-  >
+  <section id="about" class="section about-section" data-aos="fade-up">
     <div class="container about-container">
-      <!-- Left Column: Image -->
       <div class="about-image">
-        <img
-          src="assets/images/about.png"
-          alt="David Ezekiel"
-        />
+        <img src="assets/images/about.png" alt="David Ezekiel" />
       </div>
-
-      <!-- Right Column: Title + Text -->
       <div class="about-content">
         <h2>About</h2>
         <p>
           Hi. I am David Ezekiel. <br /><br />
-          I am a Data Analyst passionate about unraveling the stories hidden
-          within data and empowering others to harness its transformative
-          power. From uncovering actionable insights to driving strategic
-          decision-making, my core passion lies in leveraging data to unlock
-          new possibilities and drive real-world impact.
-
-          <br /><br />
-
-          I am a Data Analyst passionate about unraveling the stories hidden
-          within data and empowering others to harness its transformative
-          power. From uncovering actionable insights to driving strategic
-          decision-making, my core passion lies in leveraging data to unlock
-          new possibilities and drive real-world impact.
+          I am a Data Analyst passionate about unraveling the stories hidden within data and empowering others to harness its transformative power. From uncovering actionable insights to driving strategic decision-making, my core passion lies in leveraging data to unlock new possibilities and drive real-world impact.
         </p>
       </div>
     </div>
   </section>
 
   <!-- CONTACT BUTTON BELOW ABOUT -->
-  <section
-    id="contact-link"
-    class="section"
-    data-aos="fade-up"
-  >
+  <section id="contact-link" class="section" data-aos="fade-up">
     <div class="container" style="text-align: center;">
       <a href="contact.html" class="contact-button">Contact</a>
     </div>
@@ -222,27 +192,16 @@
   <!-- FOOTER -->
   <footer class="footer-minimal" data-aos="fade-up">
     <div class="footer-icons">
-      <a
-        href="https://github.com/david-ikenna-ezekiel"
-        target="_blank"
-        aria-label="GitHub"
-        class="circle-icon"
-      >
+      <a href="https://www.youtube.com/@Data_with_David" target="_blank" class="circle-icon" aria-label="YouTube">
+        <img src="assets/icons/youtube.svg" alt="YouTube" />
+      </a> 
+      <a href="https://github.com/david-ikenna-ezekiel" target="_blank" aria-label="GitHub" class="circle-icon">
         <img src="assets/icons/github.svg" alt="GitHub" />
       </a>
-      <a
-        href="https://www.linkedin.com/in/david-ikenna-ezekiel-804748106/"
-        target="_blank"
-        aria-label="LinkedIn"
-        class="circle-icon"
-      >
+      <a href="https://www.linkedin.com/in/david-ikenna-ezekiel-804748106/" target="_blank" aria-label="LinkedIn" class="circle-icon">
         <img src="assets/icons/linkedin.svg" alt="LinkedIn" />
       </a>
-      <a
-        href="mailto:kelaanalytics.bi@gmail.com"
-        aria-label="Email"
-        class="circle-icon"
-      >
+      <a href="mailto:kelaanalytics.bi@gmail.com" aria-label="Email" class="circle-icon">
         <img src="assets/icons/mail.svg" alt="Email" />
       </a>
     </div>
@@ -251,7 +210,7 @@
   <!-- AOS JS (scroll animations) -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-  <!-- Main JS (Typed.js init, Theme Toggle, Hamburger Toggle) -->
+  <!-- Main JS -->
   <script src="assets/js/script.js"></script>
 </body>
 </html>
