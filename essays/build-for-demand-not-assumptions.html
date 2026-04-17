@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>build for demand, not assumptions - David Ezekiel</title>
+    <meta
+      name="description"
+      content="build for demand, not assumptions by David Ezekiel."
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="/article-extras.css?v=6" />
+    <link rel="stylesheet" href="../article-extras.css?v=6" />
+    <link rel="stylesheet" href="/article-subscribe-polish.css?v=6" />
+    <link rel="stylesheet" href="../article-subscribe-polish.css?v=6" />
+  </head>
+  <body>
+    <div class="page-wrapp min-height">
+      <div class="page-contain less essay-page">
+        <div class="content-block essay-top">
+          <a href="../index.html" class="content-link back">Back to all essays</a>
+        </div>
+
+        <div class="content-block">
+          <div class="page-subheading top essay-date">February 21, 2026</div>
+          <h1 class="essay-title">build for demand, not assumptions</h1>
+        </div>
+
+        <div class="content-block essay-content">
+          <p>During my MBA, I came across a framework from Toyota that stuck with me long after the course ended. It was the Just-In-Time, or JIT, system.</p>
+          <p>The idea is simple. Produce only what is needed, when it is needed, and in the exact amount required. No excess inventory. No wasted effort. No guessing too far into the future.</p>
+          <p>At first, it felt like just another business case study. But the more I sat with it, the more I began to see it everywhere.</p>
+          <p>JIT is not just about manufacturing. It is a way of thinking about efficiency. A way of designing systems that respond instead of predict.</p>
+          <p>Naturally, I started looking at data systems through this lens.</p>
+          <p>For a long time, building databases was like stocking a warehouse before you knew what customers would buy. You had to estimate demand in advance. How much storage would you need? How much compute? How many users might show up at once?</p>
+          <p>So you guessed.</p>
+          <p>If you guessed too high, you paid for resources that sat idle. If you guessed too low, your system slowed down or failed when demand spiked. Either way, you carried inefficiency. Just like a factory holding too much inventory or running out of parts at the worst time.</p>
+          <p>Then came the cloud.</p>
+          <p>It improved things, but it did not remove the problem entirely. Traditional cloud databases still require you to provision capacity and define scaling rules. You are still planning ahead. You just have better tools.</p>
+          <p>This is where the JIT philosophy truly shows up.</p>
+          <p>A serverless database applies that same principle to data infrastructure. Instead of provisioning upfront, the system adjusts itself in real time. When demand increases, it scales up. When demand drops, it scales down. Sometimes, it scales all the way to zero.</p>
+          <p>You are no longer guessing. You are responding.</p>
+          <p>Think about it like running a restaurant.</p>
+          <p>In a traditional setup, you hire a fixed number of chefs for the entire day. During peak hours, they are overwhelmed. During slow hours, they stand idle, but you still pay them.</p>
+          <p>In a JIT-style restaurant, chefs appear as orders come in. More orders bring more chefs. Fewer orders mean fewer chefs. You do not manage schedules directly. The system handles it.</p>
+          <p>That is how a serverless database works.</p>
+          <p>Of course, there is nothing magical happening behind the scenes. It is a combination of distributed systems, automation, and monitoring. Services like Amazon Aurora Serverless or Google Cloud Firestore track usage metrics such as request rates, CPU load, and memory, and adjust resources accordingly.</p>
+          <p>Another important detail is how these systems separate storage from compute.</p>
+          <p>In older models, storage and compute are tightly coupled. Scaling one often means scaling the other, even when it is unnecessary. Serverless databases break this link. Storage grows as your data grows, while compute scales independently based on activity.</p>
+          <p>It is like having a pantry that expands as you add ingredients, while your cooking staff adjusts based on how many meals you are preparing. It removes a lot of the friction that used to come with scaling systems.</p>
+          <p>But this approach is not without trade-offs.</p>
+          <p>One common challenge is the cold start problem. If a system has scaled down due to inactivity, the first request must wait briefly while resources spin back up. In many cases, the delay is small. But in high-performance systems, even small delays matter.</p>
+          <p>There is also the question of control.</p>
+          <p>With traditional databases, you can fine-tune almost everything. Hardware, performance, scaling behavior. With serverless, much of that control shifts to the provider. In return, you gain simplicity and automation. For many teams, that trade is worth it. But it is still a trade.</p>
+          <p>As Martin Fowler puts it, serverless allows you to focus on business logic instead of infrastructure. That is the real shift. Your attention moves away from managing systems and toward solving problems.</p>
+          <p>Still, serverless is not always the right choice.</p>
+          <p>If your workload is steady and predictable, a provisioned database may be more cost-effective. If you need strict performance guarantees or deep customization, you may prefer direct control.</p>
+          <p>The goal is not to default to serverless, but to understand when it fits.</p>
+          <p>A simple way to decide is to return to the JIT mindset and ask three questions:</p>
+          <p>Do I truly understand my demand ahead of time?<br />If not, serverless helps you avoid overcommitting.</p>
+          <p>Do I want to spend time managing infrastructure?<br />If not, serverless removes that burden.</p>
+          <p>Am I comfortable trading some control for flexibility?<br />If yes, the benefits often outweigh the downsides.</p>
+          <p>In the end, serverless databases are not just a technical evolution. They are a philosophical shift.</p>
+          <p>They take the same idea Toyota applied on factory floors and bring it into data systems. Do not prepare for every possible scenario. Build systems that can respond in real time.</p>
+          <p>It is less about predicting the future and more about being ready for it.</p>
+          <p>And when it works well, it feels almost effortless.</p>
+          <p>- dr. calculus</p>
+        </div>
+
+        <div class="content-block">
+          <div class="essay-rating js-essay-rating">
+            <p class="essay-rating-title">How was this essay?</p>
+            <div class="essay-rating-grid">
+              <div class="essay-rating-item"><div class="essay-stars">* * *</div><div class="essay-votes">1632</div></div>
+              <div class="essay-rating-item"><div class="essay-stars">* *</div><div class="essay-votes">112</div></div>
+              <div class="essay-rating-item"><div class="essay-stars">*</div><div class="essay-votes">14</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <div class="more-essays-heading">more essays...</div>
+          <div class="more-essays-list js-more-essays">
+            <a class="more-essays-link" href="borrowed-confidence.html">borrowed confidence</a>
+            <a class="more-essays-link" href="the-wedge-strategy.html">the wedge strategy</a>
+            <a class="more-essays-link" href="one-metric-that-matters.html">one metric that matters</a>
+            <a class="more-essays-link" href="the-weekly-operating-system.html">the weekly operating system</a>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <p class="essay-newsletter-text js-newsletter-text">
+            I build data products, pipelines&hellip; and everything in between. Join The Data Signal &mdash; let's build together!
+          </p>
+          <form class="essay-newsletter-form" action="#" method="post">
+            <input
+              type="email"
+              class="essay-newsletter-input js-newsletter-input"
+              placeholder="Email address"
+              aria-label="Email address"
+            />
+            <button type="submit" class="essay-newsletter-button js-newsletter-button">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="/site-config.js?v=7"></script>
+    <script src="../site-config.js?v=7"></script>
+    <script src="/script.js?v=8"></script>
+    <script src="../script.js?v=8"></script>
+  </body>
+</html>

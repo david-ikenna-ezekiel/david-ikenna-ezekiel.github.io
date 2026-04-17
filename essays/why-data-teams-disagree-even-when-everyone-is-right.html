@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>why data teams disagree even when everyone is right - David Ezekiel</title>
+    <meta
+      name="description"
+      content="why data teams disagree even when everyone is right by David Ezekiel."
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="/article-extras.css?v=6" />
+    <link rel="stylesheet" href="../article-extras.css?v=6" />
+    <link rel="stylesheet" href="/article-subscribe-polish.css?v=6" />
+    <link rel="stylesheet" href="../article-subscribe-polish.css?v=6" />
+  </head>
+  <body>
+    <div class="page-wrapp min-height">
+      <div class="page-contain less essay-page">
+        <div class="content-block essay-top">
+          <a href="../index.html" class="content-link back">Back to all essays</a>
+        </div>
+
+        <div class="content-block">
+          <div class="page-subheading top essay-date">April 17, 2026</div>
+          <h1 class="essay-title">why data teams disagree even when everyone is right</h1>
+        </div>
+
+        <div class="content-block essay-content">
+          <p>How we see the world is shaped by what we spend time doing. The longer we stay in one domain, the more that lens hardens.</p>
+          <p>You see it clearly in data teams.</p>
+          <p>Put a data engineer, an analyst, and an analytics engineer in the same room and ask a simple question:</p>
+          <p>What does good data look like? You will not get one answer. You will get three.</p>
+          <p>Because they are not just doing different jobs. They are thinking in different models.</p>
+          <p>Start with the engineer.</p>
+          <p>When an engineer looks at data, they do not first see revenue, customers, or churn.</p>
+          <p>They see structure. Tables. Partitions. Schemas. Pipelines. Latency. Failure points.</p>
+          <p>To them, data is not insight yet. It is a system in motion. One that can fail in subtle ways if not handled carefully. Their instinct is to ask questions most people skip:</p>
+          <p>Where does this data come from?<br />How often does it arrive?<br />What happens if it fails?<br />Will this still work when usage doubles or triples?</p>
+          <p>In their world, correctness means guarantees. A dataset is only "good" if it is reproducible, consistent, and resilient under pressure.</p>
+          <p>That is why engineers hesitate when asked to quickly produce a metric.</p>
+          <p>It is not resistance. It is memory. They have seen what happens when something fragile becomes something important.</p>
+          <p>A beautiful dashboard built on an unstable pipeline is not success. It is a delayed outage. So engineers build foundations. Quietly. Methodically. And sometimes, from the outside, slowly.</p>
+          <p>Now shift perspective.</p>
+          <p>When an analyst looks at data, they do not see systems. They see meaning.</p>
+          <p>Trends. Behavior. Patterns. Opportunities.</p>
+          <p>To them, data is not infrastructure. It is a story waiting to be told. Their instinct is different:</p>
+          <p>What is happening?<br />Why is it happening?<br />What should we do about it?</p>
+          <p>They care less about how the data arrived and more about what it reveals. In their world, correctness is not just about pipelines. It is about interpretation.</p>
+          <p>A dataset is only useful if it reflects reality and helps someone make a decision. That is why analysts push for speed.</p>
+          <p>Not because they are careless, but because they understand a different risk. Perfect data delivered too late is often useless.</p>
+          <p>So they explore. They iterate. They ask uncomfortable questions.</p>
+          <p>And sometimes, they build logic in places engineers would never approve of. Because the alternative is no answer at all.</p>
+          <p>Now place these two perspectives side by side. The tension becomes obvious.</p>
+          <p>Engineers optimize for stability and scale. Analysts optimize for speed and meaning.</p>
+          <p>So when an analyst says, "Can we just get this metric quickly?" the engineer hears, "Can we cut corners on reliability?"</p>
+          <p>And when an engineer says, "We need to redesign the pipeline first," the analyst hears, "We are delaying answers again."</p>
+          <p>Neither side is wrong. They are solving for different risks.</p>
+          <p>Engineers are trying to prevent systems from breaking. Analysts are trying to prevent decisions from being made in the dark.</p>
+          <p>Both fears are valid. This is where the analytics engineer comes in.</p>
+          <p>Not as a third silo, but as a bridge.</p>
+          <p>If engineers think in systems and analysts think in questions, analytics engineers think in transformations.</p>
+          <p>Joins. Grain. Models. Lineage. Consistency.</p>
+          <p>But more importantly, they ask a different question:</p>
+          <p>What should this data represent? They care about definitions.</p>
+          <p>What exactly is revenue?<br />What counts as an active user?<br />At what level of detail should this dataset exist?<br />How do we make this reusable so no one has to rebuild it?</p>
+          <p>If engineers bring structure and analysts bring meaning, analytics engineers bring shape.</p>
+          <p>They take raw data and turn it into something both trustworthy and usable. They are the ones who say:</p>
+          <p>Let us not just answer this once. Let us define it properly so we never have to ask it again.</p>
+          <p>For example:</p>
+          <p>You are working at a company that sells products online, and someone asks: <em>What is our revenue this month?</em></p>
+          <p>It sounds simple. But watch how each role approaches it.</p>
+          <p>The data engineer looks upstream.</p>
+          <p>Revenue depends on orders, payments, refunds.</p>
+          <p>Are they coming from different systems?<br />Do they arrive in real time or in batches?<br />What happens if events arrive out of order?<br />How do we handle duplicates?</p>
+          <p>Their concern is not the number.</p>
+          <p>It is whether the data behind the number can be trusted.</p>
+          <p>Meanwhile, the analyst is already writing a query.</p>
+          <p>They sum successful payments for the month and move on.</p>
+          <p>It is fast. It is useful. It answers the question. But there are gaps.</p>
+          <p>What about refunds?<br />What about partial payments?<br />What is the official definition of revenue?</p>
+          <p>Then the analytics engineer reframes the problem.</p>
+          <p>Not, what is revenue right now?</p>
+          <p>But, what should revenue mean for the company?</p>
+          <p>Should it be based on orders or payments?<br />Do we recognize it before or after payment?<br />How do refunds affect it?</p>
+          <p>They build a model.</p>
+          <p>A reusable definition. Now every dashboard and report uses the same logic. The question does not just get answered. It gets standardized.</p>
+          <p>The same pattern shows up everywhere.</p>
+          <p>Another example is something like active users.</p>
+          <p>An engineer thinks about processing billions of events efficiently. An analyst counts logins over 30 days. The analytics engineer asks: What does active actually mean?</p>
+          <p>Same problem.</p>
+          <p>Three different starting points. This is why so many data problems feel harder than they should be.</p>
+          <p>A dashboard is wrong, not because the SQL is broken, but because definitions do not align.</p>
+          <p>A pipeline is delayed, not because engineers are slow, but because reliability was underestimated.</p>
+          <p>A model goes unused, not because it is incorrect, but because it does not match how the business thinks.</p>
+          <p>When teams do not recognize these differences, they misread them. The real strength of a data team does not come from choosing one mindset. It comes from layering them.</p>
+          <p>Engineers make data trustworthy. Analytics engineers make it usable. Analysts make it useful. Remove any one of these, and things fall apart.</p>
+          <p>Together, they form more than a pipeline. They form a system of understanding.</p>
+          <p>- dr. calculus</p>
+        </div>
+
+        <div class="content-block">
+          <div class="essay-rating js-essay-rating">
+            <p class="essay-rating-title">How was this essay?</p>
+            <div class="essay-rating-grid">
+              <div class="essay-rating-item"><div class="essay-stars">* * *</div><div class="essay-votes">1632</div></div>
+              <div class="essay-rating-item"><div class="essay-stars">* *</div><div class="essay-votes">112</div></div>
+              <div class="essay-rating-item"><div class="essay-stars">*</div><div class="essay-votes">14</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <div class="more-essays-heading">more essays...</div>
+          <div class="more-essays-list js-more-essays">
+            <a class="more-essays-link" href="build-for-demand-not-assumptions.html">build for demand, not assumptions</a>
+            <a class="more-essays-link" href="one-metric-that-matters.html">one metric that matters</a>
+            <a class="more-essays-link" href="ai-workflows-for-lean-teams.html">AI workflows for lean teams</a>
+            <a class="more-essays-link" href="the-weekly-operating-system.html">the weekly operating system</a>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <p class="essay-newsletter-text js-newsletter-text">
+            I build data products, pipelines&hellip; and everything in between. Join The Data Signal &mdash; let's build together!
+          </p>
+          <form class="essay-newsletter-form" action="#" method="post">
+            <input
+              type="email"
+              class="essay-newsletter-input js-newsletter-input"
+              placeholder="Email address"
+              aria-label="Email address"
+            />
+            <button type="submit" class="essay-newsletter-button js-newsletter-button">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="/site-config.js?v=7"></script>
+    <script src="../site-config.js?v=7"></script>
+    <script src="/script.js?v=8"></script>
+    <script src="../script.js?v=8"></script>
+  </body>
+</html>

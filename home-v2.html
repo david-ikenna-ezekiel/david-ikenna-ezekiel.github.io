@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>David Ezekiel - Home V2 (Test)</title>
+    <meta
+      name="description"
+      content="Test homepage with first-class navigation for essays, CV, YouTube, and about."
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="article-subscribe-polish.css?v=6" />
+    <style>
+      .page-wrapp {
+        background-color: #fafbfc;
+      }
+
+      .v2-nav {
+        display: flex;
+        gap: 18px;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 2px;
+        font-family: Ppneuemontreal, sans-serif;
+        font-size: 1rem;
+        text-transform: lowercase;
+      }
+
+      .v2-nav .content-link {
+        font-size: 1rem;
+      }
+
+      .v2-nav-label {
+        opacity: 0.55;
+        margin-right: 2px;
+      }
+
+      .v2-feature-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+
+      .v2-feature-card {
+        border: 1px solid #e3e6ea;
+        border-radius: 8px;
+        padding: 16px;
+        background: #ffffffb3;
+      }
+
+      .v2-card-title {
+        margin-bottom: 6px;
+        font-family: Minion Pro, sans-serif;
+        font-size: 1.2rem;
+        line-height: 1.25em;
+      }
+
+      .v2-card-copy {
+        opacity: 0.76;
+        font-family: Minion Pro, sans-serif;
+        font-size: 1.05rem;
+        line-height: 1.5em;
+      }
+
+      .v2-continue {
+        margin-top: 8px;
+        font-family: Ppneuemontreal, sans-serif;
+        font-size: 0.95rem;
+      }
+
+      .content-subheading.project-gap {
+        margin-bottom: 24px;
+      }
+
+      @media screen and (max-width: 767px) {
+        .v2-feature-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .content-subheading.project-gap {
+          margin-bottom: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-wrapp min-height">
+      <div class="page-contain less home-page">
+        <div class="content-block">
+          <div class="v2-nav">
+            <span class="v2-nav-label">go to:</span>
+            <a href="essays/borrowed-confidence.html" class="content-link">essays</a>
+            <a href="cv-timeline.html" class="content-link">my cv</a>
+            <a href="youtube-cv-timeline.html" class="content-link">youtube</a>
+            <a href="#about" class="content-link">about</a>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <img
+            src="assets/avatar-main.png?v=3"
+            loading="lazy"
+            alt="Portrait of David Ezekiel"
+            class="shaan-image homepage"
+          />
+          <h1 class="page-heading">David Ezekiel (aka "dr. calculus")</h1>
+          <div class="page-subheading">
+            i'm a data engineer, entreprenuer, & creator of
+            <a
+              href="https://www.youtube.com/@thedatasignal"
+              class="content-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              >the data signal</a
+            >
+            channel & podcast (over 8k followers)
+          </div>
+        </div>
+
+        <div class="content-block">
+          <div class="content-subheading project-gap">
+            my new project (i'm curating letters i wish i'd received from a data mentor):
+            <a
+              href="https://www.linkedin.com/newsletters/kela-data-letters-7418723129612734464/"
+              class="content-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              >the kela letters</a
+            >
+          </div>
+        </div>
+
+        <div class="content-block">
+          <div class="content-subheading">featured pages</div>
+          <div class="v2-feature-grid">
+            <article class="v2-feature-card">
+              <div class="v2-card-title">
+                <a href="cv-timeline.html" class="content-link">my cv</a>
+              </div>
+              <div class="v2-card-copy">
+                timeline view of work history and milestones, formatted to match the essay
+                typography.
+              </div>
+              <div class="v2-continue">
+                <a href="cv-timeline.html" class="content-link">open page</a>
+              </div>
+            </article>
+
+            <article class="v2-feature-card">
+              <div class="v2-card-title">
+                <a href="youtube-cv-timeline.html" class="content-link">youtube uploads</a>
+              </div>
+              <div class="v2-card-copy">
+                full upload timeline from your channel with one concise summary per video.
+              </div>
+              <div class="v2-continue">
+                <a href="youtube-cv-timeline.html" class="content-link">open page</a>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <div class="content-subheading">on life...</div>
+          <div class="content-list">
+            <div class="content-item"><div class="bullet-circle"></div><a href="essays/borrowed-confidence.html" class="content-link">borrowed confidence</a></div>
+            <div class="content-item"><div class="bullet-circle"></div><a href="essays/how-to-pick-your-hard.html" class="content-link">how to pick your hard</a></div>
+            <div class="content-item"><div class="bullet-circle"></div><a href="essays/the-quiet-advantage.html" class="content-link">the quiet advantage</a></div>
+            <div class="content-item"><div class="bullet-circle"></div><a href="life-story-timeline.html" class="content-link">my life story</a></div>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <div class="content-subheading">on business...</div>
+          <div class="content-list">
+            <div class="content-item"><div class="bullet-circle"></div><a href="essays/the-wedge-strategy.html" class="content-link">the wedge strategy</a></div>
+            <div class="content-item"><div class="bullet-circle"></div><a href="essays/one-metric-that-matters.html" class="content-link">one metric that matters</a></div>
+            <div class="content-item"><div class="bullet-circle"></div><a href="essays/the-weekly-operating-system.html" class="content-link">the weekly operating system</a></div>
+          </div>
+        </div>
+
+        <div class="content-block" id="about">
+          <div class="content-subheading">about</div>
+          <div class="list-column">
+            <div>
+              i build practical data systems, teach what works in production, and publish field
+              notes for engineers trying to ship faster with fewer surprises.
+            </div>
+            <div>
+              start with
+              <a href="cv-timeline.html" class="content-link">my cv</a>
+              or
+              <a href="youtube-cv-timeline.html" class="content-link">youtube uploads</a>.
+            </div>
+          </div>
+        </div>
+
+        <div class="content-block newsletter">
+          <p class="paragraph-1-125 u-mb-0 small js-newsletter-text">
+            join <span class="u-text-medium">52,480</span> builders on my weekly memo. it is good,
+            i swear.
+          </p>
+          <form class="essay-newsletter-form" action="#" method="post">
+            <input
+              type="email"
+              class="essay-newsletter-input js-newsletter-input"
+              placeholder="Email address"
+              aria-label="Email address"
+            />
+            <button type="submit" class="essay-newsletter-button js-newsletter-button">
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="site-config.js?v=7"></script>
+    <script src="script.js?v=8"></script>
+  </body>
+</html>

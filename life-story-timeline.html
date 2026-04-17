@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aria Stone - Life Story Timeline (Experiment)</title>
+    <meta
+      name="description"
+      content="Experimental timeline layout for the my life story section."
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .page-wrapp {
+        background-color: #fafbfc;
+      }
+
+      .timeline-page {
+        width: 900px;
+        max-width: 94%;
+      }
+
+      .timeline-intro {
+        max-width: 740px;
+      }
+
+      .timeline-wrap {
+        position: relative;
+        margin-top: 10px;
+        padding-left: 42px;
+      }
+
+      .timeline-wrap::before {
+        content: "";
+        position: absolute;
+        left: 15px;
+        top: 4px;
+        bottom: 4px;
+        width: 2px;
+        background: #d5d8dd;
+      }
+
+      .timeline-item {
+        position: relative;
+        margin-bottom: 26px;
+        padding-bottom: 2px;
+      }
+
+      .timeline-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .timeline-dot {
+        position: absolute;
+        left: -35px;
+        top: 7px;
+        width: 12px;
+        height: 12px;
+        border-radius: 999px;
+        background: #161717;
+        box-shadow: 0 0 0 5px #fafbfc;
+      }
+
+      .timeline-age {
+        opacity: 0.68;
+        margin-bottom: 5px;
+        font-family: Minion Pro, sans-serif;
+        font-size: 1.02rem;
+        line-height: 1.2em;
+      }
+
+      .timeline-title {
+        margin-bottom: 5px;
+        font-family: Minion Pro, sans-serif;
+        font-size: 1.52rem;
+        font-weight: 500;
+        line-height: 1.2em;
+      }
+
+      .timeline-copy {
+        max-width: 740px;
+        font-family: Minion Pro, sans-serif;
+        font-size: 1.22rem;
+        line-height: 1.55em;
+      }
+
+      .timeline-highlight {
+        font-style: italic;
+      }
+
+      .timeline-tag {
+        display: inline-flex;
+        margin-top: 10px;
+        padding: 4px 9px;
+        border-radius: 999px;
+        border: 1px solid #d8dbe0;
+        font-family: Ppneuemontreal, sans-serif;
+        font-size: 0.83rem;
+        letter-spacing: 0.02em;
+        line-height: 1em;
+      }
+
+      .timeline-link {
+        width: fit-content;
+        text-decoration-color: #d7d9de;
+      }
+
+      .timeline-link:hover {
+        text-decoration-color: #ffa568;
+      }
+
+      @media screen and (max-width: 767px) {
+        .timeline-wrap {
+          padding-left: 32px;
+        }
+
+        .timeline-wrap::before {
+          left: 12px;
+        }
+
+        .timeline-dot {
+          left: -24px;
+          width: 10px;
+          height: 10px;
+        }
+
+        .timeline-title {
+          font-size: 1.32rem;
+        }
+
+        .timeline-copy {
+          font-size: 1.08rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-wrapp min-height">
+      <div class="page-contain less timeline-page">
+        <div class="content-block">
+          <a href="index.html" class="content-link back">Back to homepage</a>
+        </div>
+
+        <div class="content-block timeline-intro">
+          <h1 class="page-heading">my life story:</h1>
+          <div class="page-subheading">
+            Experimental timeline view. Built as a separate page so you can keep or delete it
+            without affecting the live homepage.
+          </div>
+        </div>
+
+        <div class="content-block">
+          <div class="timeline-wrap">
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">ages 2-10</div>
+              <div class="timeline-title">The Curiosity Era</div>
+              <div class="timeline-copy">
+                Took apart every toy in the house. Asked too many questions. Learned early that
+                progress starts with touching real things, not just reading about them.
+              </div>
+              <div class="timeline-tag">foundation: curiosity</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">ages 10-18</div>
+              <div class="timeline-title">The Internet Era</div>
+              <div class="timeline-copy">
+                Forums, side projects, and mini experiments after school. Built taste for writing,
+                product thinking, and online distribution before I knew those words.
+              </div>
+              <div class="timeline-tag">foundation: leverage</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">ages 18-26</div>
+              <div class="timeline-title">The Startup Era</div>
+              <div class="timeline-copy">
+                Moved cities and built products no one wanted at first. Burned cycles. Rebuilt
+                from scratch. Learned that the hard part is not building, it is getting people to
+                care.
+              </div>
+              <div class="timeline-tag">lesson: distribution > perfection</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">ages 26-34</div>
+              <div class="timeline-title">The Operator Era</div>
+              <div class="timeline-copy">
+                Built teams, fixed messy systems, and created repeatable growth loops. This is
+                where I shifted from shipping ideas to shipping systems.
+              </div>
+              <div class="timeline-tag">focus: repeatability</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">ages 34-40</div>
+              <div class="timeline-title">The Leverage Era</div>
+              <div class="timeline-copy">
+                Writing, investing, and teaching founders how to do more with less.
+                <span class="timeline-highlight">
+                  Fewer projects. Better projects. Longer compounding windows.
+                </span>
+              </div>
+              <div class="timeline-tag">focus: scale self</div>
+            </article>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <a href="index.html#hall-of-fame" class="content-link timeline-link">
+            continue to internet hall of fame
+          </a>
+        </div>
+      </div>
+    </div>
+      <script src="script.js?v=8"></script>
+  </body>
+</html>

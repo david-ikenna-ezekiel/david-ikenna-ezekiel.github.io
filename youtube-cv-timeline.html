@@ -1,0 +1,889 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>David Ezekiel - YouTube Catalogue</title>
+    <meta
+      name="description"
+      content="Timeline view of The Data Signal uploads."
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      :root {
+        --essay-title-size: 2.5rem;
+        --essay-title-lh: 1em;
+        --essay-body-size: 1.1rem;
+        --essay-body-lh: 1.6em;
+      }
+
+      .page-wrapp {
+        background-color: #fafbfc;
+      }
+
+      .timeline-page {
+        width: 900px;
+        max-width: 94%;
+      }
+
+      .timeline-intro {
+        max-width: 760px;
+      }
+
+      .timeline-wrap {
+        position: relative;
+        margin-top: 10px;
+        padding-left: 42px;
+      }
+
+      .timeline-wrap::before {
+        content: "";
+        position: absolute;
+        left: 15px;
+        top: 4px;
+        bottom: 4px;
+        width: 2px;
+        background: #d5d8dd;
+      }
+
+      .timeline-item {
+        position: relative;
+        margin-bottom: 26px;
+        padding-bottom: 2px;
+      }
+
+      .timeline-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .timeline-dot {
+        position: absolute;
+        left: -35px;
+        top: 7px;
+        width: 12px;
+        height: 12px;
+        border-radius: 999px;
+        background: #161717;
+        box-shadow: 0 0 0 5px #fafbfc;
+      }
+
+      .timeline-age {
+        opacity: 0.68;
+        margin-bottom: 5px;
+        font-family: Minion Pro, sans-serif;
+        font-size: var(--essay-body-size);
+        line-height: var(--essay-body-lh);
+      }
+
+      .timeline-title {
+        margin-bottom: 5px;
+        font-family: Minion Pro, sans-serif;
+        font-size: var(--essay-body-size);
+        font-weight: 500;
+        line-height: var(--essay-body-lh);
+      }
+
+      .timeline-copy {
+        max-width: 760px;
+        font-family: Minion Pro, sans-serif;
+        font-size: var(--essay-body-size);
+        line-height: var(--essay-body-lh);
+      }
+
+      .timeline-tag {
+        display: inline-flex;
+        margin-top: 10px;
+        padding: 4px 9px;
+        border-radius: 999px;
+        border: 1px solid #d8dbe0;
+        font-family: Ppneuemontreal, sans-serif;
+        font-size: 0.83rem;
+        letter-spacing: 0.02em;
+        line-height: 1em;
+      }
+
+      .timeline-link {
+        width: fit-content;
+        text-decoration-color: #d7d9de;
+      }
+
+      .timeline-link:hover {
+        text-decoration-color: #ffa568;
+      }
+
+      .timeline-intro .page-heading {
+        letter-spacing: 0;
+        text-transform: none;
+        margin-bottom: 0;
+        font-size: var(--essay-title-size);
+        font-weight: 500;
+        line-height: var(--essay-title-lh);
+      }
+
+      .timeline-intro .page-subheading {
+        font-size: var(--essay-body-size);
+        line-height: var(--essay-body-lh);
+      }
+
+      @media screen and (max-width: 991px) {
+        :root {
+          --essay-title-size: 2.1rem;
+          --essay-body-size: 1.05rem;
+          --essay-body-lh: 1.6em;
+        }
+      }
+
+      @media screen and (max-width: 767px) {
+        :root {
+          --essay-title-size: 1.7rem;
+          --essay-title-lh: 1.15em;
+          --essay-body-size: 1rem;
+          --essay-body-lh: 1.58em;
+        }
+
+        .timeline-wrap {
+          padding-left: 32px;
+        }
+
+        .timeline-wrap::before {
+          left: 12px;
+        }
+
+        .timeline-dot {
+          left: -24px;
+          width: 10px;
+          height: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-wrapp min-height">
+      <div class="page-contain less timeline-page">
+        <div class="content-block">
+          <a href="index.html" class="content-link back">Back to homepage</a>
+        </div>
+
+        <div class="content-block timeline-intro">
+          <h1 class="page-heading">data signal catalogue:</h1>
+          <div class="page-subheading">
+            every public upload from
+            <a href="https://www.youtube.com/@thedatasignal" class="content-link" target="_blank" rel="noopener noreferrer">@thedatasignal</a>,
+            ordered newest to oldest, with a short summary for each video. videos listed: 70. last synced: April 17, 2026.
+          </div>
+        </div>
+
+        <div class="content-block">
+          <div class="timeline-wrap">
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">2 weeks ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=cE5fYnZPD6Y" class="content-link" target="_blank" rel="noopener noreferrer">Inside My AI Game Build: Architecture, Prompts &amp; Iterations</a></div>
+              <div class="timeline-copy">
+                I built a Tetris-style game called TetriPulse using Codex. But this video isn’t about “look what AI can do.” It’s about what it actually takes to turn AI output into working software....
+              </div>
+              <div class="timeline-tag">51 views • 16:05</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">1 month ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=hs1Rt1qFo_s" class="content-link" target="_blank" rel="noopener noreferrer">I Let Codex CLI Clean My Messy Downloads Folder…Here’s What Happened</a></div>
+              <div class="timeline-copy">
+                Ever opened your Downloads folder and realised it’s complete chaos? In this video, I show how I used Codex CLI to automatically organise my messy downloads folder into structured categories...
+              </div>
+              <div class="timeline-tag">116 views • 8:39</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">2 months ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=FlLwo99Q568" class="content-link" target="_blank" rel="noopener noreferrer">ETL vs ELT: The Real Difference in Modern Data Pipelines</a></div>
+              <div class="timeline-copy">
+                ETL vs ELT is one of those data concepts that sounds simple — until you actually try to explain it. Most explanations focus on the acronyms: Extract, Transform, Load vs Extract, Load, Transform....
+              </div>
+              <div class="timeline-tag">1,383 views • 15:09</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">2 months ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=grD8Y-ezsSU" class="content-link" target="_blank" rel="noopener noreferrer">Deploy Your First Website on Google Cloud in 5 Minutes (Linux VM + Apache)</a></div>
+              <div class="timeline-copy">
+                In this video, I walk through how to deploy a simple website on Google Cloud Platform using a Linux virtual machine and Apache HTTP Server. We start by creating a Linux VM in Compute Engine,...
+              </div>
+              <div class="timeline-tag">107 views • 5:39</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">3 months ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=5cu2XnUFrkk" class="content-link" target="_blank" rel="noopener noreferrer">This Trick Turns Google Drive Into a Data Lake for Databricks</a></div>
+              <div class="timeline-copy">
+                Want to use Google Drive like a fully functional cloud storage system for your Databricks projects? In this step-by-step tutorial, I’ll show you the exact trick to connect Databricks to Google...
+              </div>
+              <div class="timeline-tag">301 views • 17:16</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">4 months ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=H6aaIj9rpHE" class="content-link" target="_blank" rel="noopener noreferrer">Stop Struggling with SQL Window Functions — Watch This First!</a></div>
+              <div class="timeline-copy">
+                Struggling to wrap your head around SQL Window Functions? You’re not alone, they’re one of those things that sound complex until someone explains them the right way. In this video, I’ll...
+              </div>
+              <div class="timeline-tag">430 views • 19:15</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">5 months ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=8rRsojBZbsU" class="content-link" target="_blank" rel="noopener noreferrer">How does Serverless Compute Work in Data Engineering? Clusters vs Serverless Explained</a></div>
+              <div class="timeline-copy">
+                In this video, we explore how serverless compute works in data engineering and compare it with traditional clusters. If you’re learning modern data platforms like BigQuery, Snowflake, or...
+              </div>
+              <div class="timeline-tag">86 views • 15:44</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">5 months ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=l7BJN-H199k" class="content-link" target="_blank" rel="noopener noreferrer">How Modern Data Platforms Separate Compute &amp; Storage</a></div>
+              <div class="timeline-copy">
+                Understanding compute and storage is one of the most important first steps in becoming a data engineer. In this video, I break down what compute is, what storage is, and why separating them...
+              </div>
+              <div class="timeline-tag">186 views • 15:12</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">7 months ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=ANWstzFJ6Ak" class="content-link" target="_blank" rel="noopener noreferrer">BEST DEMO on ChatGPT AGENTS: Build Slides from Notion, Clean Data, Load to Airtable</a></div>
+              <div class="timeline-copy">
+                In this video, I put ChatGPT Agents to the test with two real-world demos plus an overview of how they work. You’ll see exactly how I went from a simple prompt to full automation — no coding...
+              </div>
+              <div class="timeline-tag">161 views • 27:36</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">7 months ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=s26wJrdj1Lg" class="content-link" target="_blank" rel="noopener noreferrer">10 Years, 10 Upgrades: Power BI’s Fast-Track Evolution Explained</a></div>
+              <div class="timeline-copy">
+                Ready to see how Microsoft Power BI rocketed from an Excel add-in to the world’s most popular self-service analytics platform? In this rundown we break down the ten breakthrough upgrades—one...
+              </div>
+              <div class="timeline-tag">2,014 views • 12:05</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">7 months ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=GCmuaJX_Hwg" class="content-link" target="_blank" rel="noopener noreferrer">Your DASHBOARDS Aren’t Broken—Your CULTURE Is</a></div>
+              <div class="timeline-copy">
+                In Part 4 of Shift Left, Think Forward we unpack why most data meltdowns trace back to people, incentives, and org charts—not missing software. What you’ll learn 0:00 – Intro — Tools...
+              </div>
+              <div class="timeline-tag">55 views • 21:09</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">8 months ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=GPBuRIvQ5ag" class="content-link" target="_blank" rel="noopener noreferrer">Data Tools That Catch Mistakes Before They Happen | Shift Left Series</a></div>
+              <div class="timeline-copy">
+                Tools won’t fix a broken data culture—but when your mindset is right, they can turn good habits into a repeatable system. In this episode of “Shift Left, Think Forward,” we explore...
+              </div>
+              <div class="timeline-tag">65 views • 33:15</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">8 months ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=oDG-DnnCTuU" class="content-link" target="_blank" rel="noopener noreferrer">From Janitor to Architect: How Data Teams Are Being Rebuilt for the AI Era | Shift Left Series</a></div>
+              <div class="timeline-copy">
+                For years, data teams have been stuck in reactive mode—cleaning up messy reports, fixing broken dashboards, and chasing bugs long after they’ve caused damage. But as AI and real-time decisionin...
+              </div>
+              <div class="timeline-tag">59 views • 14:57</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">8 months ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=NrTWLanzXy8" class="content-link" target="_blank" rel="noopener noreferrer">Why ‘Shifting Left’ Is the Wake-Up Call Data Teams Needed</a></div>
+              <div class="timeline-copy">
+                Every data team has had that moment—your dashboard breaks, panic sets in, and everyone scrambles to figure out what went wrong… after the fact. In this video, we explore why that’s no...
+              </div>
+              <div class="timeline-tag">76 views • 15:39</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">9 months ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=YNh-fCtherQ" class="content-link" target="_blank" rel="noopener noreferrer">Databricks vs Snowflake vs dbt: Built for which Data Teams? Finally Understand the Difference</a></div>
+              <div class="timeline-copy">
+                Databricks. Snowflake. dbt. Everyone’s talking about them. Every modern data team is using at least one of them. But what do these tools actually do? And more importantly—who are they...
+              </div>
+              <div class="timeline-tag">8,797 views • 16:19</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">9 months ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=xon7MyIOAu0" class="content-link" target="_blank" rel="noopener noreferrer">You’re Surrounded by Big Data—Here’s What That Actually Means</a></div>
+              <div class="timeline-copy">
+                Big Data isn’t just a tech term from the early 2010s—it’s the invisible force behind nearly every decision modern technology makes. From the apps on your phone to the routes your GPS...
+              </div>
+              <div class="timeline-tag">7,062 views • 10:24</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">9 months ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=kIkn6_dw1Lw" class="content-link" target="_blank" rel="noopener noreferrer">Canva Is Coming for BI Tools – I Built This Dashboard to Test It</a></div>
+              <div class="timeline-copy">
+                🚀 Canva Just Got Analytical! In this video, I walk you through Canva’s newest feature — Canva Sheets — and how it’s changing the game for data-driven storytelling and visual reporting....
+              </div>
+              <div class="timeline-tag">1,204 views • 25:34</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">10 months ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=R-oXsJLPYcQ" class="content-link" target="_blank" rel="noopener noreferrer">📰 End-to-End News Data Pipeline | Databricks, PySpark, Delta Lake, Hive, and Sentiment Analysis</a></div>
+              <div class="timeline-copy">
+                In this video, I walk you through a full-scale data pipeline for processing and analyzing news articles using the modern medallion architecture (Bronze → Silver → Gold). The pipeline is...
+              </div>
+              <div class="timeline-tag">4,058 views • 43:27</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">11 months ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=1kpZQpoxCWI" class="content-link" target="_blank" rel="noopener noreferrer">Let&#x27;s Build a Data Quality Checker in Python (Step-by-Step Tutorial)</a></div>
+              <div class="timeline-copy">
+                In this practical, step-by-step tutorial, we&#x27;ll build a comprehensive Data Quality Checker in Python using Pandas. We&#x27;ll cover the 6 essential dimensions of data quality—Accuracy, Completeness,...
+              </div>
+              <div class="timeline-tag">5,063 views • 26:14</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">11 months ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=TxAnbaVWAo0" class="content-link" target="_blank" rel="noopener noreferrer">The 5-Step Generative AI Framework Everyone Should Know</a></div>
+              <div class="timeline-copy">
+                Curious about Generative AI and its real-world applications for your business? This video breaks down the practical journey of adopting Generative AI into five clear stages, from foundation...
+              </div>
+              <div class="timeline-tag">240 views • 26:19</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">1 year ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=hF11yaL6QxA" class="content-link" target="_blank" rel="noopener noreferrer">Azure Databricks Lakehouse Explained in 2mins</a></div>
+              <div class="timeline-copy">
+                Are you dealing with massive amounts of data and looking for a powerful, AI-ready solution? 🌍 Enter Azure Databricks Lakehouse Architecture – a game-changer for data storage, processing,...
+              </div>
+              <div class="timeline-tag">183 views • 2:39</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">1 year ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=UJ5g9BUaoeE" class="content-link" target="_blank" rel="noopener noreferrer">Medallion Architecture Explained: From Raw Data to Business Insights</a></div>
+              <div class="timeline-copy">
+                In this video, we explore the Medallion Architecture, a modern approach to data organization that refines raw data (Bronze) into validated (Silver) and ultimately business-ready (Gold) insights....
+              </div>
+              <div class="timeline-tag">4,405 views • 18:23</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">1 year ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=IjPFq7FajVk" class="content-link" target="_blank" rel="noopener noreferrer">How I Built a SALES HTML Dashboard with ChatGPT 😎</a></div>
+              <div class="timeline-copy">
+                In this video, I walk you through creating a powerful yet user-friendly Sales Dashboard using HTML, JavaScript, PapaParse for CSV parsing, and Plotly for data visualization—all with ChatGPT....
+              </div>
+              <div class="timeline-tag">857 views • 11:53</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">1 year ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=RhLJlTTeMLU" class="content-link" target="_blank" rel="noopener noreferrer">The ULTIMATE GUIDE to Becoming a Data Analyst &amp; Landing a Dream Job in 2025</a></div>
+              <div class="timeline-copy">
+                Are you looking the fastest way to become a Data Analyst and actually get a job? Or you are just curious to finding an ultimate guide to becoming a data analyst and land a job in 2025? In this...
+              </div>
+              <div class="timeline-tag">2,278 views • 15:11</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">1 year ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=TC849StoJW0" class="content-link" target="_blank" rel="noopener noreferrer">Stay Updated with AI Trends</a></div>
+              <div class="timeline-copy">
+                AI is evolving fast, and staying updated can feel overwhelming! With major disruptions like DeepSeek shaking up markets and NVIDIA losing over $500 billion, keeping up with AI trends is more...
+              </div>
+              <div class="timeline-tag">132 views • 10:36</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">1 year ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=UqttEBZJkf8" class="content-link" target="_blank" rel="noopener noreferrer">Fix Error &quot;This account may not have enough CPU cores to satisfy this request&quot; On Databricks</a></div>
+              <div class="timeline-copy">
+                In this video, we’ll walk you through the steps to resolve the error message: This account may not have enough CPU cores to satisfy this request -- on Databricks. Whether you’re a beginner...
+              </div>
+              <div class="timeline-tag">508 views • 2:07</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">1 year ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=doELDEh9iH8" class="content-link" target="_blank" rel="noopener noreferrer">Azure 101: Key Terminologies for Beginners</a></div>
+              <div class="timeline-copy">
+                🚀 Welcome to Azure 101! If you’re new to Microsoft Azure or cloud computing, this video is the perfect starting point. We’ll break down the key terminologies you need to know, making...
+              </div>
+              <div class="timeline-tag">237 views • 11:29</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">1 year ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=4Ta2JfdmPMU" class="content-link" target="_blank" rel="noopener noreferrer">How I Built a Website in 5 Minutes Using ChatGPT and Replit!</a></div>
+              <div class="timeline-copy">
+                In this video, I show you step-by-step how I built a functional website in just 5 minutes using ChatGPT and Replit. Whether you’re a beginner with no coding experience or a developer looking...
+              </div>
+              <div class="timeline-tag">7,959 views • 5:46</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">1 year ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=dTvzawtRJuY" class="content-link" target="_blank" rel="noopener noreferrer">Day 15: Python Projects | 15 Days of Python with Daily Lessons, Practice, &amp; Project</a></div>
+              <div class="timeline-copy">
+                Welcome to the &quot;15 Days of Python&quot; series! This project is designed as a comprehensive beginner’s guide to learning Python programming. Over the course of 15 days, we cover foundational Python...
+              </div>
+              <div class="timeline-tag">5,425 views • 30:03</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">1 year ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=mAAnyH8xcxA" class="content-link" target="_blank" rel="noopener noreferrer">Day 14: Object-Oriented Programming | 15 Days of Python with Daily Lessons, Practice, &amp; Project</a></div>
+              <div class="timeline-copy">
+                Welcome to the &quot;15 Days of Python&quot; series! This project is designed as a comprehensive beginner’s guide to learning Python programming. Over the course of 15 days, we cover foundational Python...
+              </div>
+              <div class="timeline-tag">5,553 views • 27:37</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">3 years ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=TPT32173flk" class="content-link" target="_blank" rel="noopener noreferrer">Fixing Excel Error on SSIS -- could not retrieve the table information for the connection manager</a></div>
+              <div class="timeline-copy">
+                In this video, I will be describing how to resolve a common problem when creating an Excel Connection on SSIS: Could not retrieve the table information for the connection manager Excel Connection...
+              </div>
+              <div class="timeline-tag">11,193 views • 5:28</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">1 year ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=fzkNSJNmflA" class="content-link" target="_blank" rel="noopener noreferrer">Day 01: Introduction to Python | 15 Days of Python with Daily Lessons, Practice, &amp; Project</a></div>
+              <div class="timeline-copy">
+                Welcome to the &quot;15 Days of Python&quot; series! This project is designed as a comprehensive beginner’s guide to learning Python programming. Over the course of 15 days, we cover foundational Python...
+              </div>
+              <div class="timeline-tag">6,080 views • 14:40</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">1 year ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=7iVYVwhvwtc" class="content-link" target="_blank" rel="noopener noreferrer">How to Connect to Databricks from PowerBI</a></div>
+              <div class="timeline-copy">
+                In this video I will be showing you How to Create Delta Tables on Databricks and Connect to PowerBI
+              </div>
+              <div class="timeline-tag">4,540 views • 7:37</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">2 years ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=IknM4PGxRB8" class="content-link" target="_blank" rel="noopener noreferrer">What is SQL (A Beginner&#x27;s Guide to SQL)</a></div>
+              <div class="timeline-copy">
+                Understand the basics of SQL in this video where I provide an overview of sql and databases Chapters: 0:00 - Introduction 0:57 - What is a Database 1:50 - What is SQL 2:58 - SQL| Databases...
+              </div>
+              <div class="timeline-tag">3,108 views • 16:55</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">1 year ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=QBr2WUgxnEc" class="content-link" target="_blank" rel="noopener noreferrer">How to Create Azure Key Vault and Connect with Databricks</a></div>
+              <div class="timeline-copy">
+                In this video I will show you how to create an azure key vault, create secret scope on databricks, and connect with key vault on azure
+              </div>
+              <div class="timeline-tag">2,346 views • 11:33</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">1 year ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=zoyk6_8an-0" class="content-link" target="_blank" rel="noopener noreferrer">How to Migrate On-premises SQL DB to Azure Datalake Gen2 | Single &amp; Bulk Copy Using Data Factory</a></div>
+              <div class="timeline-copy">
+                In this video, I will be describing How to Migrate On-premises SQL DB to Azure Datalake Gen2 | Single &amp; Bulk Copy Using Data Factory. #ADF #azure #sql Download bash script for creating azure...
+              </div>
+              <div class="timeline-tag">1,870 views • 22:05</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">1 year ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=kYs_V4mRJgk" class="content-link" target="_blank" rel="noopener noreferrer">Day 08: &quot;For&quot; &amp; &quot;While&quot; Loops | 15 Days of Python with Daily Lessons, Practice, &amp; Project</a></div>
+              <div class="timeline-copy">
+                Welcome to the &quot;15 Days of Python&quot; series! This project is designed as a comprehensive beginner’s guide to learning Python programming. Over the course of 15 days, we cover foundational Python...
+              </div>
+              <div class="timeline-tag">1,733 views • 16:12</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">2 years ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=vsuJ0yvNCOs" class="content-link" target="_blank" rel="noopener noreferrer">How to Create an Azure Virtual Machine &amp; Connect to SQL Server Remotely</a></div>
+              <div class="timeline-copy">
+                In this video I will be showing how to Create an Azure Virtual Machine, Download &amp; Install SQL server, Configure SSMS, and Connect to SQL Server Remotely. I will also show how to connect with...
+              </div>
+              <div class="timeline-tag">1,674 views • 28:10</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">2 years ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=qhB6q0kBZWo" class="content-link" target="_blank" rel="noopener noreferrer">How to download and install AdventureWorks database into your SSMS &amp; Azure Studio</a></div>
+              <div class="timeline-copy">
+                Download AdventureWorks Database: https://learn.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver16&amp;tabs=ssms
+              </div>
+              <div class="timeline-tag">1,572 views • 8:14</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">1 year ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=JT-9cALngYE" class="content-link" target="_blank" rel="noopener noreferrer">How to Design a Data Model Using Python and SQLite</a></div>
+              <div class="timeline-copy">
+                In this video, I walk you through the process of designing a data model using Python and SQLite. You&#x27;ll learn the basics of data modelling, how to set up a database, create tables for Artists,...
+              </div>
+              <div class="timeline-tag">1,378 views • 15:09</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">1 year ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=rm4uk9VYoYc" class="content-link" target="_blank" rel="noopener noreferrer">How I Automated and Analyzed Google Form on Looker Using Expressions and Javascript</a></div>
+              <div class="timeline-copy">
+                In this video, I explained how I automated and analyzed Google Form on Looker Using Expressions and Javascript All scripts can be found in this repo. Feel free to try this out and share your...
+              </div>
+              <div class="timeline-tag">1,355 views • 14:59</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">1 year ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=INqglLYVTnE" class="content-link" target="_blank" rel="noopener noreferrer">How to Write CSV as Delta Table to DBFS and Data Lake | Azure Databricks</a></div>
+              <div class="timeline-copy">
+                In this video I explain how to write How to Write CSV as Delta Table to DBFS and Azure Data Lake. Additionally, you will learn how to write as an sql table on databricks
+              </div>
+              <div class="timeline-tag">1,243 views • 9:05</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">1 year ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=5qRsrYQp0YU" class="content-link" target="_blank" rel="noopener noreferrer">How to Fix Data Migration Error -- errorcode = jrenotfound</a></div>
+              <div class="timeline-copy">
+                In this video, I describe how you can fix one of the common errors that pop up when migrating data from sql to azure datalake: errorcode=jrenotfound,&#x27;type=microsoft.datatransfer.common.shared.hybr...
+              </div>
+              <div class="timeline-tag">897 views • 3:38</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">1 year ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=9w15eCL3I_8" class="content-link" target="_blank" rel="noopener noreferrer">How to Create Azure Datalake Gen-2 Storage</a></div>
+              <div class="timeline-copy">
+                In this video, I described how to create Azure Datalake Gen-2 Storage on azure.
+              </div>
+              <div class="timeline-tag">739 views • 4:26</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">2 years ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=tfy6jqqJR2g" class="content-link" target="_blank" rel="noopener noreferrer">SQL Commands - CREATE, INSERT, DELETE, UPDATE, &amp; WHERE STATEMENTS</a></div>
+              <div class="timeline-copy">
+                In this video, you will learn how to write the following SQL commands using a practical business use case: CREATE, INSERT, DELETE, UPDATE, &amp; WHERE STATEMENTS
+              </div>
+              <div class="timeline-tag">684 views • 21:29</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">1 year ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=cNlFdncHhT8" class="content-link" target="_blank" rel="noopener noreferrer">Day 13: Error Handling | 15 Days of Python with Daily Lessons, Practice, &amp; Project</a></div>
+              <div class="timeline-copy">
+                Welcome to the &quot;15 Days of Python&quot; series! This project is designed as a comprehensive beginner’s guide to learning Python programming. Over the course of 15 days, we cover foundational Python...
+              </div>
+              <div class="timeline-tag">110 views • 23:52</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">1 year ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=dNPe790S1b8" class="content-link" target="_blank" rel="noopener noreferrer">Day 12: Modules and Packages | 15 Days of Python with Daily Lessons, Practice, &amp; Project</a></div>
+              <div class="timeline-copy">
+                Welcome to the &quot;15 Days of Python&quot; series! This project is designed as a comprehensive beginner’s guide to learning Python programming. Over the course of 15 days, we cover foundational Python...
+              </div>
+              <div class="timeline-tag">185 views • 21:41</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">1 year ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=YpRljX_Q4GQ" class="content-link" target="_blank" rel="noopener noreferrer">Day 11: File Handling | 15 Days of Python with Daily Lessons, Practice, &amp; Project</a></div>
+              <div class="timeline-copy">
+                Welcome to the &quot;15 Days of Python&quot; series! This project is designed as a comprehensive beginner’s guide to learning Python programming. Over the course of 15 days, we cover foundational Python...
+              </div>
+              <div class="timeline-tag">119 views • 18:34</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">1 year ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=JrCWn04U_JM" class="content-link" target="_blank" rel="noopener noreferrer">Day 10: Working with Strings | 15 Days of Python with Daily Lessons, Practice, &amp; Project</a></div>
+              <div class="timeline-copy">
+                Welcome to the &quot;15 Days of Python&quot; series! This project is designed as a comprehensive beginner’s guide to learning Python programming. Over the course of 15 days, we cover foundational Python...
+              </div>
+              <div class="timeline-tag">217 views • 18:30</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">1 year ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=njR4UyE5biA" class="content-link" target="_blank" rel="noopener noreferrer">Day 09: Functions | 15 Days of Python with Daily Lessons, Practice, &amp; Project</a></div>
+              <div class="timeline-copy">
+                Welcome to the &quot;15 Days of Python&quot; series! This project is designed as a comprehensive beginner’s guide to learning Python programming. Over the course of 15 days, we cover foundational Python...
+              </div>
+              <div class="timeline-tag">313 views • 18:16</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">1 year ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=bJPeWKma9fo" class="content-link" target="_blank" rel="noopener noreferrer">Day 07: Conditional Statements | 15 Days of Python with Daily Lessons, Practice, &amp; Project</a></div>
+              <div class="timeline-copy">
+                Welcome to the &quot;15 Days of Python&quot; series! This project is designed as a comprehensive beginner’s guide to learning Python programming. Over the course of 15 days, we cover foundational Python...
+              </div>
+              <div class="timeline-tag">140 views • 15:58</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">1 year ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=aAzVT3hCfe0" class="content-link" target="_blank" rel="noopener noreferrer">Day 06: Data Structures - Dictionaries | 15 Days of Python with Daily Lessons, Practice, &amp; Project</a></div>
+              <div class="timeline-copy">
+                Welcome to the &quot;15 Days of Python&quot; series! This project is designed as a comprehensive beginner’s guide to learning Python programming. Over the course of 15 days, we cover foundational Python...
+              </div>
+              <div class="timeline-tag">194 views • 16:57</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">1 year ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=hk7keN0uPcI" class="content-link" target="_blank" rel="noopener noreferrer">Day 05: Data Structures - Tuples | 15 Days of Python with Daily Lessons, Practice, &amp; Project</a></div>
+              <div class="timeline-copy">
+                Welcome to the &quot;15 Days of Python&quot; series! This project is designed as a comprehensive beginner’s guide to learning Python programming. Over the course of 15 days, we cover foundational Python...
+              </div>
+              <div class="timeline-tag">247 views • 14:13</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">1 year ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=yskd8qrJszQ" class="content-link" target="_blank" rel="noopener noreferrer">Day 04: Data Structures - Lists | 15 Days of Python with Daily Lessons, Practice, &amp; Project</a></div>
+              <div class="timeline-copy">
+                Welcome to the &quot;15 Days of Python&quot; series! This project is designed as a comprehensive beginner’s guide to learning Python programming. Over the course of 15 days, we cover foundational Python...
+              </div>
+              <div class="timeline-tag">210 views • 13:58</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">1 year ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=rMQdV1u5bQc" class="content-link" target="_blank" rel="noopener noreferrer">Day 03: Operators &amp; Expressions | 15 Days of Python with Daily Lessons, Practice, &amp; Project</a></div>
+              <div class="timeline-copy">
+                Welcome to the &quot;15 Days of Python&quot; series! This project is designed as a comprehensive beginner’s guide to learning Python programming. Over the course of 15 days, we cover foundational Python...
+              </div>
+              <div class="timeline-tag">278 views • 22:04</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">1 year ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=7rNM5Kwcv_c" class="content-link" target="_blank" rel="noopener noreferrer">Day 02: Variables and Data Types | 15 Days of Python with Daily Lessons, Practice, &amp; Project</a></div>
+              <div class="timeline-copy">
+                Welcome to the &quot;15 Days of Python&quot; series! This project is designed as a comprehensive beginner’s guide to learning Python programming. Over the course of 15 days, we cover foundational Python...
+              </div>
+              <div class="timeline-tag">389 views • 13:01</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">1 year ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=k-0_M7OFbzg" class="content-link" target="_blank" rel="noopener noreferrer">10 Essential Git Commands Every Developer and Data Professional Should Know!</a></div>
+              <div class="timeline-copy">
+                In this video, I will walk you through 10 everyday commands every developer and data professional should know. Whether you are a software engineer, data scientist, data engineer etc, you will...
+              </div>
+              <div class="timeline-tag">62 views • 18:39</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">1 year ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=3ClIjdFHp1k" class="content-link" target="_blank" rel="noopener noreferrer">How to Provision the Medallion Architecture on Azure ADLS using Terraform</a></div>
+              <div class="timeline-copy">
+                In this video, I will take you through step by step on how you can provision the medallion architecture on Azure ADLS using Terraform. Terraform is an infrastructure-as-code software tool...
+              </div>
+              <div class="timeline-tag">296 views • 14:56</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">1 year ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=PjFkgL2_5tE" class="content-link" target="_blank" rel="noopener noreferrer">WHAT IS A DATA LAKE</a></div>
+              <div class="timeline-copy">
+                In this video, I explain what is a data lake and provided the various use cases for a data lake
+              </div>
+              <div class="timeline-tag">51 views • 10:05</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">2 years ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=CK6zKqfMWEQ" class="content-link" target="_blank" rel="noopener noreferrer">SQL Sub Queries &amp; Data Manipulation</a></div>
+              <div class="timeline-copy">
+                In this video, you will learn how use sub-queries to manipulate data in SQL using a practical business use case. You will also understand how to write advanced queries on SQL: Check out previous...
+              </div>
+              <div class="timeline-tag">38 views • 14:47</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">2 years ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=ncz8H0Nos9Q" class="content-link" target="_blank" rel="noopener noreferrer">SQL Aggregations &amp; Grouping</a></div>
+              <div class="timeline-copy">
+                In this video, you will learn how to perform aggregations and grouping in SQL using a practical business use case. You will also understand how to write advanced queries on SQL: Check out...
+              </div>
+              <div class="timeline-tag">113 views • 15:00</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">2 years ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=1GFSYkNxgtk" class="content-link" target="_blank" rel="noopener noreferrer">SQL Joins &amp; Advanced Queries</a></div>
+              <div class="timeline-copy">
+                In this video, you will learn how to write SQL joins including Right Join, Left Join, and Inner Join using a practical business use case. You will also understand how to write advanced queries...
+              </div>
+              <div class="timeline-tag">345 views • 12:48</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">2 years ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=EqxgsaHNVjY" class="content-link" target="_blank" rel="noopener noreferrer">Download &amp; Install SQL Server | SSMS</a></div>
+              <div class="timeline-copy">
+                In this video, I will guide you on how to download and configure MSSQL and SSMS on your device
+              </div>
+              <div class="timeline-tag">355 views • 5:55</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">3 years ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=PilBEwNHVC8" class="content-link" target="_blank" rel="noopener noreferrer">How to Use Column from Examples to Split Columns in Power Query | Power BI</a></div>
+              <div class="timeline-copy">
+                With add column from examples in Power Query Editor, you can add new columns to your data model simply by providing one or more example values for the new columns. You can create the new column...
+              </div>
+              <div class="timeline-tag">55 views • 9:27</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">3 years ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=0fffP3G5ISs" class="content-link" target="_blank" rel="noopener noreferrer">SSRS Email Marketing</a></div>
+              <div class="timeline-copy">
+                A concise breakdown of &quot;SSRS Email Marketing&quot; with clear examples and practical lessons for data practitioners.
+              </div>
+              <div class="timeline-tag">53 views • 27:02</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">3 years ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=N2zt6a1e3II" class="content-link" target="_blank" rel="noopener noreferrer">How to Build a Report in SSRS - Beginner&#x27;s Guide to SSRS | Part 1</a></div>
+              <div class="timeline-copy">
+                This is the part 1 of my video where I described how you can build a report in SSRS based on user request.
+              </div>
+              <div class="timeline-tag">30 views • 27:02</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">3 years ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=9QqyA4-MJTk" class="content-link" target="_blank" rel="noopener noreferrer">How to Build a Report in SSRS - Beginner&#x27;s Guide to SSRS | Part 1</a></div>
+              <div class="timeline-copy">
+                This is the part 2 of my video where I described how you can build a report in SSRS based on user request.
+              </div>
+              <div class="timeline-tag">17 views • 16:19</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">3 years ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=gBsrJiD_DNI" class="content-link" target="_blank" rel="noopener noreferrer">What is Sentiment Analysis?</a></div>
+              <div class="timeline-copy">
+                Step-by-step walkthrough of &quot;What is Sentiment Analysis?&quot; with implementation-focused takeaways you can apply quickly.
+              </div>
+              <div class="timeline-tag">40 views • 12:55</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">3 years ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=r7qkv60tbk0" class="content-link" target="_blank" rel="noopener noreferrer">Transforming Excel Data in Power BI</a></div>
+              <div class="timeline-copy">
+                A concise breakdown of &quot;Transforming Excel Data in Power BI&quot; with clear examples and practical lessons for data practitioners.
+              </div>
+              <div class="timeline-tag">12 views • 15:47</div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-age">3 years ago</div>
+              <div class="timeline-title"><a href="https://www.youtube.com/watch?v=YliciImOxvU" class="content-link" target="_blank" rel="noopener noreferrer">Create Tables Automatically in SSIS and Azure Data Factory</a></div>
+              <div class="timeline-copy">
+                A concise breakdown of &quot;Create Tables Automatically in SSIS and Azure Data Factory&quot; with clear examples and practical lessons for data practitioners.
+              </div>
+              <div class="timeline-tag">402 views • 13:22</div>
+            </article>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <a href="https://www.youtube.com/@thedatasignal" class="content-link timeline-link" target="_blank" rel="noopener noreferrer">
+            open full channel on youtube
+          </a>
+        </div>
+      </div>
+    </div>
+    <script src="script.js?v=8"></script>
+  </body>
+</html>

@@ -1,0 +1,118 @@
+:root {
+  --essay-subscribe-height: 50px;
+  --essay-subscribe-radius: 8px;
+  --essay-subscribe-border: 2px;
+  --essay-subscribe-button-width: 154px;
+}
+
+.essay-page .essay-newsletter-text,
+.home-page .essay-newsletter-text {
+  margin-bottom: 10px;
+  font-family: Ppneuemontreal, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.4;
+}
+
+.essay-page .essay-newsletter-form,
+.home-page .essay-newsletter-form {
+  position: relative;
+  display: flex !important;
+  align-items: stretch;
+  width: 100%;
+  min-height: var(--essay-subscribe-height);
+  border: var(--essay-subscribe-border) solid #161717;
+  border-radius: var(--essay-subscribe-radius);
+  overflow: hidden;
+  background: #fff;
+  box-shadow: none;
+}
+
+.essay-page .essay-newsletter-form::after,
+.home-page .essay-newsletter-form::after {
+  display: none;
+  content: "";
+}
+
+.essay-page .essay-newsletter-input,
+.home-page .essay-newsletter-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  width: auto;
+  border: 0;
+  min-height: var(--essay-subscribe-height);
+  padding: 0 50px 0 18px;
+  background: transparent;
+  color: #1b1b1b;
+  font-family: Ppneuemontreal, sans-serif;
+  font-size: 1.05rem;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  outline: none;
+}
+
+.essay-page .essay-newsletter-input::placeholder,
+.home-page .essay-newsletter-input::placeholder {
+  color: #7f8590;
+}
+
+.essay-page .essay-newsletter-button,
+.home-page .essay-newsletter-button {
+  flex: 0 0 var(--essay-subscribe-button-width);
+  width: var(--essay-subscribe-button-width) !important;
+  min-width: var(--essay-subscribe-button-width);
+  border: 0;
+  padding: 0 22px;
+  background: #0a0a0a;
+  color: #fff;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Ppneuemontreal, sans-serif;
+  font-size: 1.28rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.essay-page .essay-newsletter-button:hover,
+.home-page .essay-newsletter-button:hover {
+  background: #1f1f1f;
+  transform: translateY(-1px);
+  box-shadow: inset 0 0 0 1px #343434;
+}
+
+.essay-page .essay-newsletter-button:active,
+.home-page .essay-newsletter-button:active {
+  background: #000;
+}
+
+@media screen and (max-width: 767px) {
+  .essay-page .essay-newsletter-form,
+  .home-page .essay-newsletter-form {
+    display: grid !important;
+    grid-template-columns: 1fr;
+  }
+
+  .essay-page .essay-newsletter-form::after,
+  .home-page .essay-newsletter-form::after {
+    display: none;
+  }
+
+  .essay-page .essay-newsletter-input,
+  .home-page .essay-newsletter-input {
+    min-height: 48px;
+    padding: 0 14px;
+    font-size: 1.05rem;
+  }
+
+  .essay-page .essay-newsletter-button,
+  .home-page .essay-newsletter-button {
+    width: 100% !important;
+    min-width: 0;
+    min-height: 48px;
+    font-size: 0.98rem;
+    flex: 1 1 auto;
+  }
+}

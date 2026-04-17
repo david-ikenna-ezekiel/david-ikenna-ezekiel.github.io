@@ -1,216 +1,209 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>David Ezekiel - Portfolio</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aria Stone - Essays and Notes</title>
+    <meta
+      name="description"
+      content="A minimalist personal site with essays, business notes, and curated links."
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="article-subscribe-polish.css?v=6" />
+    <style>
+      .page-wrapp {
+        background-color: #fafbfc;
+      }
 
-  <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
-    rel="stylesheet"
-  />
+      .content-link {
+        text-decoration-color: #d7d9de;
+      }
 
-  <!-- AOS CSS (scroll animations) -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+      .content-link:hover {
+        text-decoration-color: #ffa568;
+      }
 
-  <!-- Main CSS (wave hero) -->
-  <link rel="stylesheet" href="assets/css/style.css" />
+      .newsletter {
+        margin-top: 6px;
+      }
 
-  <!-- Typed.js (typing effect) -->
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-</head>
-<body>
-  <!-- HEADER -->
-  <header class="header">
-    <div class="header-container">
-      <!-- Left: Logo -->
-      <a class="header-logo" href="#hero">
-        <img src="assets/images/logo.png" alt="David Ezekiel Logo" />
-      </a>
+      .project-links {
+        display: flex;
+        flex-flow: column;
+        gap: 8px;
+        border: 1px solid #dfe3e8;
+        border-radius: 8px;
+        padding: 12px 14px;
+        background: transparent;
+      }
 
-      <!-- Nav (links + icons) -->
-      <nav class="header-nav">
-        <ul class="nav-links">
-          <li><a href="#hero" class="active">Home</a></li>
-          <li><a href="#work">Work</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <div class="nav-icons">
-          <!-- Only Light/Dark Mode Toggle -->
-          <button
-            id="themeToggle"
-            class="circle-icon"
-            aria-label="Toggle Dark Mode"
-          >
-            <img src="assets/icons/sun.svg" alt="Toggle Theme" />
-          </button>
-        </div>
-      </nav>
-      
+      .project-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        font-family: Minion Pro, sans-serif;
+        font-size: 1.1rem;
+        font-weight: 700;
+        line-height: 1.4em;
+      }
 
-      <!-- Hamburger (mobile) -->
-      <button class="hamburger" aria-label="Toggle Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </header>
+      .project-item .bullet-circle {
+        flex: none;
+        margin-top: 0.55em;
+      }
 
-  <!-- WAVE HERO SECTION -->
-  <section class="hero-section" id="hero">
-    <!-- Hero Content -->
-    <div class="hero-content">
-      <h1>Hi, I'm David Ezekiel</h1>
+      .project-item .content-link {
+        font-size: 1.1rem;
+        font-weight: 700;
+        line-height: 1.4em;
+      }
 
-      <!-- Description + Newsletter -->
-      <div class="newsletter" data-aos="fade-up">
-      </div>
-      <div class="newsletter">
-        <p>I build data products, pipelines… and everything in between. <strong>Join The Data Signal</strong> — let's build together!</p>
-        <form class="newsletter-form" action="#" method="POST">
-          <input type="email" name="email" placeholder="Email address" required />
-          <button type="submit">Subscribe</button>
-        </form>
-      </div>
+      .project-links.project-gap {
+        margin-bottom: 34px;
+      }
 
-      <!-- Divider Line -->
-      <div class="hero-divider"></div>
-      
-      <!-- Social Icons Immediately Under Name -->
-      
-      <div class="hero-icons" data-aos="fade-up" data-aos-delay="200">
-        <!-- icons... -->
-      </div>
-      
-      <div class="hero-icons">
-        <a href="https://www.youtube.com/@Data_with_David" target="_blank" class="circle-icon" aria-label="YouTube">
-          <img src="assets/icons/youtube.svg" alt="YouTube" />
-        </a>
-        <a href="https://github.com/david-ikenna-ezekiel" target="_blank" class="circle-icon" aria-label="GitHub">
-          <img src="assets/icons/github.svg" alt="GitHub" />
-        </a>
-        <a href="https://www.linkedin.com/in/david-ikenna-ezekiel-804748106/" target="_blank" class="circle-icon" aria-label="LinkedIn">
-          <img src="assets/icons/linkedin.svg" alt="LinkedIn" />
-        </a>
-        <a href="mailto:kelaanalytics.bi@gmail.com" class="circle-icon" aria-label="Email">
-          <img src="assets/icons/mail.svg" alt="Email" />
-        </a>
-      </div>
-
-
-    </div>
-    
-
-    <!-- SVG Wave at the bottom -->
-    <div class="hero-wave">
-      <svg 
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1440 320"
-        preserveAspectRatio="none"
-      >
-        <path
-          fill="#f3f4f5"
-          fill-opacity="1"
-          d="M0,320L48,282.7C96,245,192,171,288,122.7C384,75,480,53,576,53.3C672,53,768,75,864,101.3C960,128,1056,160,1152,186.7C1248,213,1344,235,1392,245.3L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-        ></path>
-      </svg>
-    </div>
-  </section>
-
-  <!-- WORK SECTION -->
-  <section id="work" class="section" data-aos="fade-up">
-    <div class="container">
-      <h2>Work</h2>
-      <p class="section-subtitle">Explore my services and projects.</p>
-
-      <div class="work-grid">
-        <!-- Consulting -->
-        <div class="work-item">
-          <div class="work-image">
-            <img src="assets/images/work1.jpg" alt="Consulting" />
+      @media screen and (max-width: 767px) {
+        .project-links.project-gap {
+          margin-bottom: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-wrapp min-height">
+      <div class="page-contain less home-page">
+        <div class="content-block">
+          <img src="assets/avatar-main.png?v=3" loading="lazy" alt="Portrait of David Ezekiel" class="shaan-image homepage" />
+          <h1 class="page-heading">David Ezekiel (aka "dr. calculus")</h1>
+          <div class="page-subheading">
+            I'm a data engineer, entreprenuer, & creator of
+            <a href="https://www.youtube.com/@thedatasignal" class="content-link" target="_blank" rel="noopener noreferrer">The Data Signal</a>
+            channel & podcast (over 8k followers)
           </div>
-          <h3>Consulting</h3>
-          <p>I consult with clients on data strategy, analytics pipelines, and information management systems.</p>
         </div>
 
-        <!-- Translation Work -->
-        <div class="work-item">
-          <div class="work-image">
-            <img src="assets/images/work2.jpg" alt="Translation Work" />
+        <div class="content-block">
+          <div class="project-links project-gap">
+            <div class="project-item">
+              <div class="bullet-circle"></div>
+              <div>
+                my new project (i'm curating letters i wish i'd received from a data mentor):
+                <a href="https://www.linkedin.com/newsletters/kela-data-letters-7418723129612734464/" class="content-link" target="_blank" rel="noopener noreferrer">the kela letters</a>
+              </div>
+            </div>
+            <div class="project-item">
+              <div class="bullet-circle"></div>
+              <div>
+                see my youtube catalogue (warning: if you're a data nerd, you prolly won't skip any):
+                <a href="youtube-cv-timeline.html" class="content-link">video catalogue</a>
+              </div>
+            </div>
           </div>
-          <h3>Translation Work</h3>
-          <p>I translate data narratives into actionable business outcomes using dashboards, reports, and ML models.</p>
+
+          <div class="content-subheading">on life...</div>
+          <div class="content-list">
+            <div class="content-item"><div class="bullet-circle"></div><a href="essays/my-mission.html" class="content-link">my mission</a></div>
+            <div class="content-item"><div class="bullet-circle"></div><a href="essays/opportunity-highway.html" class="content-link">opportunity highway</a></div>
+            <div class="content-item"><div class="bullet-circle"></div><a href="essays/the-cost-of-the-road-not-taken.html" class="content-link">the cost of the road not taken</a></div>
+            <div class="content-item"><div class="bullet-circle"></div><a href="essays/why-children-feel-light-and-we-dont.html" class="content-link">why children feel light and we don't</a></div>
+            <div class="content-item"><div class="bullet-circle"></div><a href="essays/why-easy-lives-feel-empty.html" class="content-link">why easy lives feel empty</a></div>
+            <div class="content-item"><div class="bullet-circle"></div><a href="essays/how-to-pick-your-hard.html" class="content-link">how to pick your hard</a></div>
+            <div class="content-item"><div class="bullet-circle"></div><a href="essays/the-quiet-advantage.html" class="content-link">the quiet advantage</a></div>
+            <div class="content-item"><div class="bullet-circle"></div><a href="essays-life.html" class="content-link view-more-link">view more essays <span class="view-more-arrow" aria-hidden="true">&rarr;</span></a></div>
+          </div>
         </div>
 
-        <!-- Editing -->
-        <div class="work-item">
-          <div class="work-image">
-            <img src="assets/images/work3.jpg" alt="Editing" />
+        <div class="content-block">
+          <div class="content-subheading">on data...</div>
+          <div class="content-list">
+            <div class="content-item"><div class="bullet-circle"></div><a href="essays/why-data-teams-disagree-even-when-everyone-is-right.html" class="content-link">why data teams disagree even when everyone is right</a></div>
+            <div class="content-item"><div class="bullet-circle"></div><a href="essays/build-for-demand-not-assumptions.html" class="content-link">build for demand, not assumptions</a></div>
+            <div class="content-item"><div class="bullet-circle"></div><a href="essays/one-metric-that-matters.html" class="content-link">one metric that matters</a></div>
+            <div class="content-item"><div class="bullet-circle"></div><a href="essays/the-founder-feedback-loop.html" class="content-link">the founder feedback loop</a></div>
+            <div class="content-item"><div class="bullet-circle"></div><a href="essays/turning-support-into-growth.html" class="content-link">turning support into growth</a></div>
+            <div class="content-item"><div class="bullet-circle"></div><a href="essays/ai-workflows-for-lean-teams.html" class="content-link">AI workflows for lean teams</a></div>
+            <div class="content-item"><div class="bullet-circle"></div><a href="essays/the-weekly-operating-system.html" class="content-link">the weekly operating system</a></div>
+            <div class="content-item"><div class="bullet-circle"></div><a href="essays-data.html" class="content-link view-more-link">view more essays <span class="view-more-arrow" aria-hidden="true">&rarr;</span></a></div>
           </div>
-          <h3>Editing</h3>
-          <p>I help teams improve clarity, consistency, and storytelling in analytics documentation and reports.</p>
         </div>
 
-        <!-- Tutoring -->
-        <div class="work-item">
-          <div class="work-image">
-            <img src="assets/images/work4.jpg" alt="Tutoring" />
+        <div class="content-block">
+          <div class="content-subheading">on business...</div>
+          <div class="content-list">
+            <div class="content-item"><div class="bullet-circle"></div><a href="essays/what-i-stopped-optimizing.html" class="content-link">what i stopped optimizing</a></div>
+            <div class="content-item"><div class="bullet-circle"></div><a href="essays/saying-no-earlier.html" class="content-link">saying no earlier</a></div>
+            <div class="content-item"><div class="bullet-circle"></div><a href="essays/the-wedge-strategy.html" class="content-link">the wedge strategy</a></div>
+            <div class="content-item"><div class="bullet-circle"></div><a href="essays/distribution-before-perfection.html" class="content-link">distribution before perfection</a></div>
+            <div class="content-item"><div class="bullet-circle"></div><a href="essays/tiny-moats-repeated-daily.html" class="content-link">tiny moats, repeated daily</a></div>
+            <div class="content-item"><div class="bullet-circle"></div><a href="essays/the-anti-roadmap-roadmap.html" class="content-link">the anti-roadmap roadmap</a></div>
+            <div class="content-item"><div class="bullet-circle"></div><a href="essays/positioning-by-subtraction.html" class="content-link">positioning by subtraction</a></div>
+            <div class="content-item"><div class="bullet-circle"></div><a href="essays-business.html" class="content-link view-more-link">view more essays <span class="view-more-arrow" aria-hidden="true">&rarr;</span></a></div>
           </div>
-          <h3>Tutoring</h3>
-          <p>I tutor students and professionals in data analytics, SQL, Power BI, and technical writing.</p>
+        </div>
+
+        <div class="content-block" id="hall-of-fame">
+          <div class="content-subheading">internet hall of fame</div>
+          <div class="content-list">
+            <div class="content-item">
+              <div class="bullet-circle"></div>
+              <div>
+                <a href="assets/naval-ravikant-almanack.pdf" class="content-link" target="_blank" rel="noopener noreferrer">the almanack of naval ravikant</a>
+                <span class="one-liner">timeless mental models on wealth, leverage, and clear thinking</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <div class="content-subheading">socials</div>
+          <div class="list-column">
+            <div class="social-row social-handles-row">
+              <a href="#" class="content-link twitter">x / twitter</a>
+              <a href="#" class="content-link linkedin">linkedin</a>
+              <a href="#" class="content-link instagram">instagram</a>
+              <a href="#" class="content-link">youtube</a>
+            </div>
+            <div class="social-row">
+              <div>Email me:</div>
+              <a href="mailto:david.ezekiel@kelaanalytics.com" class="content-link">david.ezekiel@kelaanalytics.com</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <div class="content-subheading">resume</div>
+          <div class="content-list">
+            <div class="content-item">
+              <div class="bullet-circle"></div>
+              <a href="cv-timeline.html" class="content-link">view my resume</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <div class="content-subheading">my life story:</div>
+          <div class="list-column">
+            <div><span class="age-span">ages 2-10:</span> The Curiosity Era. Took apart every toy, asked too many questions, and learned by breaking things.</div>
+            <div><span class="age-span">ages 10-18:</span> The Internet Era. Forums, side projects, and countless experiments that taught me how people think.</div>
+            <div><span class="age-span">ages 18-26:</span> The Startup Era. Moved cities, built products no one wanted, learned distribution the hard way.</div>
+            <div><span class="age-span">ages 26-34:</span> The Operator Era. Built teams, fixed messy systems, and helped products find repeatable growth.</div>
+            <div><span class="age-span">ages 34-40:</span> The Leverage Era. Investing, writing, and teaching founders how to do more with less.</div>
+          </div>
+        </div>
+
+        <div class="content-block newsletter">
+          <p class="paragraph-1-125 u-mb-0 small js-newsletter-text">
+            I build data products, pipelines&hellip; and everything in between. Join The Data Signal &mdash; let's build together!
+          </p>
+          <form class="essay-newsletter-form" action="#" method="post">
+            <input type="email" class="essay-newsletter-input js-newsletter-input" placeholder="Email address" aria-label="Email address" />
+            <button type="submit" class="essay-newsletter-button js-newsletter-button">Subscribe</button>
+          </form>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- ABOUT SECTION -->
-  <section id="about" class="section about-section" data-aos="fade-up">
-    <div class="container about-container">
-      <div class="about-image">
-        <img src="assets/images/about.png" alt="David Ezekiel" />
-      </div>
-      <div class="about-content">
-        <h2>About</h2>
-        <p>
-          Hi. I am David Ezekiel. <br /><br />
-          I am a Data Analyst passionate about unraveling the stories hidden within data and empowering others to harness its transformative power. From uncovering actionable insights to driving strategic decision-making, my core passion lies in leveraging data to unlock new possibilities and drive real-world impact.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT BUTTON BELOW ABOUT -->
-  <section id="contact-link" class="section" data-aos="fade-up">
-    <div class="container" style="text-align: center;">
-      <a href="contact.html" class="contact-button">Contact</a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer-minimal" data-aos="fade-up">
-    <div class="footer-icons">
-      <a href="https://www.youtube.com/@Data_with_David" target="_blank" class="circle-icon" aria-label="YouTube">
-        <img src="assets/icons/youtube.svg" alt="YouTube" />
-      </a> 
-      <a href="https://github.com/david-ikenna-ezekiel" target="_blank" aria-label="GitHub" class="circle-icon">
-        <img src="assets/icons/github.svg" alt="GitHub" />
-      </a>
-      <a href="https://www.linkedin.com/in/david-ikenna-ezekiel-804748106/" target="_blank" aria-label="LinkedIn" class="circle-icon">
-        <img src="assets/icons/linkedin.svg" alt="LinkedIn" />
-      </a>
-      <a href="mailto:kelaanalytics.bi@gmail.com" aria-label="Email" class="circle-icon">
-        <img src="assets/icons/mail.svg" alt="Email" />
-      </a>
-    </div>
-  </footer>
-
-  <!-- AOS JS (scroll animations) -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-  <!-- Main JS -->
-  <script src="assets/js/script.js"></script>
-</body>
+    <script src="site-config.js?v=7"></script>
+    <script src="script.js?v=8"></script>
+  </body>
 </html>
