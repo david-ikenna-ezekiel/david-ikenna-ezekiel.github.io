@@ -1,6 +1,10 @@
 # David Ezekiel Personal Site
 
-Minimalist personal website with essays, timelines, and curated links.
+This repository powers David Ezekiel's minimalist personal website: a content-first home for essays on life, data, and business, alongside curated links, a YouTube catalogue, and supporting profile pages.
+
+Live site:
+
+- [david-ikenna-ezekiel.github.io](https://david-ikenna-ezekiel.github.io)
 
 ## Key Files
 
