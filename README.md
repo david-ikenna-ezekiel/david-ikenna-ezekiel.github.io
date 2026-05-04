@@ -58,3 +58,11 @@ Force a live YouTube refresh and fail instead of falling back to the current HTM
 python3 scripts/import-youtube-catalogue.py --no-fallback
 python3 scripts/render-youtube-catalogue.py
 ```
+
+Sync ready Google Docs from the dedicated Drive article folder with the connected Codex Google Drive tools:
+
+```bash
+Use the Codex automation described in docs/drive-article-sync.md.
+```
+
+Only Google Docs with front matter containing `status: ready` are imported.

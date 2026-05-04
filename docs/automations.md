@@ -90,13 +90,37 @@ This file tracks every automation-like behavior used by the site.
   - Local runs allow HTML fallback so the page can still be regenerated without network access.
   - CI runs use `--no-fallback` so a failed fetch does not silently reuse stale data.
 
+### Drive article sync
+
+- Name: `sync-drive-articles`
+- Trigger: Codex automation scans the publishing inbox on a recurring cadence
+- Source: `scripts/sync-drive-articles.py`
+- Inputs:
+  - Dedicated Drive folder: `https://drive.google.com/drive/folders/18Gti79TcNumQ2spebP1Ogi-de1CAHkuc`
+  - Section folders named `on life`, `on data`, and `on business`
+  - Life story folder named `my life story`
+  - Google Docs with front matter including `status: ready`
+- Outputs:
+  - `essays/*.html`
+  - `life-story-timeline.html`
+  - `content/essay-metadata.csv`
+  - `content/drive-article-map.json`
+  - refreshed essay archive pages
+- Notes:
+  - Draft docs are ignored unless `status` is `ready`, `publish`, or `published`.
+  - The tracking map stores Google Doc IDs so reruns update the same essay instead of duplicating it.
+  - New Drive docs cannot overwrite existing manual essays or metadata rows unless an explicit Doc ID mapping already exists.
+  - The script appends `- dr. calculus` if the imported article body does not already include it.
+- Rollback:
+  - Restore generated essay files, metadata, map, and archive pages from version control.
+
 ## 2) Repository automations (GitHub Actions)
 
-### Biweekly YouTube catalogue PR
+### Weekly YouTube catalogue PR
 
 - Name: `youtube-catalogue-refresh`
 - Trigger:
-  - scheduled weekly on Monday, but only proceeds on even ISO weeks
+  - scheduled weekly on Monday
   - manual `workflow_dispatch`
 - Source: `.github/workflows/youtube-catalogue-refresh.yml`
 - Behavior:
