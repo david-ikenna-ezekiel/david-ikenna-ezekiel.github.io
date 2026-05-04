@@ -58,3 +58,12 @@ Force a live YouTube refresh and fail instead of falling back to the current HTM
 python3 scripts/import-youtube-catalogue.py --no-fallback
 python3 scripts/render-youtube-catalogue.py
 ```
+
+Sync ready Google Docs from the dedicated Drive article folder:
+
+```bash
+python3 -m pip install google-api-python-client google-auth beautifulsoup4
+GOOGLE_APPLICATION_CREDENTIALS=/path/to/service-account.json python3 scripts/sync-drive-articles.py
+```
+
+Only Google Docs with front matter containing `status: ready` are imported.

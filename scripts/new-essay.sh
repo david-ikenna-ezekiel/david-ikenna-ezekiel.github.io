@@ -36,7 +36,7 @@ fi
 
 mkdir -p "$ESSAYS_DIR"
 
-display_date="$(date -j -f "%Y-%m-%d" "$publish_date" "+%B %d, %Y")"
+display_date="$(python3 -c 'import datetime, sys; print(datetime.date.fromisoformat(sys.argv[1]).strftime("%B %d, %Y"))' "$publish_date")"
 essay_file="$ESSAYS_DIR/${slug}.html"
 
 if [[ -e "$essay_file" ]]; then

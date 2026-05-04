@@ -6,6 +6,7 @@ This folder is the single source of truth for why the site looks/behaves the way
 
 - `design-decisions.md`: design and product decisions (what, why, impact).
 - `automations.md`: automation inventory and runbooks.
+- `drive-article-sync.md`: Google Drive publishing inbox format and setup.
 
 ## Update Rule
 

@@ -90,6 +90,33 @@ This file tracks every automation-like behavior used by the site.
   - Local runs allow HTML fallback so the page can still be regenerated without network access.
   - CI runs use `--no-fallback` so a failed fetch does not silently reuse stale data.
 
+### Drive article sync
+
+- Name: `sync-drive-articles`
+- Trigger: Manual run when checking the publishing inbox locally
+- Source: `scripts/sync-drive-articles.py`
+- Command:
+  ```bash
+  GOOGLE_APPLICATION_CREDENTIALS=/path/to/service-account.json python3 scripts/sync-drive-articles.py
+  ```
+- Inputs:
+  - Dedicated Drive folder: `https://drive.google.com/drive/folders/18Gti79TcNumQ2spebP1Ogi-de1CAHkuc`
+  - Section folders named `on life`, `on data`, and `on business`
+  - Google Docs with front matter including `status: ready`
+- Outputs:
+  - `essays/*.html`
+  - `life-story-timeline.html`
+  - `content/essay-metadata.csv`
+  - `content/drive-article-map.json`
+  - refreshed essay archive pages
+- Notes:
+  - Draft docs are ignored unless `status` is `ready`, `publish`, or `published`.
+  - The tracking map stores Google Doc IDs so reruns update the same essay instead of duplicating it.
+  - New Drive docs cannot overwrite existing manual essays or metadata rows unless an explicit Doc ID mapping already exists.
+  - The script appends `- dr. calculus` if the imported article body does not already include it.
+- Rollback:
+  - Restore generated essay files, metadata, map, and archive pages from version control.
+
 ## 2) Repository automations (GitHub Actions)
 
 ### Biweekly YouTube catalogue PR
@@ -110,6 +137,26 @@ This file tracks every automation-like behavior used by the site.
 - Rollback:
   - disable or delete `.github/workflows/youtube-catalogue-refresh.yml`
   - manually edit or restore `content/youtube-catalogue.json` and `youtube-cv-timeline.html`
+
+### Daily Drive article PR
+
+- Name: `drive-article-sync`
+- Trigger:
+  - scheduled daily at 08:00 UTC
+  - manual `workflow_dispatch`
+- Source: `.github/workflows/drive-article-sync.yml`
+- Behavior:
+  - installs Google Drive sync dependencies
+  - scans the dedicated Drive article folder
+  - imports only ready Google Docs
+  - opens or updates a PR on branch `codex/drive-article-sync`
+- Required GitHub configuration:
+  - Secret: `GOOGLE_SERVICE_ACCOUNT_JSON`
+  - Optional variable: `DRIVE_ARTICLES_FOLDER_URL`
+  - The Drive article folder must be shared with the service account email.
+- Rollback:
+  - disable or delete `.github/workflows/drive-article-sync.yml`
+  - restore the changed essay, metadata, map, and archive files from version control
 
 ## 3) Runtime automations (in-browser)
 

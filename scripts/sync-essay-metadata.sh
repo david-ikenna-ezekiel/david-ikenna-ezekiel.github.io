@@ -11,7 +11,7 @@ if [[ ! -f "$METADATA_FILE" ]]; then
 fi
 
 format_date() {
-  date -j -f "%Y-%m-%d" "$1" "+%B %d, %Y"
+  python3 -c 'import datetime, sys; print(datetime.date.fromisoformat(sys.argv[1]).strftime("%B %d, %Y"))' "$1"
 }
 
 while IFS='|' read -r slug section title publish_date lede body_mode; do
