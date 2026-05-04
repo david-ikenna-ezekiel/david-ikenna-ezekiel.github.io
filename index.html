@@ -3,11 +3,26 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Aria Stone - Essays and Notes</title>
+    <title>David Ezekiel - Essays and Notes</title>
     <meta
       name="description"
-      content="A minimalist personal site with essays, business notes, and curated links."
+      content="Essays on life, data, and business by David Ezekiel, alongside projects, curated links, and The Data Signal catalogue."
     />
+    <meta property="og:title" content="David Ezekiel - Essays and Notes" />
+    <meta
+      property="og:description"
+      content="Essays on life, data, and business by David Ezekiel, alongside projects, curated links, and The Data Signal catalogue."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://david-ikenna-ezekiel.github.io/" />
+    <meta property="og:image" content="https://david-ikenna-ezekiel.github.io/assets/avatar-main.png?v=3" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="David Ezekiel - Essays and Notes" />
+    <meta
+      name="twitter:description"
+      content="Essays on life, data, and business by David Ezekiel, alongside projects, curated links, and The Data Signal catalogue."
+    />
+    <meta name="twitter:image" content="https://david-ikenna-ezekiel.github.io/assets/avatar-main.png?v=3" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="article-subscribe-polish.css?v=6" />
     <style>
@@ -30,10 +45,10 @@
       .project-links {
         display: flex;
         flex-flow: column;
-        gap: 8px;
-        border: 1px solid #dfe3e8;
+        gap: 10px;
+        border: 1px solid #e6e2db;
         border-radius: 8px;
-        padding: 12px 14px;
+        padding: 12px 14px 13px;
         background: transparent;
       }
 
@@ -42,9 +57,9 @@
         align-items: flex-start;
         gap: 8px;
         font-family: Minion Pro, sans-serif;
-        font-size: 1.1rem;
-        font-weight: 700;
-        line-height: 1.4em;
+        font-size: 1.03rem;
+        font-weight: 400;
+        line-height: 1.55em;
       }
 
       .project-item .bullet-circle {
@@ -54,17 +69,66 @@
 
       .project-item .content-link {
         font-size: 1.1rem;
-        font-weight: 700;
-        line-height: 1.4em;
+        font-weight: 400;
+        line-height: 1.55em;
       }
 
       .project-links.project-gap {
         margin-bottom: 34px;
       }
 
+      .home-page .page-heading {
+        max-width: none;
+        margin-bottom: 10px;
+        font-size: 2.38rem;
+        font-weight: 400;
+        line-height: 1.04em;
+        letter-spacing: 0;
+      }
+
+      .home-page .page-subheading {
+        opacity: 0.58;
+        max-width: 52rem;
+        font-size: 1.12rem;
+        line-height: 1.55em;
+      }
+
+      .home-page .content-subheading {
+        margin-bottom: 13px;
+        font-size: 1.38rem;
+        font-weight: 400;
+      }
+
+      .home-page .content-link {
+        font-size: 1.06rem;
+        line-height: 1.48em;
+      }
+
+      .home-page .content-list {
+        gap: 12px;
+      }
+
+      .home-page .content-item {
+        align-items: baseline;
+      }
+
+      .home-page .bullet-circle {
+        width: 4px;
+        height: 4px;
+        margin-right: 9px;
+      }
+
       @media screen and (max-width: 767px) {
         .project-links.project-gap {
           margin-bottom: 24px;
+        }
+
+        .home-page .page-heading {
+          font-size: 2.08rem;
+        }
+
+        .home-page .page-subheading {
+          font-size: 1.02rem;
         }
       }
     </style>
@@ -74,7 +138,7 @@
       <div class="page-contain less home-page">
         <div class="content-block">
           <img src="assets/avatar-main.png?v=3" loading="lazy" alt="Portrait of David Ezekiel" class="shaan-image homepage" />
-          <h1 class="page-heading">David Ezekiel (aka "dr. calculus")</h1>
+          <h1 class="page-heading no-quote-bold">David Ezekiel (aka "dr. calculus")</h1>
           <div class="page-subheading">
             I'm a data engineer, entreprenuer, & creator of
             <a href="https://www.youtube.com/@thedatasignal" class="content-link" target="_blank" rel="noopener noreferrer">The Data Signal</a>
@@ -102,13 +166,11 @@
 
           <div class="content-subheading">on life...</div>
           <div class="content-list">
-            <div class="content-item"><div class="bullet-circle"></div><a href="essays/my-mission.html" class="content-link">my mission</a></div>
-            <div class="content-item"><div class="bullet-circle"></div><a href="essays/opportunity-highway.html" class="content-link">opportunity highway</a></div>
-            <div class="content-item"><div class="bullet-circle"></div><a href="essays/the-cost-of-the-road-not-taken.html" class="content-link">the cost of the road not taken</a></div>
-            <div class="content-item"><div class="bullet-circle"></div><a href="essays/why-children-feel-light-and-we-dont.html" class="content-link">why children feel light and we don't</a></div>
             <div class="content-item"><div class="bullet-circle"></div><a href="essays/why-easy-lives-feel-empty.html" class="content-link">why easy lives feel empty</a></div>
-            <div class="content-item"><div class="bullet-circle"></div><a href="essays/how-to-pick-your-hard.html" class="content-link">how to pick your hard</a></div>
-            <div class="content-item"><div class="bullet-circle"></div><a href="essays/the-quiet-advantage.html" class="content-link">the quiet advantage</a></div>
+            <div class="content-item"><div class="bullet-circle"></div><a href="essays/why-children-feel-light-and-we-dont.html" class="content-link">why children feel light and we don't</a></div>
+            <div class="content-item"><div class="bullet-circle"></div><a href="essays/the-cost-of-the-road-not-taken.html" class="content-link">the cost of the road not taken</a></div>
+            <div class="content-item"><div class="bullet-circle"></div><a href="essays/opportunity-highway.html" class="content-link">opportunity highway</a></div>
+            <div class="content-item"><div class="bullet-circle"></div><a href="essays/my-mission.html" class="content-link">my mission</a></div>
             <div class="content-item"><div class="bullet-circle"></div><a href="essays-life.html" class="content-link view-more-link">view more essays <span class="view-more-arrow" aria-hidden="true">&rarr;</span></a></div>
           </div>
         </div>
@@ -118,11 +180,6 @@
           <div class="content-list">
             <div class="content-item"><div class="bullet-circle"></div><a href="essays/why-data-teams-disagree-even-when-everyone-is-right.html" class="content-link">why data teams disagree even when everyone is right</a></div>
             <div class="content-item"><div class="bullet-circle"></div><a href="essays/build-for-demand-not-assumptions.html" class="content-link">build for demand, not assumptions</a></div>
-            <div class="content-item"><div class="bullet-circle"></div><a href="essays/one-metric-that-matters.html" class="content-link">one metric that matters</a></div>
-            <div class="content-item"><div class="bullet-circle"></div><a href="essays/the-founder-feedback-loop.html" class="content-link">the founder feedback loop</a></div>
-            <div class="content-item"><div class="bullet-circle"></div><a href="essays/turning-support-into-growth.html" class="content-link">turning support into growth</a></div>
-            <div class="content-item"><div class="bullet-circle"></div><a href="essays/ai-workflows-for-lean-teams.html" class="content-link">AI workflows for lean teams</a></div>
-            <div class="content-item"><div class="bullet-circle"></div><a href="essays/the-weekly-operating-system.html" class="content-link">the weekly operating system</a></div>
             <div class="content-item"><div class="bullet-circle"></div><a href="essays-data.html" class="content-link view-more-link">view more essays <span class="view-more-arrow" aria-hidden="true">&rarr;</span></a></div>
           </div>
         </div>
