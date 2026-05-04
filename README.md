@@ -59,11 +59,10 @@ python3 scripts/import-youtube-catalogue.py --no-fallback
 python3 scripts/render-youtube-catalogue.py
 ```
 
-Sync ready Google Docs from the dedicated Drive article folder:
+Sync ready Google Docs from the dedicated Drive article folder with the connected Codex Google Drive tools:
 
 ```bash
-python3 -m pip install google-api-python-client google-auth beautifulsoup4
-GOOGLE_APPLICATION_CREDENTIALS=/path/to/service-account.json python3 scripts/sync-drive-articles.py
+Use the Codex automation described in docs/drive-article-sync.md.
 ```
 
 Only Google Docs with front matter containing `status: ready` are imported.

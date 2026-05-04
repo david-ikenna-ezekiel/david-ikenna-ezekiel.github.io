@@ -93,15 +93,12 @@ This file tracks every automation-like behavior used by the site.
 ### Drive article sync
 
 - Name: `sync-drive-articles`
-- Trigger: Manual run when checking the publishing inbox locally
+- Trigger: Codex automation scans the publishing inbox on a recurring cadence
 - Source: `scripts/sync-drive-articles.py`
-- Command:
-  ```bash
-  GOOGLE_APPLICATION_CREDENTIALS=/path/to/service-account.json python3 scripts/sync-drive-articles.py
-  ```
 - Inputs:
   - Dedicated Drive folder: `https://drive.google.com/drive/folders/18Gti79TcNumQ2spebP1Ogi-de1CAHkuc`
   - Section folders named `on life`, `on data`, and `on business`
+  - Life story folder named `my life story`
   - Google Docs with front matter including `status: ready`
 - Outputs:
   - `essays/*.html`
@@ -137,26 +134,6 @@ This file tracks every automation-like behavior used by the site.
 - Rollback:
   - disable or delete `.github/workflows/youtube-catalogue-refresh.yml`
   - manually edit or restore `content/youtube-catalogue.json` and `youtube-cv-timeline.html`
-
-### Daily Drive article PR
-
-- Name: `drive-article-sync`
-- Trigger:
-  - scheduled daily at 08:00 UTC
-  - manual `workflow_dispatch`
-- Source: `.github/workflows/drive-article-sync.yml`
-- Behavior:
-  - installs Google Drive sync dependencies
-  - scans the dedicated Drive article folder
-  - imports only ready Google Docs
-  - opens or updates a PR on branch `codex/drive-article-sync`
-- Required GitHub configuration:
-  - Secret: `GOOGLE_SERVICE_ACCOUNT_JSON`
-  - Optional variable: `DRIVE_ARTICLES_FOLDER_URL`
-  - The Drive article folder must be shared with the service account email.
-- Rollback:
-  - disable or delete `.github/workflows/drive-article-sync.yml`
-  - restore the changed essay, metadata, map, and archive files from version control
 
 ## 3) Runtime automations (in-browser)
 

@@ -52,18 +52,14 @@ ages 2-10: The Break-It Era. Timeline copy goes here.
 
 ## Local Run
 
-```bash
-python3 -m pip install google-api-python-client google-auth beautifulsoup4
-GOOGLE_APPLICATION_CREDENTIALS=/path/to/service-account.json python3 scripts/sync-drive-articles.py
-```
+The preferred path is the Codex automation, because it can use the connected Google Drive tools directly.
 
-Use `--dry-run --verbose` to inspect what would publish without writing files.
+Manual Codex run:
 
-## GitHub Action Setup
+1. Read the Drive root folder and section folders.
+2. Compare each ready doc's Drive ID and `modifiedTime` with `content/drive-article-map.json`.
+3. Import only new or changed ready docs.
+4. Update the matching local page, metadata, map, and archive pages.
+5. Commit changes on a `codex/` branch and push that branch only.
 
-1. Create a Google service account.
-2. Share the Drive article folder with the service account email.
-3. Add the service account JSON as a GitHub secret named `GOOGLE_SERVICE_ACCOUNT_JSON`.
-4. Optionally add a repository variable named `DRIVE_ARTICLES_FOLDER_URL`.
-
-The daily workflow opens or updates a PR on `codex/drive-article-sync`; it does not push to `main`.
+The Python helper `scripts/sync-drive-articles.py` remains available for credential-based local runs, but the Codex automation does not require GitHub Actions or a Google service account.

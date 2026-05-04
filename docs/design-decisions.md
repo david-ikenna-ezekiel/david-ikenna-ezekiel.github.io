@@ -61,9 +61,9 @@ Use this as a lightweight ADR (Architecture/Design Decision Record) log.
 - Affected files: `content/youtube-catalogue.json`, `scripts/import-youtube-catalogue.py`, `scripts/render-youtube-catalogue.py`, `scripts/update-youtube-catalogue.sh`, `.github/workflows/youtube-catalogue-refresh.yml`, `youtube-cv-timeline.html`.
 - Rollback: Remove the workflow/scripts and revert `youtube-cv-timeline.html` to a static hand-edited page.
 
-## 2026-05-04 - Drive folder as essay publishing inbox
+## 2026-05-04 - Drive folder as publishing inbox
 
-- Decision: Import ready Google Docs from the dedicated Drive article folder into generated essay pages and open daily PRs for changes.
+- Decision: Import ready Google Docs from the dedicated Drive article folder into generated pages through a Codex recurring automation.
 - Why: New essays can be drafted in Drive and published through the existing review workflow without pasting article text into Codex.
-- Affected files: `scripts/sync-drive-articles.py`, `content/drive-article-map.json`, `.github/workflows/drive-article-sync.yml`, `docs/drive-article-sync.md`, `content/essay-metadata.csv`, `essays/*.html`.
-- Rollback: Disable the workflow, remove the sync script/map, and restore essay files and metadata from version control.
+- Affected files: `scripts/sync-drive-articles.py`, `content/drive-article-map.json`, `docs/drive-article-sync.md`, `content/essay-metadata.csv`, `essays/*.html`, `life-story-timeline.html`.
+- Rollback: Pause/delete the Codex automation, remove the sync script/map, and restore generated pages and metadata from version control.
