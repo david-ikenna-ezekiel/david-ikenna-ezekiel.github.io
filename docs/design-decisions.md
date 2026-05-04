@@ -56,7 +56,7 @@ Use this as a lightweight ADR (Architecture/Design Decision Record) log.
 
 ## 2026-04-17 - YouTube catalogue generated from structured metadata
 
-- Decision: Move the YouTube catalogue to a generated workflow backed by structured metadata and a scheduled PR-based refresh.
+- Decision: Move the YouTube catalogue to a generated workflow backed by structured metadata and a weekly PR-based refresh.
 - Why: Manual edits to `youtube-cv-timeline.html` drift from the actual channel quickly. A generated page keeps content synchronized while still protecting `main`.
 - Affected files: `content/youtube-catalogue.json`, `scripts/import-youtube-catalogue.py`, `scripts/render-youtube-catalogue.py`, `scripts/update-youtube-catalogue.sh`, `.github/workflows/youtube-catalogue-refresh.yml`, `youtube-cv-timeline.html`.
 - Rollback: Remove the workflow/scripts and revert `youtube-cv-timeline.html` to a static hand-edited page.

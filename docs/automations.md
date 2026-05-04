@@ -116,11 +116,11 @@ This file tracks every automation-like behavior used by the site.
 
 ## 2) Repository automations (GitHub Actions)
 
-### Biweekly YouTube catalogue PR
+### Weekly YouTube catalogue PR
 
 - Name: `youtube-catalogue-refresh`
 - Trigger:
-  - scheduled weekly on Monday, but only proceeds on even ISO weeks
+  - scheduled weekly on Monday
   - manual `workflow_dispatch`
 - Source: `.github/workflows/youtube-catalogue-refresh.yml`
 - Behavior:
