@@ -142,7 +142,10 @@
           return true;
         }
 
-        if (parent.closest && parent.closest(".quoted-text, a, script, style, textarea, input, option, code, pre, noscript")) {
+        if (
+          parent.closest &&
+          parent.closest(".quoted-text, .no-quote-bold, a, script, style, textarea, input, option, code, pre, noscript")
+        ) {
           return true;
         }
 
