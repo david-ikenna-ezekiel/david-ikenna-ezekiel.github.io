@@ -525,6 +525,14 @@ def run_post_sync(root: Path) -> None:
     subprocess.run([str(root / "scripts/render-essay-archives.sh")], check=True)
 
 
+def is_unchanged_record(record: dict[str, Any], item: dict[str, Any], slug: str, local_path: Path) -> bool:
+    return (
+        record.get("modified_time") == item.get("modifiedTime")
+        and record.get("slug") == slug
+        and local_path.exists()
+    )
+
+
 def sync_life_story_folder(
     service,
     folder: dict[str, Any],
@@ -539,6 +547,7 @@ def sync_life_story_folder(
         if item.get("mimeType") != "application/vnd.google-apps.document":
             continue
 
+        local_path = root / LIFE_STORY_PATH
         text_export = export_doc(service, item["id"], "text/plain")
         front_matter = parse_front_matter(text_export)
         slug = slugify(front_matter.get("slug") or item["name"])
@@ -556,13 +565,8 @@ def sync_life_story_folder(
                 print(f"Skipping {item['name']}: status is not ready")
             continue
 
-        local_path = root / LIFE_STORY_PATH
         existing_record = article_map["documents"].get(item["id"], {})
-        if (
-            existing_record.get("modified_time") == item.get("modifiedTime")
-            and existing_record.get("slug") == LIFE_STORY_SLUG
-            and local_path.exists()
-        ):
+        if is_unchanged_record(existing_record, item, LIFE_STORY_SLUG, local_path):
             skipped += 1
             if args.verbose:
                 print(f"Skipping {item['name']}: unchanged since last sync")
@@ -628,6 +632,16 @@ def sync_articles(args: argparse.Namespace) -> int:
             if item.get("mimeType") != "application/vnd.google-apps.document":
                 continue
 
+            existing_record = article_map["documents"].get(item["id"], {})
+            if existing_record:
+                existing_slug = existing_record.get("slug", "")
+                local_path = root / existing_record.get("local_path", "")
+                if is_unchanged_record(existing_record, item, existing_slug, local_path):
+                    skipped += 1
+                    if args.verbose:
+                        print(f"Skipping {item['name']}: unchanged since last sync")
+                    continue
+
             text_export = export_doc(service, item["id"], "text/plain")
             front_matter = parse_front_matter(text_export)
             status = front_matter.get("status", "").strip().lower()
@@ -663,17 +677,6 @@ def sync_articles(args: argparse.Namespace) -> int:
                     f"Refusing to overwrite existing metadata row not mapped to Drive: {slug}. "
                     "Choose a different slug or add an explicit mapping in content/drive-article-map.json."
                 )
-
-            existing_record = article_map["documents"].get(item["id"], {})
-            if (
-                existing_record.get("modified_time") == item.get("modifiedTime")
-                and existing_record.get("slug") == slug
-                and essay_path.exists()
-            ):
-                skipped += 1
-                if args.verbose:
-                    print(f"Skipping {item['name']}: unchanged since last sync")
-                continue
 
             html_export = export_doc(service, item["id"], "text/html")
             body_html = clean_article_html(html_export)

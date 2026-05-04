@@ -108,6 +108,7 @@ This file tracks every automation-like behavior used by the site.
   - refreshed essay archive pages
 - Notes:
   - Draft docs are ignored unless `status` is `ready`, `publish`, or `published`.
+  - Mapped docs are filtered by Drive `modifiedTime` before any doc export, so unchanged files are skipped quickly.
   - The tracking map stores Google Doc IDs so reruns update the same essay instead of duplicating it.
   - New Drive docs cannot overwrite existing manual essays or metadata rows unless an explicit Doc ID mapping already exists.
   - The script appends `- dr. calculus` if the imported article body does not already include it.
