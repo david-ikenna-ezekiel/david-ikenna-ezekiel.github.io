@@ -119,16 +119,47 @@
       }
 
       @media screen and (max-width: 767px) {
+        .home-page.page-contain {
+          grid-column-gap: 34px;
+          grid-row-gap: 34px;
+        }
+
+        .shaan-image.homepage {
+          width: 4rem;
+          margin-bottom: 16px;
+        }
+
         .project-links.project-gap {
-          margin-bottom: 24px;
+          gap: 8px;
+          border: 0;
+          padding: 0;
+          margin-bottom: 18px;
         }
 
         .home-page .page-heading {
-          font-size: 2.2rem;
+          font-size: 1.9rem;
+          line-height: 1.1em;
         }
 
         .home-page .page-subheading {
-          font-size: 1.08rem;
+          font-size: 1rem;
+          line-height: 1.45em;
+          max-width: 28rem;
+        }
+
+        .project-item,
+        .project-item .content-link {
+          font-size: 1rem;
+          line-height: 1.45em;
+        }
+
+        .home-page .content-subheading {
+          margin-bottom: 10px;
+          font-size: 1.28rem;
+        }
+
+        .home-page .content-list {
+          gap: 9px;
         }
       }
     </style>
