@@ -48,8 +48,34 @@
         gap: 14px;
         border: 0;
         border-radius: 0;
-        padding: 0;
+        padding: 18px 19px 17px;
         background: transparent;
+        width: 100%;
+        max-width: 100%;
+        position: relative;
+      }
+
+      .project-links::before {
+        content: "";
+        pointer-events: none;
+        border: 1.8px solid rgba(35, 35, 35, 0.72);
+        border-radius: 2px 8px 3px 6px;
+        transform: rotate(-0.45deg) skewX(-0.35deg);
+        position: absolute;
+        inset: 3px 5px -3px 2px;
+      }
+
+      .project-links::after {
+        content: "";
+        pointer-events: none;
+        border-top: 1.4px solid rgba(35, 35, 35, 0.56);
+        border-right: 1.2px solid rgba(35, 35, 35, 0.58);
+        border-bottom: 1.6px solid rgba(35, 35, 35, 0.64);
+        border-left: 1.1px solid rgba(35, 35, 35, 0.5);
+        border-radius: 6px 2px 8px 3px;
+        transform: rotate(0.38deg) skewY(0.25deg);
+        position: absolute;
+        inset: 7px 0 1px 7px;
       }
 
       .project-item {
@@ -60,11 +86,75 @@
         font-size: 1.24rem;
         font-weight: 400;
         line-height: 1.42em;
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        padding: 3px 0 4px;
       }
 
       .project-item .bullet-circle {
         flex: none;
-        margin-top: 0.55em;
+        width: auto;
+        height: auto;
+        margin-top: 0.06em;
+        margin-right: 0;
+        color: #343434;
+        background: none;
+        border-radius: 0;
+      }
+
+      .project-item .bullet-circle::before {
+        content: "*";
+        font-family: Minion Pro, sans-serif;
+        font-size: 1.1em;
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      .project-item::before {
+        content: none;
+      }
+
+      .project-item:nth-child(2)::before {
+        content: none;
+      }
+
+      .project-item > * {
+        z-index: 1;
+        position: relative;
+      }
+
+      .project-item > div:last-child {
+        flex: 1 1 auto;
+        min-width: 0;
+        max-width: 100%;
+      }
+
+      .project-highlight {
+        background:
+          linear-gradient(102deg, rgba(181, 224, 255, 0.14) 0%, rgba(112, 194, 255, 0.11) 52%, rgba(200, 235, 255, 0.12) 100%);
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+        border-radius: 0.28em 0.18em 0.34em 0.2em;
+        padding: 0.02em 0.12em 0.08em;
+        overflow-wrap: break-word;
+        white-space: normal;
+      }
+
+      .project-highlight .content-link {
+        display: inline;
+        font-style: italic;
+        text-decoration-color: #d34a4a;
+      }
+
+      .project-highlight .content-link:hover,
+      .project-highlight .content-link:focus-visible {
+        text-decoration-color: #d34a4a;
+      }
+
+      .project-item:nth-child(2) .project-highlight {
+        background:
+          linear-gradient(96deg, rgba(190, 229, 255, 0.13) 0%, rgba(116, 199, 255, 0.1) 50%, rgba(213, 241, 255, 0.11) 100%);
       }
 
       .project-item .content-link {
@@ -89,7 +179,7 @@
       .home-page .page-subheading {
         opacity: 0.58;
         max-width: 52rem;
-        font-size: 1.23rem;
+        font-size: 1.4rem;
         line-height: 1.55em;
       }
 
@@ -131,6 +221,7 @@
 
         .project-links.project-gap {
           gap: 12px;
+          padding: 13px 15px 14px;
           margin-bottom: 30px;
         }
 
@@ -140,14 +231,14 @@
         }
 
         .home-page .page-subheading {
-          font-size: 1rem;
+          font-size: 1.28rem;
           line-height: 1.45em;
           max-width: 28rem;
         }
 
         .project-item,
         .project-item .content-link {
-          font-size: 1.13rem;
+          font-size: 1.08rem;
           line-height: 1.45em;
         }
 
@@ -180,15 +271,15 @@
             <div class="project-item">
               <div class="bullet-circle"></div>
               <div>
-                my new project (i'm curating letters i wish i'd received from a data mentor):
-                <a href="https://www.linkedin.com/newsletters/kela-data-letters-7418723129612734464/" class="content-link" target="_blank" rel="noopener noreferrer">the kela letters</a>
+                <span class="project-highlight">my new project (i'm curating letters i wish i'd received from a data mentor):
+                <a href="https://www.linkedin.com/newsletters/kela-data-letters-7418723129612734464/" class="content-link" target="_blank" rel="noopener noreferrer">the kela letters</a></span>
               </div>
             </div>
             <div class="project-item">
               <div class="bullet-circle"></div>
               <div>
-                see my youtube catalogue (warning: if you're a data nerd, you prolly won't skip any):
-                <a href="youtube-cv-timeline.html" class="content-link">video catalogue</a>
+                <span class="project-highlight">see my youtube catalogue (warning: if you're a data nerd, you prolly won't skip any):
+                <a href="youtube-cv-timeline.html" class="content-link">video catalogue</a></span>
               </div>
             </div>
           </div>
@@ -274,7 +365,7 @@
 
         <div class="content-block newsletter">
           <p class="paragraph-1-125 u-mb-0 small js-newsletter-text">
-            I build data products, pipelines&hellip; and everything in between. Join The Data Signal &mdash; let's build together!
+            Join The Data Signal for essays, data notes, and things I'm building.
           </p>
           <form class="essay-newsletter-form" action="#" method="post">
             <input type="email" class="essay-newsletter-input js-newsletter-input" placeholder="Email address" aria-label="Email address" />

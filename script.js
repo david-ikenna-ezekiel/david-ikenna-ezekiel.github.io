@@ -52,10 +52,15 @@
         ],
       },
       moreEssays: [
-        { slug: "borrowed-confidence", title: "borrowed confidence" },
-        { slug: "the-wedge-strategy", title: "the wedge strategy" },
-        { slug: "one-metric-that-matters", title: "one metric that matters" },
-        { slug: "the-weekly-operating-system", title: "the weekly operating system" },
+        { slug: "why-data-teams-disagree-even-when-everyone-is-right", title: "why data teams disagree even when everyone is right" },
+        { slug: "build-for-demand-not-assumptions", title: "build for demand, not assumptions" },
+        { slug: "the-cost-of-the-road-not-taken", title: "the cost of the road not taken" },
+        { slug: "positioning-by-subtraction", title: "positioning by subtraction" },
+        { slug: "distribution-before-perfection", title: "distribution before perfection" },
+        { slug: "why-easy-lives-feel-empty", title: "why easy lives feel empty" },
+        { slug: "why-children-feel-light-and-we-dont", title: "why children feel light and we don't" },
+        { slug: "opportunity-highway", title: "opportunity highway" },
+        { slug: "my-mission", title: "my mission" },
       ],
     };
 
@@ -102,15 +107,30 @@
     function renderMoreEssays() {
       var onEssayPage = window.location.pathname.indexOf("/essays/") !== -1;
       var prefix = onEssayPage ? "" : "essays/";
+      var currentSlug = "";
+
+      if (onEssayPage) {
+        currentSlug = window.location.pathname.split("/").pop().replace(/\.html$/, "");
+      }
 
       var containers = document.querySelectorAll(".js-more-essays");
       for (var i = 0; i < containers.length; i += 1) {
-        var html = "";
+        var rendered = 0;
+        containers[i].innerHTML = "";
+
         for (var m = 0; m < config.moreEssays.length; m += 1) {
           var item = config.moreEssays[m];
-          html += '<a class="more-essays-link" href="' + prefix + item.slug + '.html">' + item.title + "</a>";
+          if (!item || item.slug === currentSlug || rendered >= 4) {
+            continue;
+          }
+
+          var link = document.createElement("a");
+          link.className = "more-essays-link";
+          link.href = prefix + item.slug + ".html";
+          link.textContent = item.title;
+          containers[i].appendChild(link);
+          rendered += 1;
         }
-        containers[i].innerHTML = html;
       }
     }
 
