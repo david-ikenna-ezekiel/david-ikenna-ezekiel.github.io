@@ -199,7 +199,76 @@ def strip_front_matter_text(text: str) -> str:
     return "\n".join(lines[body_start:]).strip()
 
 
-def clean_article_html(source_html: str) -> str:
+def render_article_html_from_text(text: str) -> str:
+    body = strip_front_matter_text(text)
+    fragments: list[str] = []
+
+    for chunk in re.split(r"\n\s*\n", body):
+        lines = [line.strip() for line in chunk.splitlines() if line.strip()]
+        if not lines:
+            continue
+
+        if all(re.match(r"^[-*]\s+", line) for line in lines):
+            items = []
+            for line in lines:
+                cleaned = re.sub(r"^[-*]\s+", "", line)
+                items.append(f"<li>{html.escape(cleaned)}</li>")
+            items_html = "".join(items)
+            fragments.append(f"<ul>{items_html}</ul>")
+            continue
+
+        paragraph = " ".join(lines).strip()
+        if paragraph:
+            fragments.append(f"<p>{html.escape(paragraph)}</p>")
+
+    body_html = "\n".join(f"          {line}" for line in fragments)
+    if "- dr. calculus" not in body_html.lower():
+        body_html += "\n          <p>- dr. calculus</p>"
+    return body_html
+
+
+def article_structure_metrics(body_html: str) -> dict[str, int]:
+    try:
+        from bs4 import BeautifulSoup
+    except ImportError as exc:
+        raise SystemExit("Missing beautifulsoup4. Install with: python3 -m pip install beautifulsoup4") from exc
+
+    soup = BeautifulSoup(body_html, "html.parser")
+    text = soup.get_text(" ", strip=True)
+    paragraphs = len([tag for tag in soup.find_all("p") if tag.get_text(" ", strip=True)])
+    lists = len(soup.find_all(["ul", "ol"]))
+    headings = len(soup.find_all(["h2", "h3"]))
+    total_blocks = paragraphs + lists + headings
+    longest_paragraph = max(
+        (len(tag.get_text(" ", strip=True)) for tag in soup.find_all("p")),
+        default=0,
+    )
+    return {
+        "paragraphs": paragraphs,
+        "lists": lists,
+        "headings": headings,
+        "total_blocks": total_blocks,
+        "text_length": len(text),
+        "longest_paragraph": longest_paragraph,
+    }
+
+
+def validate_article_structure(title: str, body_html: str) -> None:
+    metrics = article_structure_metrics(body_html)
+    if metrics["text_length"] < 900:
+        return
+    if metrics["total_blocks"] >= 3:
+        return
+    if metrics["paragraphs"] >= 2 and metrics["longest_paragraph"] < 1400:
+        return
+    raise ValueError(
+        f"Imported article '{title}' looks structurally collapsed "
+        f"({metrics['paragraphs']} paragraphs, {metrics['total_blocks']} blocks, "
+        f"longest paragraph {metrics['longest_paragraph']} chars)."
+    )
+
+
+def clean_article_html(source_html: str, text_export: str, title: str) -> str:
     try:
         from bs4 import BeautifulSoup
         from bs4.element import Tag
@@ -259,6 +328,17 @@ def clean_article_html(source_html: str) -> str:
     body_html = "\n".join(f"          {line}" for line in fragments)
     if "- dr. calculus" not in BeautifulSoup(body_html, "html.parser").get_text(" ", strip=True).lower():
         body_html += "\n          <p>- dr. calculus</p>"
+
+    html_metrics = article_structure_metrics(body_html)
+    text_body_html = render_article_html_from_text(text_export)
+    text_metrics = article_structure_metrics(text_body_html)
+
+    html_collapsed = html_metrics["text_length"] >= 900 and html_metrics["total_blocks"] <= 2
+    text_is_better = text_metrics["total_blocks"] >= max(3, html_metrics["total_blocks"] + 1)
+    if html_collapsed and text_is_better:
+        body_html = text_body_html
+
+    validate_article_structure(title, body_html)
     return body_html
 
 
@@ -679,7 +759,7 @@ def sync_articles(args: argparse.Namespace) -> int:
                 )
 
             html_export = export_doc(service, item["id"], "text/html")
-            body_html = clean_article_html(html_export)
+            body_html = clean_article_html(html_export, text_export, title)
 
             if args.dry_run:
                 print(f"Would import {item['name']} -> {essay_path.relative_to(root)}")
