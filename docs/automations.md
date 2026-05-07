@@ -145,7 +145,7 @@ This file tracks every automation-like behavior used by the site.
 - Source: `script.js` (uses values in `site-config.js`)
 - Behavior:
   - Injects shared newsletter copy/labels (`.js-newsletter-*`).
-  - Renders "more essays" links (`.js-more-essays`).
+  - Renders the first four configured real essay links (`.js-more-essays`), excluding the current article on essay pages.
   - Enables interactive essay rating with localStorage state (`.js-essay-rating`).
 - Rollback:
   - Remove script includes from pages or remove specific renderer calls in `script.js`.
