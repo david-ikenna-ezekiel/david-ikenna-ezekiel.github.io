@@ -7,6 +7,8 @@
   --essay-title-lh: 1em;
   --essay-body-size: 1.1rem;
   --essay-body-lh: 1.6em;
+  --more-essays-heading-size: 1.4rem;
+  --more-essays-heading-lh: 1em;
 }
 
 .essay-page {
@@ -61,6 +63,15 @@
 .essay-content .essay-quote p {
   margin-bottom: 0;
   font-weight: 600;
+}
+
+.essay-content .essay-quote p:last-child {
+  font-weight: 400;
+}
+
+.essay-content .essay-quote,
+.essay-content .essay-quote p {
+  font-style: italic;
 }
 
 .essay-content strong {
@@ -147,9 +158,9 @@
   text-transform: none;
   margin-bottom: 12px;
   font-family: Minion Pro, sans-serif;
-  font-size: var(--essay-title-size);
+  font-size: var(--more-essays-heading-size);
   font-weight: 500;
-  line-height: var(--essay-title-lh);
+  line-height: var(--more-essays-heading-lh);
 }
 
 .more-essays-list {
@@ -157,8 +168,8 @@
   flex-flow: column;
   gap: 10px;
   font-family: Minion Pro, sans-serif;
-  font-size: var(--essay-body-size);
-  line-height: var(--essay-body-lh);
+  font-size: 1.1rem;
+  line-height: 1.6em;
 }
 
 .more-essays-link {
@@ -273,10 +284,17 @@
 
 @media screen and (max-width: 767px) {
   :root {
-    --essay-title-size: 1.7rem;
+    --essay-title-size: 1.5rem;
     --essay-title-lh: 1.15em;
-    --essay-body-size: 1rem;
+    --essay-body-size: 1.1rem;
     --essay-body-lh: 1.58em;
+    --more-essays-heading-size: 1.3rem;
+    --more-essays-heading-lh: 1em;
+  }
+
+  .essay-content .essay-quote {
+    font-size: 1.2rem;
+    line-height: 1.4;
   }
 
   .essay-rating {

@@ -10,7 +10,7 @@ if [[ ! -f "$METADATA_FILE" ]]; then
 fi
 
 format_date() {
-  date -j -f "%Y-%m-%d" "$1" "+%B %d, %Y"
+  python3 -c 'import datetime, sys; print(datetime.date.fromisoformat(sys.argv[1]).strftime("%B %d, %Y"))' "$1"
 }
 
 render_archive() {
@@ -26,7 +26,7 @@ render_archive() {
     local display_date
     display_date="$(format_date "$publish_date")"
     items_html+="          <article class=\"timeline-item\"><div class=\"timeline-dot\"></div><div class=\"timeline-age\">${display_date}</div><div class=\"timeline-title\"><a href=\"essays/${slug}.html\" class=\"content-link\">${title}</a></div><div class=\"timeline-copy\">${lede}</div></article>"$'\n'
-  done < <(awk -F'|' -v wanted="$section" '$2 == wanted' "$METADATA_FILE" | sort -t'|' -k4,4)
+  done < <(awk -F'|' -v wanted="$section" '$2 == wanted' "$METADATA_FILE" | sort -t'|' -k4,4r)
 
   cat > "$output_file" <<HTML
 <!doctype html>

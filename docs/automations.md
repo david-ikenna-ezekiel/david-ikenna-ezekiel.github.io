@@ -90,13 +90,38 @@ This file tracks every automation-like behavior used by the site.
   - Local runs allow HTML fallback so the page can still be regenerated without network access.
   - CI runs use `--no-fallback` so a failed fetch does not silently reuse stale data.
 
+### Drive article sync
+
+- Name: `sync-drive-articles`
+- Trigger: Codex automation scans the publishing inbox on a recurring cadence
+- Source: `scripts/sync-drive-articles.py`
+- Inputs:
+  - Dedicated Drive folder: `https://drive.google.com/drive/folders/18Gti79TcNumQ2spebP1Ogi-de1CAHkuc`
+  - Section folders named `on life`, `on data`, and `on business`
+  - Life story folder named `my life story`
+  - Google Docs with front matter including `status: ready`
+- Outputs:
+  - `essays/*.html`
+  - `life-story-timeline.html`
+  - `content/essay-metadata.csv`
+  - `content/drive-article-map.json`
+  - refreshed essay archive pages
+- Notes:
+  - Draft docs are ignored unless `status` is `ready`, `publish`, or `published`.
+  - Mapped docs are filtered by Drive `modifiedTime` before any doc export, so unchanged files are skipped quickly.
+  - The tracking map stores Google Doc IDs so reruns update the same essay instead of duplicating it.
+  - New Drive docs cannot overwrite existing manual essays or metadata rows unless an explicit Doc ID mapping already exists.
+  - The script appends `- dr. calculus` if the imported article body does not already include it.
+- Rollback:
+  - Restore generated essay files, metadata, map, and archive pages from version control.
+
 ## 2) Repository automations (GitHub Actions)
 
-### Biweekly YouTube catalogue PR
+### Weekly YouTube catalogue PR
 
 - Name: `youtube-catalogue-refresh`
 - Trigger:
-  - scheduled weekly on Monday, but only proceeds on even ISO weeks
+  - scheduled weekly on Monday
   - manual `workflow_dispatch`
 - Source: `.github/workflows/youtube-catalogue-refresh.yml`
 - Behavior:
@@ -120,7 +145,7 @@ This file tracks every automation-like behavior used by the site.
 - Source: `script.js` (uses values in `site-config.js`)
 - Behavior:
   - Injects shared newsletter copy/labels (`.js-newsletter-*`).
-  - Renders "more essays" links (`.js-more-essays`).
+  - Renders the first four configured real essay links (`.js-more-essays`), excluding the current article on essay pages.
   - Enables interactive essay rating with localStorage state (`.js-essay-rating`).
 - Rollback:
   - Remove script includes from pages or remove specific renderer calls in `script.js`.

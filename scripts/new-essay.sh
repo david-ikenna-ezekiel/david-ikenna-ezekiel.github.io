@@ -36,7 +36,7 @@ fi
 
 mkdir -p "$ESSAYS_DIR"
 
-display_date="$(date -j -f "%Y-%m-%d" "$publish_date" "+%B %d, %Y")"
+display_date="$(python3 -c 'import datetime, sys; print(datetime.date.fromisoformat(sys.argv[1]).strftime("%B %d, %Y"))' "$publish_date")"
 essay_file="$ESSAYS_DIR/${slug}.html"
 
 if [[ -e "$essay_file" ]]; then
@@ -96,10 +96,10 @@ cat > "$essay_file" <<HTML
         <div class="content-block">
           <div class="more-essays-heading">more essays...</div>
           <div class="more-essays-list js-more-essays">
-            <a class="more-essays-link" href="borrowed-confidence.html">borrowed confidence</a>
-            <a class="more-essays-link" href="the-wedge-strategy.html">the wedge strategy</a>
-            <a class="more-essays-link" href="one-metric-that-matters.html">one metric that matters</a>
-            <a class="more-essays-link" href="the-weekly-operating-system.html">the weekly operating system</a>
+            <a class="more-essays-link" href="why-data-teams-disagree-even-when-everyone-is-right.html">why data teams disagree even when everyone is right</a>
+            <a class="more-essays-link" href="build-for-demand-not-assumptions.html">build for demand, not assumptions</a>
+            <a class="more-essays-link" href="the-cost-of-the-road-not-taken.html">the cost of the road not taken</a>
+            <a class="more-essays-link" href="positioning-by-subtraction.html">positioning by subtraction</a>
           </div>
         </div>
 
