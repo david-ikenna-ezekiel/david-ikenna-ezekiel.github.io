@@ -33,7 +33,7 @@ while IFS='|' read -r slug section title publish_date lede body_mode; do
       name="description"
       content="${title} by David Ezekiel."
     />
-    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg?v=1" />
+    <link rel="icon" type="image/png" href="../assets/favicon-rounded.png?v=1" />
     <link rel="apple-touch-icon" href="../assets/avatar-main.png?v=3" />
     <link rel="stylesheet" href="/styles.css" />
     <link rel="stylesheet" href="../styles.css" />

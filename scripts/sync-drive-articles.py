@@ -483,7 +483,7 @@ def render_essay(title: str, publish_date: str, body_html: str) -> str:
       name="description"
       content="{description}"
     />
-    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg?v=1" />
+    <link rel="icon" type="image/png" href="../assets/favicon-rounded.png?v=1" />
     <link rel="apple-touch-icon" href="../assets/avatar-main.png?v=3" />
     <link rel="stylesheet" href="/styles.css" />
     <link rel="stylesheet" href="../styles.css" />

@@ -36,7 +36,7 @@ render_archive() {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>David Ezekiel - ${heading} Essays</title>
     <meta name="description" content="All ${section} essays by David Ezekiel." />
-    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=1" />
+    <link rel="icon" type="image/png" href="assets/favicon-rounded.png?v=1" />
     <link rel="apple-touch-icon" href="assets/avatar-main.png?v=3" />
     <link rel="stylesheet" href="styles.css" />
     <style>
