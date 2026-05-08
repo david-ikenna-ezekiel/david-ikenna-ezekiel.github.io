@@ -57,7 +57,7 @@ cat > "$essay_file" <<HTML
       name="description"
       content="${title} by David Ezekiel."
     />
-    <link rel="icon" type="image/png" href="../assets/avatar-main.png?v=3" />
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg?v=1" />
     <link rel="apple-touch-icon" href="../assets/avatar-main.png?v=3" />
     <link rel="stylesheet" href="/styles.css" />
     <link rel="stylesheet" href="../styles.css" />
