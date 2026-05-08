@@ -123,6 +123,8 @@ def render_html(payload: dict) -> str:
       name="description"
       content="Timeline view of {channel_name} uploads."
     />
+    <link rel="icon" type="image/png" href="assets/avatar-main.png?v=3" />
+    <link rel="apple-touch-icon" href="assets/avatar-main.png?v=3" />
     <link rel="stylesheet" href="styles.css" />
     <style>
       :root {{
