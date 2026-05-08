@@ -253,14 +253,21 @@ def article_structure_metrics(body_html: str) -> dict[str, int]:
     }
 
 
-def validate_article_structure(title: str, body_html: str) -> None:
+def article_structure_needs_repair(body_html: str) -> bool:
     metrics = article_structure_metrics(body_html)
     if metrics["text_length"] < 900:
-        return
+        return False
     if metrics["total_blocks"] >= 3:
-        return
+        return False
     if metrics["paragraphs"] >= 2 and metrics["longest_paragraph"] < 1400:
+        return False
+    return True
+
+
+def validate_article_structure(title: str, body_html: str) -> None:
+    if not article_structure_needs_repair(body_html):
         return
+    metrics = article_structure_metrics(body_html)
     raise ValueError(
         f"Imported article '{title}' looks structurally collapsed "
         f"({metrics['paragraphs']} paragraphs, {metrics['total_blocks']} blocks, "
@@ -605,11 +612,28 @@ def run_post_sync(root: Path) -> None:
     subprocess.run([str(root / "scripts/render-essay-archives.sh")], check=True)
 
 
+def local_article_needs_repair(local_path: Path) -> bool:
+    if not local_path.exists() or local_path.suffix != ".html":
+        return False
+
+    try:
+        from bs4 import BeautifulSoup
+    except ImportError as exc:
+        raise SystemExit("Missing beautifulsoup4. Install with: python3 -m pip install beautifulsoup4") from exc
+
+    soup = BeautifulSoup(local_path.read_text(encoding="utf-8"), "html.parser")
+    content = soup.select_one(".essay-content")
+    if not content:
+        return False
+    return article_structure_needs_repair(str(content))
+
+
 def is_unchanged_record(record: dict[str, Any], item: dict[str, Any], slug: str, local_path: Path) -> bool:
     return (
         record.get("modified_time") == item.get("modifiedTime")
         and record.get("slug") == slug
         and local_path.exists()
+        and not local_article_needs_repair(local_path)
     )
 
 
