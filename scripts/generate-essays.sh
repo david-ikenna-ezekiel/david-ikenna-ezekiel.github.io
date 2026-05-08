@@ -33,6 +33,8 @@ while IFS='|' read -r slug section title publish_date lede body_mode; do
       name="description"
       content="${title} by David Ezekiel."
     />
+    <link rel="icon" type="image/png" href="../assets/avatar-main.png?v=3" />
+    <link rel="apple-touch-icon" href="../assets/avatar-main.png?v=3" />
     <link rel="stylesheet" href="/styles.css" />
     <link rel="stylesheet" href="../styles.css" />
     <link rel="stylesheet" href="/article-extras.css?v=6" />
@@ -96,12 +98,7 @@ while IFS='|' read -r slug section title publish_date lede body_mode; do
 
         <div class="content-block">
           <div class="more-essays-heading">more essays...</div>
-          <div class="more-essays-list js-more-essays">
-            <a class="more-essays-link" href="why-data-teams-disagree-even-when-everyone-is-right.html">why data teams disagree even when everyone is right</a>
-            <a class="more-essays-link" href="build-for-demand-not-assumptions.html">build for demand, not assumptions</a>
-            <a class="more-essays-link" href="the-cost-of-the-road-not-taken.html">the cost of the road not taken</a>
-            <a class="more-essays-link" href="positioning-by-subtraction.html">positioning by subtraction</a>
-          </div>
+          <div class="more-essays-list js-more-essays"></div>
         </div>
 
         <div class="content-block">

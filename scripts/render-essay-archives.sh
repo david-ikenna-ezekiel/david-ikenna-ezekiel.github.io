@@ -36,6 +36,8 @@ render_archive() {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>David Ezekiel - ${heading} Essays</title>
     <meta name="description" content="All ${section} essays by David Ezekiel." />
+    <link rel="icon" type="image/png" href="assets/avatar-main.png?v=3" />
+    <link rel="apple-touch-icon" href="assets/avatar-main.png?v=3" />
     <link rel="stylesheet" href="styles.css" />
     <style>
       :root { --essay-title-size: 2.5rem; --essay-title-lh: 1em; --essay-body-size: 1.1rem; --essay-body-lh: 1.6em; }

@@ -16,16 +16,22 @@ window.SITE_CONFIG = {
       { label: "*", votes: 14 },
     ],
   },
-  moreEssays: [
-    { slug: "your-brain-is-constantly-editing-reality", title: "your brain is constantly editing reality" },
-    { slug: "why-data-teams-disagree-even-when-everyone-is-right", title: "why data teams disagree even when everyone is right" },
-    { slug: "build-for-demand-not-assumptions", title: "build for demand, not assumptions" },
-    { slug: "the-cost-of-the-road-not-taken", title: "the cost of the road not taken" },
-    { slug: "positioning-by-subtraction", title: "positioning by subtraction" },
-    { slug: "distribution-before-perfection", title: "distribution before perfection" },
-    { slug: "why-easy-lives-feel-empty", title: "why easy lives feel empty" },
-    { slug: "why-children-feel-light-and-we-dont", title: "why children feel light and we don't" },
-    { slug: "opportunity-highway", title: "opportunity highway" },
-    { slug: "my-mission", title: "my mission" },
-  ],
+  moreEssays: {
+    life: [
+      { slug: "your-brain-is-constantly-editing-reality", title: "your brain is constantly editing reality" },
+      { slug: "the-cost-of-the-road-not-taken", title: "the cost of the road not taken" },
+      { slug: "why-easy-lives-feel-empty", title: "why easy lives feel empty" },
+      { slug: "why-children-feel-light-and-we-dont", title: "why children feel light and we don't" },
+      { slug: "opportunity-highway", title: "opportunity highway" },
+      { slug: "my-mission", title: "my mission" },
+    ],
+    data: [
+      { slug: "why-data-teams-disagree-even-when-everyone-is-right", title: "why data teams disagree even when everyone is right" },
+      { slug: "build-for-demand-not-assumptions", title: "build for demand, not assumptions" },
+    ],
+    business: [
+      { slug: "positioning-by-subtraction", title: "positioning by subtraction" },
+      { slug: "distribution-before-perfection", title: "distribution before perfection" },
+    ],
+  },
 };

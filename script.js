@@ -51,25 +51,31 @@
           { label: "*", votes: 14 },
         ],
       },
-      moreEssays: [
-        { slug: "your-brain-is-constantly-editing-reality", title: "your brain is constantly editing reality" },
-        { slug: "why-data-teams-disagree-even-when-everyone-is-right", title: "why data teams disagree even when everyone is right" },
-        { slug: "build-for-demand-not-assumptions", title: "build for demand, not assumptions" },
-        { slug: "the-cost-of-the-road-not-taken", title: "the cost of the road not taken" },
-        { slug: "positioning-by-subtraction", title: "positioning by subtraction" },
-        { slug: "distribution-before-perfection", title: "distribution before perfection" },
-        { slug: "why-easy-lives-feel-empty", title: "why easy lives feel empty" },
-        { slug: "why-children-feel-light-and-we-dont", title: "why children feel light and we don't" },
-        { slug: "opportunity-highway", title: "opportunity highway" },
-        { slug: "my-mission", title: "my mission" },
-      ],
+      moreEssays: {
+        life: [
+          { slug: "your-brain-is-constantly-editing-reality", title: "your brain is constantly editing reality" },
+          { slug: "the-cost-of-the-road-not-taken", title: "the cost of the road not taken" },
+          { slug: "why-easy-lives-feel-empty", title: "why easy lives feel empty" },
+          { slug: "why-children-feel-light-and-we-dont", title: "why children feel light and we don't" },
+          { slug: "opportunity-highway", title: "opportunity highway" },
+          { slug: "my-mission", title: "my mission" },
+        ],
+        data: [
+          { slug: "why-data-teams-disagree-even-when-everyone-is-right", title: "why data teams disagree even when everyone is right" },
+          { slug: "build-for-demand-not-assumptions", title: "build for demand, not assumptions" },
+        ],
+        business: [
+          { slug: "positioning-by-subtraction", title: "positioning by subtraction" },
+          { slug: "distribution-before-perfection", title: "distribution before perfection" },
+        ],
+      },
     };
 
     var incoming = window.SITE_CONFIG || {};
     var config = {
       newsletter: mergeShallow(defaults.newsletter, incoming.newsletter),
       rating: mergeShallow(defaults.rating, incoming.rating),
-      moreEssays: Array.isArray(incoming.moreEssays) ? incoming.moreEssays : defaults.moreEssays,
+      moreEssays: incoming.moreEssays && typeof incoming.moreEssays === "object" ? incoming.moreEssays : defaults.moreEssays,
     };
 
     if (!Array.isArray(config.rating.options) || config.rating.options.length === 0) {
@@ -109,18 +115,73 @@
       var onEssayPage = window.location.pathname.indexOf("/essays/") !== -1;
       var prefix = onEssayPage ? "" : "essays/";
       var currentSlug = "";
+      var currentSection = "";
+      var sourceLists = config.moreEssays || {};
+      var fallbackList = [];
+      var sectionList = [];
+      var sectionKey;
+
+      function pushUnique(items, target) {
+        for (var i = 0; i < items.length; i += 1) {
+          var item = items[i];
+          var exists = false;
+          if (!item || !item.slug) {
+            continue;
+          }
+
+          for (var j = 0; j < target.length; j += 1) {
+            if (target[j].slug === item.slug) {
+              exists = true;
+              break;
+            }
+          }
+
+          if (!exists) {
+            target.push(item);
+          }
+        }
+      }
 
       if (onEssayPage) {
         currentSlug = window.location.pathname.split("/").pop().replace(/\.html$/, "");
       }
 
-      var containers = document.querySelectorAll(".js-more-essays");
-      for (var i = 0; i < containers.length; i += 1) {
-        var rendered = 0;
-        containers[i].innerHTML = "";
+      if (Array.isArray(sourceLists)) {
+        fallbackList = sourceLists.slice();
+      } else {
+        for (sectionKey in sourceLists) {
+          if (!Object.prototype.hasOwnProperty.call(sourceLists, sectionKey) || !Array.isArray(sourceLists[sectionKey])) {
+            continue;
+          }
 
-        for (var m = 0; m < config.moreEssays.length; m += 1) {
-          var item = config.moreEssays[m];
+          if (!currentSection) {
+            for (var s = 0; s < sourceLists[sectionKey].length; s += 1) {
+              if (sourceLists[sectionKey][s] && sourceLists[sectionKey][s].slug === currentSlug) {
+                currentSection = sectionKey;
+                break;
+              }
+            }
+          }
+
+          pushUnique(sourceLists[sectionKey], fallbackList);
+        }
+
+        if (currentSection && Array.isArray(sourceLists[currentSection])) {
+          sectionList = sourceLists[currentSection];
+        }
+      }
+
+      if (!sectionList.length) {
+        sectionList = fallbackList;
+      }
+
+      var containers = document.querySelectorAll(".js-more-essays");
+      for (var c = 0; c < containers.length; c += 1) {
+        var rendered = 0;
+        containers[c].innerHTML = "";
+
+        for (var m = 0; m < sectionList.length; m += 1) {
+          var item = sectionList[m];
           if (!item || item.slug === currentSlug || rendered >= 4) {
             continue;
           }
@@ -129,7 +190,7 @@
           link.className = "more-essays-link";
           link.href = prefix + item.slug + ".html";
           link.textContent = item.title;
-          containers[i].appendChild(link);
+          containers[c].appendChild(link);
           rendered += 1;
         }
       }

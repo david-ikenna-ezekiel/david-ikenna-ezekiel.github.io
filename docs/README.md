@@ -4,6 +4,7 @@ This folder is the single source of truth for why the site looks/behaves the way
 
 ## Files
 
+- `site-rules.md`: canonical working document for site rules, processes, corrections, and ongoing operating decisions.
 - `design-decisions.md`: design and product decisions (what, why, impact).
 - `automations.md`: automation inventory and runbooks.
 - `drive-article-sync.md`: Google Drive publishing inbox format and setup.
@@ -12,6 +13,7 @@ This folder is the single source of truth for why the site looks/behaves the way
 
 Whenever you change visual behavior, content structure, or automation flow:
 
-1. Add or update an entry in `design-decisions.md`.
-2. If a script/process is added or changed, update `automations.md`.
-3. Keep entries short, dated, and reversible.
+1. Update `site-rules.md` first if the change affects rules, process, corrections, or operating behavior.
+2. Add or update an entry in `design-decisions.md` for durable product/design decisions.
+3. If a script/process is added or changed, update `automations.md`.
+4. Keep entries short, dated, and reversible where possible.
