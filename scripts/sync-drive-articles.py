@@ -79,6 +79,10 @@ def slugify(value: str) -> str:
     return value
 
 
+def normalize_essay_title(value: str) -> str:
+    return value.strip().lower()
+
+
 def today_iso() -> str:
     return dt.date.today().isoformat()
 
@@ -756,7 +760,7 @@ def sync_articles(args: argparse.Namespace) -> int:
                     print(f"Skipping {item['name']}: status is not ready")
                 continue
 
-            title = front_matter.get("title") or item["name"]
+            title = normalize_essay_title(front_matter.get("title") or item["name"])
             slug = slugify(front_matter.get("slug") or title)
             publish_date = front_matter.get("publish_date") or today_iso()
             dt.date.fromisoformat(publish_date)

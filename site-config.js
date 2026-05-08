@@ -17,7 +17,7 @@ window.SITE_CONFIG = {
     ],
   },
   moreEssays: [
-    { slug: "your-brain-is-constantly-editing-reality", title: "Your brain is constantly editing reality" },
+    { slug: "your-brain-is-constantly-editing-reality", title: "your brain is constantly editing reality" },
     { slug: "why-data-teams-disagree-even-when-everyone-is-right", title: "why data teams disagree even when everyone is right" },
     { slug: "build-for-demand-not-assumptions", title: "build for demand, not assumptions" },
     { slug: "the-cost-of-the-road-not-taken", title: "the cost of the road not taken" },
