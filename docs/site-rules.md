@@ -222,6 +222,8 @@ YouTube catalogue automation:
 Current YouTube rule:
 
 - it should check weekly
+- the importer should retry transient `yt-dlp` failures before failing the run
+- if the live YouTube fetch still fails, the workflow log should expose the underlying `yt-dlp` error clearly
 
 ## 11) Known Pitfalls
 
@@ -277,6 +279,14 @@ Current YouTube rule:
   - browser tabs showed no icon because pages did not declare a favicon
 - Correction:
   - added shared favicon and apple-touch-icon links across current pages and page-generation templates
+
+### 2026-05-11 - Expose real YouTube fetch failures in workflow logs
+
+- Problem:
+  - the weekly YouTube catalogue workflow failed, but the log only showed a Python wrapper exception after `yt-dlp` exited non-zero
+- Correction:
+  - added retry behavior around the `yt-dlp` fetch
+  - changed the importer to surface the underlying `yt-dlp` stderr/stdout in workflow logs when all retries fail
 
 ## 13) Update Rule
 

@@ -7,6 +7,7 @@ import re
 import shutil
 import subprocess
 import sys
+import time
 from datetime import datetime, timezone
 from html import unescape
 from pathlib import Path
@@ -17,6 +18,8 @@ DEFAULT_CHANNEL_VIDEOS_URL = "https://www.youtube.com/@thedatasignal/videos"
 DEFAULT_CHANNEL_HOME_URL = "https://www.youtube.com/@thedatasignal"
 DEFAULT_OUTPUT = WORKSPACE_ROOT / "content" / "youtube-catalogue.json"
 DEFAULT_FALLBACK_HTML = WORKSPACE_ROOT / "youtube-cv-timeline.html"
+YT_DLP_ATTEMPTS = 3
+YT_DLP_RETRY_DELAY_SECONDS = 5
 
 ARTICLE_RE = re.compile(r'<article class="timeline-item">(.*?)</article>', re.S)
 TITLE_RE = re.compile(
@@ -74,6 +77,22 @@ def parse_duration_to_seconds(label: str) -> int | None:
 def extract_video_id(url: str) -> str | None:
     match = re.search(r"[?&]v=([^&]+)", url)
     return match.group(1) if match else None
+
+
+def format_command_failure(command: list[str], stdout: str, stderr: str, returncode: int) -> str:
+    stdout = stdout.strip()
+    stderr = stderr.strip()
+    parts = [
+        f"yt-dlp failed with exit code {returncode}.",
+        f"Command: {' '.join(command)}",
+    ]
+
+    if stderr:
+        parts.append(f"stderr:\n{stderr}")
+    if stdout:
+        parts.append(f"stdout:\n{stdout}")
+
+    return "\n\n".join(parts)
 
 
 def parse_html_fallback(fallback_html: Path) -> dict:
@@ -148,12 +167,37 @@ def parse_ytdlp(channel_url: str) -> dict:
         "250",
         channel_url,
     ]
-    result = subprocess.run(
-        command,
-        check=True,
-        capture_output=True,
-        text=True,
-    )
+    result = None
+    failure_messages: list[str] = []
+
+    for attempt in range(1, YT_DLP_ATTEMPTS + 1):
+        result = subprocess.run(
+            command,
+            check=False,
+            capture_output=True,
+            text=True,
+        )
+        if result.returncode == 0:
+            break
+
+        failure_messages.append(
+            f"Attempt {attempt}/{YT_DLP_ATTEMPTS}\n"
+            + format_command_failure(command, result.stdout, result.stderr, result.returncode)
+        )
+
+        if attempt < YT_DLP_ATTEMPTS:
+            print(
+                f"yt-dlp attempt {attempt} failed; retrying in {YT_DLP_RETRY_DELAY_SECONDS}s...",
+                file=sys.stderr,
+            )
+            time.sleep(YT_DLP_RETRY_DELAY_SECONDS)
+
+    if result is None or result.returncode != 0:
+        attempts_text = "\n\n---\n\n".join(failure_messages) if failure_messages else "yt-dlp did not run."
+        raise RuntimeError(
+            f"Unable to fetch YouTube catalogue after {YT_DLP_ATTEMPTS} attempts.\n\n{attempts_text}"
+        )
+
     payload = json.loads(result.stdout)
     entries = payload.get("entries") or []
     videos = []
@@ -264,6 +308,7 @@ def main() -> int:
     except Exception as exc:
         if args.no_fallback:
             raise
+        print(f"Live YouTube import failed: {exc}", file=sys.stderr)
         payload = parse_html_fallback(fallback_html)
         payload["import_note"] = f"Used HTML fallback because live import failed: {exc}"
         write_output(payload, output_path)
