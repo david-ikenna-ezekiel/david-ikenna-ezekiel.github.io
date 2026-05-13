@@ -224,6 +224,8 @@ Current YouTube rule:
 - it should check weekly
 - the importer should retry transient `yt-dlp` failures before failing the run
 - if the live YouTube fetch still fails, the workflow log should expose the underlying `yt-dlp` error clearly
+- if `yt-dlp` fails, the importer should try the live YouTube channel page before using stale local HTML fallback data
+- YouTube catalogue relative ages should not be copied indefinitely from old rendered HTML; live fallback data should be converted into `published_at` estimates so labels keep ageing after render
 
 ## 11) Known Pitfalls
 
@@ -287,6 +289,15 @@ Current YouTube rule:
 - Correction:
   - added retry behavior around the `yt-dlp` fetch
   - changed the importer to surface the underlying `yt-dlp` stderr/stdout in workflow logs when all retries fail
+
+### 2026-05-13 - Refresh YouTube metadata from live page fallback
+
+- Problem:
+  - the catalogue used stale local HTML fallback data, so relative labels like `2 weeks ago` froze and newer uploads were missing
+- Correction:
+  - added a live YouTube page fallback when `yt-dlp` fails
+  - converted live relative age labels into estimated `published_at` values
+  - merged live page results with older known catalogue entries so older videos remain listed
 
 ## 13) Update Rule
 

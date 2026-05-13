@@ -86,6 +86,11 @@ def render_article(video: dict) -> str:
     summary = escape(video.get("summary") or "")
     tag_label = escape(format_tag(video))
 
+    summary_html = (
+        f'\n              <div class="timeline-copy">\n                {summary}\n              </div>'
+        if summary
+        else ""
+    )
     tag_html = (
         f'\n              <div class="timeline-tag">{tag_label}</div>'
         if tag_label
@@ -95,10 +100,7 @@ def render_article(video: dict) -> str:
     return f"""            <article class="timeline-item">
               <div class="timeline-dot"></div>
               <div class="timeline-age">{age_label}</div>
-              <div class="timeline-title"><a href="{url}" class="content-link" target="_blank" rel="noopener noreferrer">{title}</a></div>
-              <div class="timeline-copy">
-                {summary}
-              </div>{tag_html}
+              <div class="timeline-title"><a href="{url}" class="content-link" target="_blank" rel="noopener noreferrer">{title}</a></div>{summary_html}{tag_html}
             </article>"""
 
 
