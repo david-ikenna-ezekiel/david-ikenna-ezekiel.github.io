@@ -8,7 +8,8 @@ import shutil
 import subprocess
 import sys
 import time
-from datetime import datetime, timezone
+import urllib.request
+from datetime import datetime, timedelta, timezone
 from html import unescape
 from pathlib import Path
 
@@ -29,6 +30,13 @@ TITLE_RE = re.compile(
 AGE_RE = re.compile(r'<div class="timeline-age">(.*?)</div>', re.S)
 COPY_RE = re.compile(r'<div class="timeline-copy">\s*(.*?)\s*</div>', re.S)
 TAG_RE = re.compile(r'<div class="timeline-tag">(.*?)</div>', re.S)
+YOUTUBE_LOCKUP_RE = re.compile(
+    r'"metadata":\{"lockupMetadataViewModel":\{"title":\{"content":"(?P<title>(?:\\.|[^"])*)"\}'
+    r'.*?"metadataRows":\[\{"metadataParts":\[\{"text":\{"content":"(?P<views>(?:\\.|[^"])*)"\}\},'
+    r'\{"text":\{"content":"(?P<age>(?:\\.|[^"])*)"\}\}\]\}'
+    r'.*?"url":"/watch\?v=(?P<video_id>[^"&]+)',
+    re.S,
+)
 
 
 def collapse_whitespace(value: str) -> str:
@@ -39,6 +47,10 @@ def strip_tags(value: str) -> str:
     value = re.sub(r"<br\s*/?>", "\n", value, flags=re.I)
     value = re.sub(r"<[^>]+>", "", value)
     return unescape(value).strip()
+
+
+def decode_json_string(value: str) -> str:
+    return json.loads(f'"{value}"')
 
 
 def truncate_text(value: str, max_chars: int) -> str:
@@ -74,9 +86,64 @@ def parse_duration_to_seconds(label: str) -> int | None:
     return None
 
 
+def normalize_video_id(value: str | None) -> str | None:
+    if not value:
+        return None
+    value = value.split("\\u0026", 1)[0]
+    value = value.split("&", 1)[0]
+    return value or None
+
+
 def extract_video_id(url: str) -> str | None:
     match = re.search(r"[?&]v=([^&]+)", url)
-    return match.group(1) if match else None
+    return normalize_video_id(match.group(1)) if match else None
+
+
+def parse_view_count(label: str) -> int | None:
+    cleaned = label.lower().replace("views", "").replace("view", "").strip()
+    cleaned = cleaned.replace(",", "")
+    match = re.match(r"^([\d.]+)\s*([km])?$", cleaned)
+    if not match:
+        return None
+
+    number = float(match.group(1))
+    suffix = match.group(2)
+    if suffix == "k":
+        number *= 1_000
+    elif suffix == "m":
+        number *= 1_000_000
+    return int(number)
+
+
+def estimate_published_at(age_label: str, now: datetime | None = None) -> str | None:
+    now = now or datetime.now(timezone.utc)
+    label = age_label.lower().strip()
+
+    if label in {"today", "just now"}:
+        return now.isoformat()
+
+    match = re.match(r"^(\d+)\s+(minute|hour|day|week|month|year)s?\s+ago$", label)
+    if not match:
+        return None
+
+    amount = int(match.group(1))
+    unit = match.group(2)
+    days_by_unit = {
+        "minute": 0,
+        "hour": 0,
+        "day": 1,
+        "week": 7,
+        "month": 30,
+        "year": 365,
+    }
+    days = amount * days_by_unit[unit]
+    if unit == "minute":
+        published_at = now - timedelta(minutes=amount)
+    elif unit == "hour":
+        published_at = now - timedelta(hours=amount)
+    else:
+        published_at = now - timedelta(days=days)
+    return published_at.isoformat()
 
 
 def format_command_failure(command: list[str], stdout: str, stderr: str, returncode: int) -> str:
@@ -151,6 +218,109 @@ def parse_html_fallback(fallback_html: Path) -> dict:
         "source_url": DEFAULT_CHANNEL_VIDEOS_URL,
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "source_mode": "html-fallback",
+        "videos": videos,
+    }
+
+
+def load_existing_videos(output_path: Path) -> dict[str, dict]:
+    if not output_path.exists():
+        return {}
+
+    try:
+        payload = json.loads(output_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return {}
+
+    videos = {}
+    for video in payload.get("videos", []):
+        video_id = normalize_video_id(video.get("video_id"))
+        if video_id:
+            video["video_id"] = video_id
+            video["url"] = f"https://www.youtube.com/watch?v={video_id}"
+            videos[video_id] = video
+    return videos
+
+
+def fetch_text(url: str) -> str:
+    request = urllib.request.Request(
+        url,
+        headers={
+            "User-Agent": (
+                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0 Safari/537.36"
+            )
+        },
+    )
+    with urllib.request.urlopen(request, timeout=30) as response:
+        return response.read().decode("utf-8", errors="replace")
+
+
+def parse_youtube_page(channel_url: str, output_path: Path) -> dict:
+    html = fetch_text(channel_url)
+    existing_videos = load_existing_videos(output_path)
+    try:
+        for video in parse_html_fallback(DEFAULT_FALLBACK_HTML).get("videos", []):
+            video_id = normalize_video_id(video.get("video_id"))
+            if video_id and video_id not in existing_videos:
+                video["video_id"] = video_id
+                video["url"] = f"https://www.youtube.com/watch?v={video_id}"
+                existing_videos[video_id] = video
+    except Exception:
+        pass
+
+    videos = []
+    seen_video_ids = set()
+    generated_at = datetime.now(timezone.utc)
+
+    for match in YOUTUBE_LOCKUP_RE.finditer(html):
+        video_id = normalize_video_id(match.group("video_id"))
+        if not video_id:
+            continue
+        if video_id in seen_video_ids:
+            continue
+        seen_video_ids.add(video_id)
+
+        title = collapse_whitespace(decode_json_string(match.group("title")))
+        age_label = collapse_whitespace(decode_json_string(match.group("age")))
+        views_label = collapse_whitespace(decode_json_string(match.group("views")))
+        existing = existing_videos.get(video_id, {})
+
+        videos.append(
+            {
+                "position": len(videos),
+                "video_id": video_id,
+                "title": title,
+                "url": f"https://www.youtube.com/watch?v={video_id}",
+                "summary": existing.get("summary") or "",
+                "description": existing.get("description") or "",
+                "published_at": estimate_published_at(age_label, generated_at),
+                "published_at_precision": "estimated-from-relative-age",
+                "age_label": None,
+                "view_count": parse_view_count(views_label),
+                "duration_seconds": existing.get("duration_seconds"),
+                "tag_label": existing.get("tag_label"),
+            }
+        )
+
+    for existing in existing_videos.values():
+        video_id = existing.get("video_id")
+        if not video_id or video_id in seen_video_ids:
+            continue
+
+        copied = dict(existing)
+        copied["position"] = len(videos)
+        videos.append(copied)
+        seen_video_ids.add(video_id)
+
+    if not videos:
+        raise RuntimeError(f"No live YouTube page entries found for {channel_url}")
+
+    return {
+        "channel_name": "The Data Signal",
+        "channel_url": DEFAULT_CHANNEL_HOME_URL,
+        "source_url": channel_url,
+        "generated_at": generated_at.isoformat(),
+        "source_mode": "youtube-page-fallback",
         "videos": videos,
     }
 
@@ -306,11 +476,29 @@ def main() -> int:
         )
         return 0
     except Exception as exc:
+        print(f"yt-dlp YouTube import failed: {exc}", file=sys.stderr)
+
+        try:
+            payload = parse_youtube_page(args.channel_url, output_path)
+            payload["import_note"] = f"Used live YouTube page fallback because yt-dlp failed: {exc}"
+            write_output(payload, output_path)
+            print(
+                f"Imported {len(payload['videos'])} videos from live YouTube page fallback into {output_path.relative_to(WORKSPACE_ROOT)}.",
+                file=sys.stderr,
+            )
+            return 0
+        except Exception as fallback_exc:
+            if args.no_fallback:
+                raise RuntimeError(
+                    "Live YouTube page fallback also failed after yt-dlp failed."
+                    f"\n\nyt-dlp error:\n{exc}"
+                    f"\n\nYouTube page fallback error:\n{fallback_exc}"
+                ) from fallback_exc
+
         if args.no_fallback:
             raise
-        print(f"Live YouTube import failed: {exc}", file=sys.stderr)
         payload = parse_html_fallback(fallback_html)
-        payload["import_note"] = f"Used HTML fallback because live import failed: {exc}"
+        payload["import_note"] = f"Used local HTML fallback because live imports failed: {exc}"
         write_output(payload, output_path)
         print(
             f"Imported {len(payload['videos'])} videos from HTML fallback into {output_path.relative_to(WORKSPACE_ROOT)}.",

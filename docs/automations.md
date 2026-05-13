@@ -91,6 +91,8 @@ This file tracks every automation-like behavior used by the site.
   - CI runs use `--no-fallback` so a failed fetch does not silently reuse stale data.
   - The importer retries `yt-dlp` up to three times before failing.
   - If `yt-dlp` still fails, the workflow log should now include the underlying `yt-dlp` stderr/stdout instead of only a Python traceback.
+  - If `yt-dlp` fails, the importer tries a live YouTube page fallback before considering any local HTML fallback.
+  - The live page fallback refreshes visible ordering, relative age labels, and view counts, then merges in older known catalogue entries so older videos are not dropped.
 
 ### Drive article sync
 
