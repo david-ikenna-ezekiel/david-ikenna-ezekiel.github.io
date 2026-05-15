@@ -299,6 +299,15 @@ Current YouTube rule:
   - converted live relative age labels into estimated `published_at` values
   - merged live page results with older known catalogue entries so older videos remain listed
 
+### 2026-05-15 - Replace CV placeholders with real concise resume timeline
+
+- Problem:
+  - the CV page still used placeholder roles and placeholder education entries
+- Correction:
+  - updated the page from the official CV Google Doc
+  - summarised each experience at a high level instead of copying CV bullets word for word
+  - keep certification names linked to their source credential URLs when present in the official CV
+
 ## 13) Update Rule
 
 Whenever we change any of the following, update this file in the same pass:
