@@ -7,7 +7,6 @@ on:
 
 permissions:
   contents: write
-  pull-requests: write
 
 jobs:
   refresh-youtube-catalogue:
@@ -30,19 +29,15 @@ jobs:
           python3 scripts/import-youtube-catalogue.py --no-fallback
           python3 scripts/render-youtube-catalogue.py
 
-      - name: Create refresh PR
-        uses: peter-evans/create-pull-request@v7
-        with:
-          commit-message: "Refresh YouTube catalogue"
-          title: "Refresh YouTube catalogue"
-          body: |
-            Automated weekly refresh of the YouTube catalogue page.
-
-            Updated files:
-            - `content/youtube-catalogue.json`
-            - `youtube-cv-timeline.html`
-          branch: codex/youtube-catalogue-refresh
-          delete-branch: true
-          add-paths: |
-            content/youtube-catalogue.json
-            youtube-cv-timeline.html
+      - name: Push refresh branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -C codex/youtube-catalogue-refresh
+          git add content/youtube-catalogue.json youtube-cv-timeline.html
+          if git diff --cached --quiet; then
+            echo "No YouTube catalogue changes to push."
+            exit 0
+          fi
+          git commit -m "Refresh YouTube catalogue"
+          git push --force-with-lease origin codex/youtube-catalogue-refresh
