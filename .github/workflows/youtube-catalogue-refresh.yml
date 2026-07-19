@@ -33,6 +33,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin codex/youtube-catalogue-refresh || true
           git switch -C codex/youtube-catalogue-refresh
           git add content/youtube-catalogue.json youtube-cv-timeline.html
           if git diff --cached --quiet; then
@@ -40,4 +41,4 @@ jobs:
             exit 0
           fi
           git commit -m "Refresh YouTube catalogue"
-          git push --force-with-lease origin codex/youtube-catalogue-refresh
+          git push --force-with-lease=codex/youtube-catalogue-refresh origin codex/youtube-catalogue-refresh
